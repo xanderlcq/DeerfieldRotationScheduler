@@ -9,5 +9,13 @@
 #import "Table.h"
 
 @implementation Table
-
+-(Table*)initWithStudents:(NSMutableArray*) students first:(Student*)first andSecond:(Student*)second{
+    self = [super init];
+    if(self){
+        self.students = students;
+        self.firstWaiter = first;
+        self.secondWaiter = second;
+    }
+        return self;
+}
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Student.h"
 
 @interface Table : NSObject
+
+@property NSMutableArray* students;
+@property int tableNumber;
+@property Student* firstWaiter;
+@property Student* secondWaiter;
+
+-(Table*)initWithStudents:(NSMutableArray*) students first:(Student*)first andSecond:(Student*)second;
 
 @end
