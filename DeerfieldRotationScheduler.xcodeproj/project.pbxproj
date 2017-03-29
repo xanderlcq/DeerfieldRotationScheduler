@@ -14,6 +14,12 @@
 		C0DC9DA41E8AA1D30062C511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0DC9DA31E8AA1D30062C511 /* Assets.xcassets */; };
 		C0DC9DA71E8AA1D30062C511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DC9DA51E8AA1D30062C511 /* Main.storyboard */; };
 		C0DC9DB21E8AA1D30062C511 /* DeerfieldRotationSchedulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DC9DB11E8AA1D30062C511 /* DeerfieldRotationSchedulerTests.m */; };
+		C0E4DBFC1E8BE4FA00367ADA /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4DBFB1E8BE4FA00367ADA /* Student.m */; };
+		C0E4DBFF1E8BE50700367ADA /* Table.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4DBFE1E8BE50700367ADA /* Table.m */; };
+		C0E4DC021E8BE51500367ADA /* Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4DC011E8BE51500367ADA /* Rotation.m */; };
+		C0E4DC051E8BE52600367ADA /* RotationGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4DC041E8BE52600367ADA /* RotationGenerator.m */; };
+		C0E4DC081E8BE54A00367ADA /* DataProc.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E4DC071E8BE54A00367ADA /* DataProc.m */; };
+		C0E4DC0A1E8BE56600367ADA /* names.txt in Resources */ = {isa = PBXBuildFile; fileRef = C0E4DC091E8BE56600367ADA /* names.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,17 @@
 		C0DC9DAD1E8AA1D30062C511 /* DeerfieldRotationSchedulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeerfieldRotationSchedulerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DC9DB11E8AA1D30062C511 /* DeerfieldRotationSchedulerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeerfieldRotationSchedulerTests.m; sourceTree = "<group>"; };
 		C0DC9DB31E8AA1D30062C511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E4DBFA1E8BE4FA00367ADA /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		C0E4DBFB1E8BE4FA00367ADA /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		C0E4DBFD1E8BE50700367ADA /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
+		C0E4DBFE1E8BE50700367ADA /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
+		C0E4DC001E8BE51500367ADA /* Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rotation.h; sourceTree = "<group>"; };
+		C0E4DC011E8BE51500367ADA /* Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rotation.m; sourceTree = "<group>"; };
+		C0E4DC031E8BE52600367ADA /* RotationGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationGenerator.h; sourceTree = "<group>"; };
+		C0E4DC041E8BE52600367ADA /* RotationGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationGenerator.m; sourceTree = "<group>"; };
+		C0E4DC061E8BE54A00367ADA /* DataProc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProc.h; sourceTree = "<group>"; };
+		C0E4DC071E8BE54A00367ADA /* DataProc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProc.m; sourceTree = "<group>"; };
+		C0E4DC091E8BE56600367ADA /* names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = names.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +102,17 @@
 				C0DC9D981E8AA1D30062C511 /* AppDelegate.m */,
 				C0DC9D9D1E8AA1D30062C511 /* ViewController.h */,
 				C0DC9D9E1E8AA1D30062C511 /* ViewController.m */,
+				C0E4DBFA1E8BE4FA00367ADA /* Student.h */,
+				C0E4DBFB1E8BE4FA00367ADA /* Student.m */,
+				C0E4DBFD1E8BE50700367ADA /* Table.h */,
+				C0E4DBFE1E8BE50700367ADA /* Table.m */,
+				C0E4DC001E8BE51500367ADA /* Rotation.h */,
+				C0E4DC011E8BE51500367ADA /* Rotation.m */,
+				C0E4DC031E8BE52600367ADA /* RotationGenerator.h */,
+				C0E4DC041E8BE52600367ADA /* RotationGenerator.m */,
+				C0E4DC061E8BE54A00367ADA /* DataProc.h */,
+				C0E4DC071E8BE54A00367ADA /* DataProc.m */,
+				C0E4DC091E8BE56600367ADA /* names.txt */,
 				C0DC9DA31E8AA1D30062C511 /* Assets.xcassets */,
 				C0DC9DA51E8AA1D30062C511 /* Main.storyboard */,
 				C0DC9DA81E8AA1D30062C511 /* Info.plist */,
@@ -195,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E4DC0A1E8BE56600367ADA /* names.txt in Resources */,
 				C0DC9DA41E8AA1D30062C511 /* Assets.xcassets in Resources */,
 				C0DC9DA71E8AA1D30062C511 /* Main.storyboard in Resources */,
 			);
@@ -214,8 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E4DBFF1E8BE50700367ADA /* Table.m in Sources */,
+				C0E4DC021E8BE51500367ADA /* Rotation.m in Sources */,
 				C0DC9D9F1E8AA1D30062C511 /* ViewController.m in Sources */,
+				C0E4DC081E8BE54A00367ADA /* DataProc.m in Sources */,
 				C0DC9D9C1E8AA1D30062C511 /* main.m in Sources */,
+				C0E4DBFC1E8BE4FA00367ADA /* Student.m in Sources */,
+				C0E4DC051E8BE52600367ADA /* RotationGenerator.m in Sources */,
 				C0DC9DA21E8AA1D30062C511 /* DeerfieldRotationScheduler.xcdatamodeld in Sources */,
 				C0DC9D991E8AA1D30062C511 /* AppDelegate.m in Sources */,
 			);
@@ -411,6 +445,7 @@
 				C0DC9DB81E8AA1D30062C511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0DC9DB91E8AA1D30062C511 /* Build configuration list for PBXNativeTarget "DeerfieldRotationSchedulerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +454,7 @@
 				C0DC9DBB1E8AA1D30062C511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
