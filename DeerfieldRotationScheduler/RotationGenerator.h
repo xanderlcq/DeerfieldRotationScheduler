@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface RotationGenerator : NSObject
-
+//Generate random
+//Record history
+//Read history
 @end
