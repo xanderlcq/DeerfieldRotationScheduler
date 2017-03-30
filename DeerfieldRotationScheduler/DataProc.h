@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface DataProc : NSObject
+//Read names list
 
 @end

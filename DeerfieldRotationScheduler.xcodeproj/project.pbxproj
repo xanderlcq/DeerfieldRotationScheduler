@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0104CE61E8CBC11007560EF /* StudentsSorter.m in Sources */ = {isa = PBXBuildFile; fileRef = C0104CE51E8CBC11007560EF /* StudentsSorter.m */; };
 		C0DC9D991E8AA1D30062C511 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DC9D981E8AA1D30062C511 /* AppDelegate.m */; };
 		C0DC9D9C1E8AA1D30062C511 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DC9D9B1E8AA1D30062C511 /* main.m */; };
 		C0DC9D9F1E8AA1D30062C511 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DC9D9E1E8AA1D30062C511 /* ViewController.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0104CE41E8CBC11007560EF /* StudentsSorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsSorter.h; sourceTree = "<group>"; };
+		C0104CE51E8CBC11007560EF /* StudentsSorter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsSorter.m; sourceTree = "<group>"; };
 		C0DC9D941E8AA1D30062C511 /* DeerfieldRotationScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeerfieldRotationScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DC9D971E8AA1D30062C511 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0DC9D981E8AA1D30062C511 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				C0E4DC011E8BE51500367ADA /* Rotation.m */,
 				C0E4DC031E8BE52600367ADA /* RotationGenerator.h */,
 				C0E4DC041E8BE52600367ADA /* RotationGenerator.m */,
+				C0104CE41E8CBC11007560EF /* StudentsSorter.h */,
+				C0104CE51E8CBC11007560EF /* StudentsSorter.m */,
 				C0E4DC061E8BE54A00367ADA /* DataProc.h */,
 				C0E4DC071E8BE54A00367ADA /* DataProc.m */,
 				C0E4DC091E8BE56600367ADA /* names.txt */,
@@ -245,6 +250,7 @@
 			files = (
 				C0E4DBFF1E8BE50700367ADA /* Table.m in Sources */,
 				C0E4DC021E8BE51500367ADA /* Rotation.m in Sources */,
+				C0104CE61E8CBC11007560EF /* StudentsSorter.m in Sources */,
 				C0DC9D9F1E8AA1D30062C511 /* ViewController.m in Sources */,
 				C0E4DC081E8BE54A00367ADA /* DataProc.m in Sources */,
 				C0DC9D9C1E8AA1D30062C511 /* main.m in Sources */,

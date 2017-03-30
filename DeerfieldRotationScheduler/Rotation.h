@@ -14,4 +14,7 @@
 @property int numberOfMeals;
 @property int numberOfTables;
 
+//to-string
+//init-from string
+
 @end

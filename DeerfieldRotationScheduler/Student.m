@@ -10,7 +10,7 @@
 
 @implementation Student
 
--(instancetype)initWithName:(NSString*) name{
+-(id)initWithName:(NSString*) name{
     self = [super init];
     if (self) {
         self.name = name;
@@ -20,6 +20,7 @@
         self.grade = 0;
         self.frees = [[NSMutableArray alloc]init];
         self.birthday = nil;
+        self.linkedStudents = [[NSMutableArray alloc] init];
     }
     return self;
 }

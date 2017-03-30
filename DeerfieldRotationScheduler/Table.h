@@ -16,6 +16,8 @@
 @property Student* firstWaiter;
 @property Student* secondWaiter;
 
--(Table*)initWithStudents:(NSMutableArray*) students first:(Student*)first andSecond:(Student*)second;
+-(id)initWithStudents:(NSMutableArray*) students first:(Student*)first andSecond:(Student*)second;
 
+//to-string
+//init from string
 @end

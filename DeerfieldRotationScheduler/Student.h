@@ -17,7 +17,13 @@
 @property NSMutableArray *frees;
 @property NSData *birthday;
 @property int mealsWaited;
+@property NSMutableArray *linkedStudents;
+@property BOOL locked;
+
 //init with name, grade and birthday initialized to 0 
--(instancetype)initWithName:(NSString*) name;
+-(id)initWithName:(NSString*) name;
+
+//to-string
+//init from string
 
 @end
