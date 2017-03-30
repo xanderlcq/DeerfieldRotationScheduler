@@ -10,13 +10,13 @@
 
 @interface Student : NSObject
 
-@property NSString* name;
-@property int timesWaited;
-@property NSString* cocurric;
+@property NSString *name;
+@property int rotationsWaited;
+@property NSString *cocurric;
 @property int grade;
-@property NSMutableArray* frees;
-@property int birthday;
-
+@property NSMutableArray *frees;
+@property NSData *birthday;
+@property int mealsWaited;
 //init with name, grade and birthday initialized to 0 
 -(instancetype)initWithName:(NSString*) name;
 

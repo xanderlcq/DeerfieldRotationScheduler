@@ -14,11 +14,12 @@
     self = [super init];
     if (self) {
         self.name = name;
-        self.timesWaited = 0;
+        self.rotationsWaited = 0;
+        self.mealsWaited = 0;
         self.cocurric = @"";
         self.grade = 0;
         self.frees = [[NSMutableArray alloc]init];
-        self.birthday = 0;
+        self.birthday = nil;
     }
     return self;
 }

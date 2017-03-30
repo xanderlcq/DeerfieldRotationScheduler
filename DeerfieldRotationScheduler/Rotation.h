@@ -10,4 +10,8 @@
 
 @interface Rotation : NSObject
 
+@property NSMutableArray *tables;
+@property int numberOfMeals;
+@property int numberOfTables;
+
 @end
