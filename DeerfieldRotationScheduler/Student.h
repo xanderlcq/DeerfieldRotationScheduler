@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Student : NSObject
-
-@property NSString *name;
+//{Xander,Li,1,Manager,120,{1,2,3},99,{Name1,Name2}}
+@property NSString *firstName;
+@property NSString *lastName;
 @property int rotationsWaited;
 @property NSString *cocurric;
 @property int grade;
@@ -18,10 +19,9 @@
 @property NSData *birthday;
 @property int mealsWaited;
 @property NSMutableArray *linkedStudents;
-@property BOOL locked;
 
 //init with name, grade and birthday initialized to 0 
--(id)initWithName:(NSString*) name;
+-(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last;
 
 //to-string
 //init from string

@@ -11,7 +11,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    DataProc* data = [[DataProc alloc] init];
+    [data readNames:@"names"];
     // Do any additional setup after loading the view.
 }
 

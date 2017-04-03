@@ -21,8 +21,12 @@
     NSMutableArray* students = [[NSMutableArray alloc] init];
     for(int i = 0; i < allLines.count; i++){
         Student* s = [[Student alloc] init];
-        s.name = allLines[i];
+        s.firstName = allLines[i];
         [students addObject:s];
+    }
+    for(int i = 0; i < students.count; i++){
+        Student* s = students[i];
+        NSLog(@"Name: %@", s.firstName);
     }
     return students;
 }

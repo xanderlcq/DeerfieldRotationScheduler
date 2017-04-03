@@ -10,10 +10,11 @@
 
 @implementation Student
 
--(id)initWithName:(NSString*) name{
+-(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last{
     self = [super init];
     if (self) {
-        self.name = name;
+        self.firstName = first;
+        self.lastName = last;
         self.rotationsWaited = 0;
         self.mealsWaited = 0;
         self.cocurric = @"";
