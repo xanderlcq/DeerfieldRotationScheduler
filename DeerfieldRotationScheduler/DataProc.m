@@ -10,4 +10,21 @@
 
 @implementation DataProc
 
+-(NSMutableArray *)readNames:(NSString *)fileName{
+    NSString* filepath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"txt"];
+    // make the file a string
+    NSString* allFile = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
+    // break the file up by lines
+    NSArray* allLines = [allFile componentsSeparatedByString:@"\n"];
+    // break the lines up by spaces
+    
+    NSMutableArray* students = [[NSMutableArray alloc] init];
+    for(int i = 0; i < allLines.count; i++){
+        Student* s = [[Student alloc] init];
+        s.name = allLines[i];
+        [students addObject:s];
+    }
+    return students;
+}
+
 @end

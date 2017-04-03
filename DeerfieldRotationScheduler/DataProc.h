@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Student.h"
 
 @interface DataProc : NSObject
 //Read names list
-
+-(NSMutableArray*)readNames:(NSString*)fileName;
 @end
