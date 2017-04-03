@@ -9,13 +9,22 @@
 #import "Table.h"
 
 @implementation Table
--(id)initWithStudents:(NSMutableArray*) students first:(Student*)first andSecond:(Student*)second{
+
+-(id)initWithStudents:(NSMutableArray*) students first:(Student*)firstW andSecond:(Student*)secondW wTable:(int) tableNum{
     self = [super init];
     if(self){
         self.students = students;
-        self.firstWaiter = first;
-        self.secondWaiter = second;
+        self.firstWaiter = firstW;
+        self.secondWaiter = secondW;
+        self.tableNumber = tableNum;
     }
-        return self;
+    return self;
 }
+
+-(NSString*) description{
+    NSString* str = [self.students componentsJoinedByString:@", "];
+    //str will be replaced by [self.students description]
+    return [NSString stringWithFormat: @"{%@}, %@ %@, %@ %@, %i", str, self.firstWaiter.firstName, self.firstWaiter.lastName, self.secondWaiter.firstName, self.secondWaiter.lastName, self.tableNumber];
+}
+
 @end
