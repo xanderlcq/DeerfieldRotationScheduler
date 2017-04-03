@@ -20,8 +20,13 @@
     
     NSMutableArray* students = [[NSMutableArray alloc] init];
     for(int i = 0; i < allLines.count; i++){
+        NSArray* names = [allLines[i] componentsSeparatedByString:@","];
+        NSString* firstName = names[0];
+        NSString* lastName = names[1];
+        lastName = [lastName stringByReplacingOccurrencesOfString:@" " withString:@""];
         Student* s = [[Student alloc] init];
-        s.firstName = allLines[i];
+        s.firstName = firstName;
+        s.lastName = lastName;
         [students addObject:s];
     }
     for(int i = 0; i < students.count; i++){
