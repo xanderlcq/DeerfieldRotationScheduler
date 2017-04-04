@@ -25,6 +25,8 @@
                                       s1, s2, s3, nil];
     Table* t1 = [[Table alloc]initWithStudents:pretendStudents first:pretendStudents[0] andSecond:pretendStudents[2] wTable:38];
     NSLog(@"DES: %@",[t1 description]);
+    DataProc* da = [[DataProc alloc] init];
+    [da readNames:@"names"];
 }
 
 
