@@ -25,7 +25,12 @@
                                       s1, s2, s3, nil];
     Table* t1 = [[Table alloc]initWithStudents:pretendStudents first:pretendStudents[0] andSecond:pretendStudents[2] wTable:38];
     NSLog(@"DES: %@",[t1 description]);
+
     [t1 initFromString:@"{<Student: 0x6080000868b0>, <Student: 0x608000086950>, <Student: 0x6080000869a0>}; Sarah Du; Gideon Yektai; 38"];
+
+    DataProc* da = [[DataProc alloc] init];
+    [da readNames:@"names"];
+
 }
 
 

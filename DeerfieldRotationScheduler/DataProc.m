@@ -16,22 +16,20 @@
     NSString* allFile = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
     // break the file up by lines
     NSArray* allLines = [allFile componentsSeparatedByString:@"\n"];
-    // break the lines up by spaces
     
     NSMutableArray* students = [[NSMutableArray alloc] init];
-    for(int i = 0; i < allLines.count; i++){
+    for(int i = 0; i < allLines.count-1; i++){
         NSArray* names = [allLines[i] componentsSeparatedByString:@","];
-        NSString* firstName = names[0];
-        NSString* lastName = names[1];
-        lastName = [lastName stringByReplacingOccurrencesOfString:@" " withString:@""];
-        Student* s = [[Student alloc] init];
-        s.firstName = firstName;
-        s.lastName = lastName;
+        NSString* lastName = names[0];
+        NSString* firstName = names[1];
+        firstName = [firstName stringByReplacingOccurrencesOfString:@" " withString:@""];
+        Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName];
         [students addObject:s];
     }
+    
     for(int i = 0; i < students.count; i++){
         Student* s = students[i];
-        NSLog(@"Name: %@", s.firstName);
+        NSLog(@"Name: %@ %@", s.lastName, s.firstName);
     }
     return students;
 }
