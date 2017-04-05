@@ -31,14 +31,16 @@
     self = [super init];
     //take in first part of string, feed into init from string for student
     if(self){
+        //get all student strings into an array
         NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
         
+        //add students to self.students
         for (int i = 0; i < [studentStrings count]; i++){
             NSString* studentString = [studentStrings objectAtIndex:i];
-            Student *newS = [[Student alloc]initFromString:studentString]
-            [self.students addObject:newS];
+//            Student *newS = [[Student alloc]initFromString:studentString]
+//            [self.students addObject:newS];
         }
-        //next part of string find student to assign waiters
+        //create waiters - will be duplicate
         NSString* firstWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:1];
         //self.firstWaiter = [[Student alloc]initFromString:firstWaiter];
         
