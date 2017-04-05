@@ -33,7 +33,7 @@
     if(self){
         NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
         for (int i = 0; i < [studentStrings count]; i++){
-            self.students addObject:[studentStrings objectAtIndex:i]
+            [self.students addObject:[studentStrings objectAtIndex:i]];
         }
         //next part of string find student to assign waiters
         //last part for table number
