@@ -29,13 +29,21 @@
 
 -(NSString*)toString{
     NSString* str = @"";
-    str = [NSString stringWithFormat:@"{%@,%@,%i,%@,%i,{", self.firstName, self.lastName, self.rotationsWaited, self.cocurric, self.grade];
+    str = [NSString stringWithFormat:@"{%@,%@,%i,%i,%@,%i,%@{", self.firstName, self.lastName, self.rotationsWaited,
+                                                    self.mealsWaited, self.cocurric, self.grade, self.birthday];
     for(int i = 0; i < self.frees.count; i++){
-//      str = str stringByAppendingString:frees[i];
+        str = [NSString stringWithFormat:@"%@,%i", str, (int)self.frees[i]];
     }
-
-
-
+    
+    str = [NSString stringWithFormat:@"%@},{", str];
+    
+    for(int i = 0; i < self.frees.count; i++){
+        Student* s = self.linkedStudents[i];
+        str = [NSString stringWithFormat:@"%@,%@-%@", str, s.firstName, s.lastName];
+    }
+    
+    str = [NSString stringWithFormat:@"%@}}", str];
+    
     return str;
     
 }
