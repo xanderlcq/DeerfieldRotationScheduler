@@ -33,7 +33,14 @@
     if(self){
         NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
         for (int i = 0; i < [studentStrings count]; i++){
+<<<<<<< Updated upstream
             [self.students addObject:[studentStrings objectAtIndex:i]];
+||||||| merged common ancestors
+            self.students addObject:[studentStrings objectAtIndex:i]
+=======
+            //init
+            self.students addObject:[studentStrings objectAtIndex:i]
+>>>>>>> Stashed changes
         }
         //next part of string find student to assign waiters
         //last part for table number
