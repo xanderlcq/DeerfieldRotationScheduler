@@ -15,6 +15,7 @@
 @property int numberOfTables;
 
 //to-string
+-(NSString*) description;
 //init-from string
 
 @end
