@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Table.h"
 #import "Student.h"
+#import "Rotation.h"
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -27,6 +28,12 @@
     NSLog(@"DES: %@",[t1 description]);
 
     [t1 initFromString:@"{<Student: 0x6080000868b0>, <Student: 0x608000086950>, <Student: 0x6080000869a0>}; Sarah Du; Gideon Yektai; 38"];
+    
+    
+    NSMutableArray *pretendTables = [NSMutableArray arrayWithObjects:
+                                      t1, nil];
+    Rotation* r1 = [[Rotation alloc]initWithTables:pretendTables andMeals:3 andTables:60];
+    NSLog(@"DES: %@",[r1 description]);
 
     DataProc* da = [[DataProc alloc] init];
     [da readNames:@"names"];
