@@ -24,7 +24,7 @@
 -(NSString*) description{
     NSString* str = [self.students componentsJoinedByString:@", "];
     //str will be replaced by [self.students description]
-    return [NSString stringWithFormat: @"{%@}; %@ %@; %@ %@; %i", str, self.firstWaiter.firstName, self.firstWaiter.lastName, self.secondWaiter.firstName, self.secondWaiter.lastName, self.tableNumber];
+    return [NSString stringWithFormat: @"{%@}; %@; %@; %i", str, self.firstWaiter.description, self.secondWaiter.description, self.tableNumber];
 }
 
 -(id) initFromString:(NSString*) string{
@@ -32,18 +32,21 @@
     //take in first part of string, feed into init from string for student
     if(self){
         NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
+        
         for (int i = 0; i < [studentStrings count]; i++){
-            [self.students addObject:[studentStrings objectAtIndex:i]];
-            self.students addObject:[studentStrings objectAtIndex:i];
-            //init
-            self.students addObject:[studentStrings objectAtIndex:i];
+            NSString* studentString = [studentStrings objectAtIndex:i];
+            Student *newS = [[Student alloc]initFromString:studentString]
+            [self.students addObject:newS];
         }
         //next part of string find student to assign waiters
-        //last part for table number
-        /*self.students = students;
-        self.firstWaiter = firstW;
-        self.secondWaiter = secondW;
-        self.tableNumber = tableNum;*/
+        NSString* firstWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:1];
+        //self.firstWaiter = [[Student alloc]initFromString:firstWaiter];
+        
+        NSString* secondWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:2];
+        //self.secondWaiter = [[Student alloc]initFromString:secondWaiter];
+        
+        //table number
+        self.tableNumber = [[[string componentsSeparatedByString:@";"] objectAtIndex:3]intValue];
     }
     return self;
 }
