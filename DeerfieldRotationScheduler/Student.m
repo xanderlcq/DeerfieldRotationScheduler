@@ -26,24 +26,24 @@
     }
     return self;
 }
--(NSString*)description{
-    NSString* str = @"";
-    str = [NSString stringWithFormat:@"{%@,%@,%i}", self.firstName, self.lastName, self.rotationsWaited];
-    
-    
-    return str;
-    
-}
-//This should be done in one line
 //-(NSString*)description{
 //    NSString* str = @"";
-//    str = [NSString stringWithFormat:@"{%@,%@,%i,%i,%@,%i,%@,%hhd,frees: %@,linked: %@}", self.firstName, self.lastName, self.rotationsWaited,
-//           self.mealsWaited, self.cocurric, self.grade, self.birthday,self.dayStudent,self.frees,self.linkedStudents];
-//
+//    str = [NSString stringWithFormat:@"{%@,%@,%i}", self.firstName, self.lastName, self.rotationsWaited];
+//    
 //    
 //    return str;
 //    
 //}
+//This should be done in one line
+-(NSString*)description{
+    NSString* str = @"";
+    str = [NSString stringWithFormat:@"{%@,%@,%i,%i,%@,%i,%@,%hhd,frees: %@,linked: %@}", self.firstName, self.lastName, self.rotationsWaited,
+           self.mealsWaited, self.cocurric, self.grade, self.birthday,self.dayStudent,self.frees,self.linkedStudents];
+
+    
+    return str;
+    
+}
 //{Xander,Li,1,13,manager,12,DATE,NO,{1,2,3},{Name1,Name2}}
 
 -(Student*)initFromString:(NSString*)str{

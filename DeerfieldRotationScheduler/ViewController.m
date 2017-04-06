@@ -34,9 +34,10 @@
     }
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     NSMutableArray *after = [sorter sortByRotationsWaited:students1];
+    //NSLog(@"%@",after);
     RotationGenerator *gen = [[RotationGenerator alloc] init];
     gen.currentRotation = [[Rotation alloc] initWithTables:nil andMeals:5 andTables:5];
-    NSLog(@"%@",[gen generateWaiters:after]);
+    NSLog(@"Waiters: %@",[gen generateWaiters:after]);
     
     
     
