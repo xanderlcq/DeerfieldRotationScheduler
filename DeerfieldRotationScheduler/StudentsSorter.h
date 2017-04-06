@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface StudentsSorter : NSObject
-
+//Meals waited
 //Sort by grade
 //Sort by co-curricular
 //Sort by language
 //Sort by birthday
 //Sort by name
+-(NSMutableArray *) sortByLastName:(NSMutableArray *)originalList;
+-(NSMutableArray *) sortByFirstName:(NSMutableArray *)originalList;
+-(NSMutableArray *) sortByRotationsWaited:(NSMutableArray *)originalList;
 //Sort by dorms
 @end

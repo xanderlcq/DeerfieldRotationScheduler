@@ -17,41 +17,33 @@
         self.lastName = last;
         self.rotationsWaited = 0;
         self.mealsWaited = 0;
-        self.cocurric = @"";
+        self.cocurric = @"Undefined Cocurric";
         self.grade = 0;
-        self.frees = [[NSMutableArray alloc]init];
-        self.birthday = nil;
+        self.frees = [[NSMutableArray alloc]initWithObjects:[[NSNumber alloc] initWithInt:0], nil];
+        self.birthday = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:0];
         self.linkedStudents = [[NSMutableArray alloc] init];
         self.dayStudent = NO;
     }
     return self;
 }
-
 -(NSString*)description{
     NSString* str = @"";
-    str = [NSString stringWithFormat:@"{%@,%@,%i,%i,%@,%i,%@{", self.firstName, self.lastName, self.rotationsWaited,
-                                                    self.mealsWaited, self.cocurric, self.grade, self.birthday];
-    if(self.dayStudent)
-        str = [NSString stringWithFormat:@"%@,y", str];
-    else
-        str = [NSString stringWithFormat:@"%@,n",str];
-        
-    for(int i = 0; i < self.frees.count; i++){
-        str = [NSString stringWithFormat:@"%@,%i", str, (int)self.frees[i]];
-    }
+    str = [NSString stringWithFormat:@"{%@,%@,%i}", self.firstName, self.lastName, self.rotationsWaited];
     
-    str = [NSString stringWithFormat:@"%@},{", str];
-    
-    for(int i = 0; i < self.linkedStudents.count; i++){
-        Student* s = self.linkedStudents[i];
-        str = [NSString stringWithFormat:@"%@,%@-%@", str, s.firstName, s.lastName];
-    }
-    
-    str = [NSString stringWithFormat:@"%@}}", str];
     
     return str;
     
 }
+//This should be done in one line
+//-(NSString*)description{
+//    NSString* str = @"";
+//    str = [NSString stringWithFormat:@"{%@,%@,%i,%i,%@,%i,%@,%hhd,frees: %@,linked: %@}", self.firstName, self.lastName, self.rotationsWaited,
+//           self.mealsWaited, self.cocurric, self.grade, self.birthday,self.dayStudent,self.frees,self.linkedStudents];
+//
+//    
+//    return str;
+//    
+//}
 //{Xander,Li,1,13,manager,12,DATE,NO,{1,2,3},{Name1,Name2}}
 
 -(Student*)initFromString:(NSString*)str{

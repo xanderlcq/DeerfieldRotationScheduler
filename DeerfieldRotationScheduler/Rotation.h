@@ -17,5 +17,8 @@
 //to-string
 -(NSString*) description;
 //init-from string
+
+
+//WHO NAME THIS???????????? with tables and tables???
 -(id) initWithTables:(NSMutableArray*)tables andMeals:(int)numMeals andTables:(int)numTables;
 @end

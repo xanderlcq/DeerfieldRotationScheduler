@@ -37,16 +37,16 @@
         //add students to self.students
         for (int i = 0; i < [studentStrings count]; i++){
             NSString* studentString = [studentStrings objectAtIndex:i];
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
+////            Student *newS = [[Student alloc]initFromString:studentString]
+////            [self.students addObject:newS];
+//||||||| merged common ancestors
 //            Student *newS = [[Student alloc]initFromString:studentString]
 //            [self.students addObject:newS];
-||||||| merged common ancestors
-            Student *newS = [[Student alloc]initFromString:studentString]
-            [self.students addObject:newS];
-=======
-          //  Student *newS = [[Student alloc]initFromString:studentString]
-           // [self.students addObject:newS];
->>>>>>> Stashed changes
+//=======
+//          //  Student *newS = [[Student alloc]initFromString:studentString]
+//           // [self.students addObject:newS];
+//>>>>>>> Stashed changes
         }
         //create waiters - will be duplicate
         NSString* firstWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:1];

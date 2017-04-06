@@ -18,7 +18,7 @@
     NSArray* allLines = [allFile componentsSeparatedByString:@"\n"];
     
     NSMutableArray* students = [[NSMutableArray alloc] init];
-    for(int i = 0; i < allLines.count-1; i++){
+    for(int i = 0; i < [allLines count]-1; i++){
         NSArray* names = [allLines[i] componentsSeparatedByString:@","];
         NSString* lastName = names[0];
         NSString* firstName = names[1];
@@ -26,11 +26,7 @@
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName];
         [students addObject:s];
     }
-    
-    for(int i = 0; i < students.count; i++){
-        Student* s = students[i];
-        NSLog(@"Name: %@ %@", s.lastName, s.firstName);
-    }
+    //Fix format
     return students;
 }
 

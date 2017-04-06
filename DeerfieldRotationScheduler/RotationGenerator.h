@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Rotation.h"
+#import "StudentsSorter.h"
 @interface RotationGenerator : NSObject
+@property Rotation *currentRotation;
 //Generate random
 //Record history
 //Read history
+-(id)init;
+-(NSMutableArray *) generateWaiters:(NSMutableArray *) studentsList;
 @end

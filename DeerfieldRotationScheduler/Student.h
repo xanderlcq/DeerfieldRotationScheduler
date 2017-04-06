@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface Student : NSObject
-//{Xander,Li,1,Manager,120,{1,2,3},99,{Name1,Name2}}
+//{Xander,Li,1,Manager,12,{1,2,3},99,{Name1,Name2}}
 @property NSString *firstName;
 @property NSString *lastName;
 @property int rotationsWaited;
 @property NSString *cocurric;
 @property int grade;
 @property NSMutableArray *frees;
-@property NSData *birthday;
+@property NSDate *birthday;
 @property int mealsWaited;
 @property NSMutableArray *linkedStudents;
 @property BOOL dayStudent;
@@ -24,7 +24,7 @@
 //init with name, grade and birthday initialized to 0 
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last;
 -(NSString*)description;
-
+-(Student*)initFromString:(NSString*)str;
 //to-string
 //init from string
 
