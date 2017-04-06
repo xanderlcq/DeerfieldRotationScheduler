@@ -19,10 +19,11 @@
 @property NSData *birthday;
 @property int mealsWaited;
 @property NSMutableArray *linkedStudents;
+@property BOOL dayStudent;
 
 //init with name, grade and birthday initialized to 0 
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last;
--(NSString*)toString;
+-(NSString*)description;
 
 //to-string
 //init from string

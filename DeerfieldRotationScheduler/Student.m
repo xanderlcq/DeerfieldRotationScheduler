@@ -22,22 +22,27 @@
         self.frees = [[NSMutableArray alloc]init];
         self.birthday = nil;
         self.linkedStudents = [[NSMutableArray alloc] init];
+        self.dayStudent = NO;
     }
     return self;
 }
-//{Xander,Li,1,Manager,120,{1,2,3},99,{Name1,Name2}}
 
--(NSString*)toString{
+-(NSString*)description{
     NSString* str = @"";
     str = [NSString stringWithFormat:@"{%@,%@,%i,%i,%@,%i,%@{", self.firstName, self.lastName, self.rotationsWaited,
                                                     self.mealsWaited, self.cocurric, self.grade, self.birthday];
+    if(self.dayStudent)
+        str = [NSString stringWithFormat:@"%@,y", str];
+    else
+        str = [NSString stringWithFormat:@"%@,n",str];
+        
     for(int i = 0; i < self.frees.count; i++){
         str = [NSString stringWithFormat:@"%@,%i", str, (int)self.frees[i]];
     }
     
     str = [NSString stringWithFormat:@"%@},{", str];
     
-    for(int i = 0; i < self.frees.count; i++){
+    for(int i = 0; i < self.linkedStudents.count; i++){
         Student* s = self.linkedStudents[i];
         str = [NSString stringWithFormat:@"%@,%@-%@", str, s.firstName, s.lastName];
     }
@@ -47,6 +52,35 @@
     return str;
     
 }
+//{Xander,Li,1,13,manager,12,DATE,NO,{1,2,3},{Name1,Name2}}
 
+-(Student*)initFromString:(NSString*)str{
+    NSArray* parts = [str componentsSeparatedByString:@","];
+    self.firstName = [parts objectAtIndex:0];
+    self.lastName = [parts objectAtIndex:1];
+    self.rotationsWaited = [[parts objectAtIndex:2] intValue];
+    self.mealsWaited = [[parts objectAtIndex:3] intValue];
+    self.cocurric = [parts objectAtIndex:4];
+    self.grade = [[parts objectAtIndex:5] intValue];
+    self.birthday = [parts objectAtIndex:6];
+    if([[parts objectAtIndex:7] isEqualToString:@"n"])
+        self.dayStudent = NO;
+    else
+        self.dayStudent = YES;
+    
+    NSString* allFrees = [parts objectAtIndex:8];
+    NSArray* numFrees = [allFrees componentsSeparatedByString:@","];
+    for(int i = 0; i < numFrees.count; i++){
+        [self.frees addObject: [NSNumber numberWithInt:[[numFrees objectAtIndex:i] intValue]]];
+    }
+    
+    NSString* y = [parts objectAtIndex:9];
+    NSArray* linkedStuds = [y componentsSeparatedByString:@","];
+    for(int i = 0; i < numFrees.count; i++){
+        [self.linkedStudents addObject:[numFrees objectAtIndex:i]];
+    }
+
+    return self;
+}
 
 @end
