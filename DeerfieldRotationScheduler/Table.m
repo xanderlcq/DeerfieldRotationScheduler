@@ -9,7 +9,13 @@
 #import "Table.h"
 
 @implementation Table
-
+-(id)initEmptyTableWithNum:(int) tableNumber{
+    self = [super init];
+    if(self){
+        self.tableNumber = tableNumber;
+    }
+    return self;
+}
 -(id)initWithStudents:(NSMutableArray*) students first:(Student*)firstW andSecond:(Student*)secondW wTable:(int) tableNum{
     self = [super init];
     if(self){

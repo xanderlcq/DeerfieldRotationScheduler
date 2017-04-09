@@ -9,11 +9,21 @@
 #import "RotationGenerator.h"
 
 @implementation RotationGenerator
--(id)init{
+
+-(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals{
     self = [super init];
+    if(self){
+        self.currentRotation = [[Rotation alloc] initEmptyRotationWithNumOfMeals:numOfMeals andNumOfTables:numOfMeals];
+        
+    }
     return self;
 }
+-(Rotation *) generateNewRotationFromPastHistory:(NSMutableArray *) pastRotations{
+    return nil;
+}
 
+
+//Generate waiters from least waited
 -(NSMutableArray *) generateWaiters:(NSMutableArray *) studentsList{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     NSMutableArray *sortedByRotationsWaited = [sorter sortByRotationsWaited:studentsList];

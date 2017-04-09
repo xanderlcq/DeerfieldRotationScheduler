@@ -27,7 +27,17 @@
     }
     return self;
 }
-
+-(id) initEmptyRotationWithNumOfMeals:(int) numOfMeals andNumOfTables:(int) numOfTables{
+    
+    self = [super init];
+    if (self){
+        self.tables = [[NSMutableArray alloc] init];
+        self.numberOfMeals = numOfMeals;
+        self.numberOfTables = numOfTables;
+    }
+    return self;
+    
+}
 -(id) initFromString:(NSString*) string{
     self = [super init];
     if(self){

@@ -15,5 +15,6 @@
 //Record history
 //Read history
 -(id)init;
+
 -(NSMutableArray *) generateWaiters:(NSMutableArray *) studentsList;
 @end
