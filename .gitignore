@@ -2,3 +2,7 @@
 DeerfieldRotationScheduler.xcodeproj/project.pbxproj
 
 DeerfieldRotationScheduler.xcodeproj/project.xcworkspace/xcuserdata/sdu17.xcuserdatad/UserInterfaceState.xcuserstate
+
+.DS_Store
+
+*.xcuserstate
