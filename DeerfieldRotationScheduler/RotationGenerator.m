@@ -18,7 +18,7 @@
     }
     return self;
 }
--(Rotation *) generateRandomRotationFromPastHistory:(NSMutableArray *) pastRotations{
+/*-(Rotation *) generateRandomRotationFromPastHistory:(NSMutableArray *) pastRotations{
     NSMutableArray *waiters = [self generateWaiters:self.students];
     [self assignRandomWaiters:waiters pastHistory:pastRotations];
     NSMutableArray *restOfStudents = [self eliminateDuplicateOf:waiters in:self.students];
@@ -88,7 +88,7 @@
             return YES;
     }
     return NO;
-}
+}*/
 
 //Generate waiters from least waited
 -(NSMutableArray *) generateWaiters:(NSMutableArray *) studentsList{

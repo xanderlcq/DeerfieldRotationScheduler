@@ -25,19 +25,30 @@
     Student *s2 = [[Student alloc]initWithFirstName:@"Xander" andLastName:@"Li"];
     Student *s3 = [[Student alloc]initWithFirstName:@"Gideon" andLastName:@"Yektai"];
     NSMutableArray *students1 = [NSMutableArray arrayWithObjects:
-                                      s1, s2, s3, nil];
-    DataProc *proc = [[DataProc alloc] init];
+                                      s1, s2, nil];
+    NSMutableArray *students2 = [NSMutableArray arrayWithObjects:
+                                 s3, nil];
+    Table *t1 = [[Table alloc]initWithStudents:students1 first:s1 andSecond:s2 wTable:1];
+    Table *t2 = [[Table alloc]initWithStudents:students2 first:s3 andSecond:s3 wTable:2];
     
-    students1 = [proc readNames:@"names"];
-    for(int i = 0; i <[students1 count];i++){
-        ((Student *)[students1 objectAtIndex:i]).rotationsWaited = arc4random_uniform(5);
-    }
-    StudentsSorter *sorter = [[StudentsSorter alloc] init];
-    NSMutableArray *after = [sorter sortByRotationsWaited:students1];
-    //NSLog(@"%@",after);
-    RotationGenerator *gen = [[RotationGenerator alloc] init];
-    gen.currentRotation = [[Rotation alloc] initWithTables:nil andMeals:5 andTables:5];
-    NSLog(@"Waiters: %@",[gen generateWaiters:after]);
+    NSMutableArray *tables = [NSMutableArray arrayWithObjects: t1,t2,nil];
+    
+    Rotation *r1 = [[Rotation alloc]initWithTables:tables andMeals:3 andTables:2];
+    NSLog(@"is Sarah sitting with Xander: %d",[r1 student:s1 isSittingWith:s2]);
+    NSLog(@"is Sarah sitting with Gideon: %d",[r1 student:s1 isSittingWith:s3]);
+    
+//    DataProc *proc = [[DataProc alloc] init];
+//    
+//    students1 = [proc readNames:@"names"];
+//    for(int i = 0; i <[students1 count];i++){
+//        ((Student *)[students1 objectAtIndex:i]).rotationsWaited = arc4random_uniform(5);
+//    }
+//    StudentsSorter *sorter = [[StudentsSorter alloc] init];
+//    NSMutableArray *after = [sorter sortByRotationsWaited:students1];
+//    //NSLog(@"%@",after);
+//    RotationGenerator *gen = [[RotationGenerator alloc] init];
+//    gen.currentRotation = [[Rotation alloc] initWithTables:nil andMeals:5 andTables:5];
+//    NSLog(@"Waiters: %@",[gen generateWaiters:after]);
     
     
     
