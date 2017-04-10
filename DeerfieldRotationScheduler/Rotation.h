@@ -20,7 +20,7 @@
 //init-from string
 
 //Collision check
--(BOOL) student:(Student*) first hasSatWith:(Student *) second;
+-(BOOL) student:(Student*) first isSittingWith:(Student *) second;
 
 //WHO NAME THIS???????????? with tables and tables???
 -(id) initWithTables:(NSMutableArray*)tables andMeals:(int)numMeals andTables:(int)numTables;

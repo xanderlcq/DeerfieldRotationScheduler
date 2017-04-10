@@ -55,5 +55,24 @@
     return self;
 }
 
+//check if at same table - assuming each student has already been assigned to a table. Will be true if bothunassigned to a table
+-(BOOL) student:(Student*) first isSittingWith:(Student *) second{
+    int firstTableNum = 0;
+    int secTableNum = 0;
+    for (Table *table in self.tables) {
+        for (Student *student in self.students) {
+            if ([student isEqual:first]){
+                firstTableNum = table.tableNumber;
+            }
+            if ([student isEqual:second]){
+                secTableNum = table.tableNumber;
+            }
+        }
+    }
+    if (firstTableNum == secTableNum){
+        return YES;
+    }
+    return NO;
+}
 
 @end
