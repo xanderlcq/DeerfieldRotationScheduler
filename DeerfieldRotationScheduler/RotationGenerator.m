@@ -18,9 +18,9 @@
     }
     return self;
 }
--(Rotation *) generateNewRotationFromPastHistory:(NSMutableArray *) pastRotations{
+-(Rotation *) generateRandomRotationFromPastHistory:(NSMutableArray *) pastRotations{
     NSMutableArray *waiters = [self generateWaiters:self.students];
-    [self assignWaiters:waiters pastHistory:pastRotations];
+    [self assignRandomWaiters:waiters pastHistory:pastRotations];
     NSMutableArray *restOfStudents = [self eliminateDuplicateOf:waiters in:self.students];
     return nil;
 }
@@ -30,12 +30,16 @@
         Student *dup = [duplicates objectAtIndex:i];
         int j = 0;
         while(j < [copy count]){
-            
-            
+            if(dup == [copy objectAtIndex:j]){
+                [copy removeObjectAtIndex:j];
+            }else{
+                j++;
+            }
         }
     }
+    return copy;
 }
--(void) assignWaiters:(NSMutableArray *) waiters pastHistory:(NSMutableArray *) pastRotations{
+-(void) assignRandomWaiters:(NSMutableArray *) waiters pastHistory:(NSMutableArray *) pastRotations{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
     //waiters array has an even length
@@ -46,7 +50,23 @@
         //Find the second waiter who's in a different grade and hasn't sat with 1st waiter before
         Student *secondWaiter;
         
-        //Perform some magic
+        // 1.Never sit together before
+        // 2.Grade
+        // 3.Gender
+        for(int i = 0; i < 5; i++){
+            int j = (int)[waiters count];
+            while(j >= 0){
+                secondWaiter = [waiters objectAtIndex:j];
+                BOOL neverSatTogether = ![self satTogetherBefore:firstwaiter and:secondWaiter pathHistory:pastRotations] || i >= 4;
+                BOOL isDifferentGrade = firstwaiter.grade != secondWaiter.grade || i >= 2;
+                BOOL isDifferentGender = ![firstwaiter.gender isEqualToString:secondWaiter.gender] || i>=1;
+                if (neverSatTogether && isDifferentGrade && isDifferentGender) {
+                    //break both loops
+                    i = 5;
+                    break;
+                }
+            }
+        }
         
         Table *newTable = [[Table alloc] initWithFirstWaiter:firstwaiter SecondWaiter:secondWaiter andTableNum:0];
         [self.currentRotation.tables addObject:newTable];

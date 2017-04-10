@@ -14,6 +14,7 @@
 @property NSString *lastName;
 @property int rotationsWaited;
 @property NSString *cocurric;
+@property NSString *gender;
 @property int grade;
 @property NSMutableArray *frees;
 @property NSDate *birthday;
