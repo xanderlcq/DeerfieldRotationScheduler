@@ -18,5 +18,6 @@
 -(NSMutableArray *) sortByLastName:(NSMutableArray *)originalList;
 -(NSMutableArray *) sortByFirstName:(NSMutableArray *)originalList;
 -(NSMutableArray *) sortByRotationsWaited:(NSMutableArray *)originalList;
+-(NSMutableArray *) sortByGrades:(NSMutableArray *)originalList;
 //Sort by dorms
 @end

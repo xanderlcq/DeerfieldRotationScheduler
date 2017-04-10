@@ -13,6 +13,17 @@
     self = [super init];
     if(self){
         self.tableNumber = tableNumber;
+        self.students = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+-(id)initWithFirstWaiter:(Student*)firstW SecondWaiter:(Student*)secondW andTableNum:(int) tableNum{
+    self = [super init];
+    if(self){
+        self.tableNumber = tableNum;
+        self.students = [[NSMutableArray alloc] init];
+        self.firstWaiter = firstW;
+        self.secondWaiter = secondW;
     }
     return self;
 }

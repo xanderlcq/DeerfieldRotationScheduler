@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Student.h"
+#import "Table.h"
 @interface Rotation : NSObject
 
 @property NSMutableArray *tables;

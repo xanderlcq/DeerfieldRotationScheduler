@@ -11,10 +11,12 @@
 #import "StudentsSorter.h"
 @interface RotationGenerator : NSObject
 @property Rotation *currentRotation;
+@property NSMutableArray *students;
 //Generate random
 //Record history
 //Read history
 -(id)init;
-
+-(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals andStudents:(NSMutableArray *) students;
 -(NSMutableArray *) generateWaiters:(NSMutableArray *) studentsList;
+-(NSMutableArray *) shallowCopy:(NSMutableArray *) original;
 @end

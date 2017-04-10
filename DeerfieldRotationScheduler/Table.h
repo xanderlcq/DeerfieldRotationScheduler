@@ -17,7 +17,8 @@
 @property Student* secondWaiter;
 
 -(NSString*) description;
--(id)initEmptyTableWithNum:(int) tableNumber;
+-(id)initWithFirstWaiter:(Student*)firstW SecondWaiter:(Student*)secondW andTableNum:(int) tableNum;
+//-(id)initEmptyTableWithNum:(int) tableNumber;
 -(id)initWithStudents:(NSMutableArray*) students first:(Student*)firstW andSecond:(Student*)secondW wTable:(int) tableNum;
 -(id) initFromString:(NSString*) string;
 

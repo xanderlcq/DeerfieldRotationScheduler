@@ -10,7 +10,19 @@
 #import "Student.h"
 @implementation StudentsSorter
 
-
+-(NSMutableArray *) sortByGrades:(NSMutableArray *)originalList{
+    NSMutableArray *sorted = [self shallowCopy:originalList];
+    for(int i = 1;i <[sorted count];i++){
+        int j = i;
+        while(j > 0 && (((Student *)[sorted objectAtIndex:j]).grade < ((Student *)[sorted objectAtIndex:j-1]).grade)){
+            //While current is greater than previous
+            [self swap:sorted  swap:j and:j-1];
+            //bubble it up
+            j--;
+        }
+    }
+    return sorted;
+}
 
 -(NSMutableArray *) sortByLastName:(NSMutableArray *)originalList{
     NSMutableArray *sorted = [self shallowCopy:originalList];
