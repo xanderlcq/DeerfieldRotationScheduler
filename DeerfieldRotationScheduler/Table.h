@@ -15,6 +15,7 @@
 @property int tableNumber;
 @property Student* firstWaiter;
 @property Student* secondWaiter;
+@property int numerOfStudents;
 
 -(NSString*) description;
 -(id)initWithFirstWaiter:(Student*)firstW SecondWaiter:(Student*)secondW andTableNum:(int) tableNum;

@@ -39,6 +39,13 @@
     }
     return copy;
 }
+-(void) assignRandomStudents:(NSMutableArray *) pastRotations{
+    for(int i = 0; i < self.currentRotation.numberOfTables; i ++){
+        while([((Table*)[self.currentRotation.tables objectAtIndex:i]).students count] < ((Table*)[self.currentRotation.tables objectAtIndex:i]).numerOfStudents){
+            
+        }
+    }
+}
 -(void) assignRandomWaiters:(NSMutableArray *) waiters pastHistory:(NSMutableArray *) pastRotations{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
@@ -53,11 +60,12 @@
         // 1.Never sit together before
         // 2.Grade
         // 3.Gender
-        for(int i = 0; i < 5; i++){
+        // We eliminate one constrains if nothing is quelified
+        for(int i = 0; i < 4; i++){
             int j = (int)[waiters count];
             while(j >= 0){
                 secondWaiter = [waiters objectAtIndex:j];
-                BOOL neverSatTogether = ![self satTogetherBefore:firstwaiter and:secondWaiter pathHistory:pastRotations] || i >= 4;
+                BOOL neverSatTogether = ![self satTogetherBefore:firstwaiter and:secondWaiter pathHistory:pastRotations] || i >= 3;
                 BOOL isDifferentGrade = firstwaiter.grade != secondWaiter.grade || i >= 2;
                 BOOL isDifferentGender = ![firstwaiter.gender isEqualToString:secondWaiter.gender] || i>=1;
                 if (neverSatTogether && isDifferentGrade && isDifferentGender) {
@@ -65,6 +73,7 @@
                     i = 5;
                     break;
                 }
+                j--;
             }
         }
         
