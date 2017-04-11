@@ -21,15 +21,16 @@
     // Do any additional setup after loading the view.
     
     //testing table toString
-    Student *s1 = [[Student alloc]initWithFirstName:@"Sarah" andLastName:@"Du"];
-    Student *s2 = [[Student alloc]initWithFirstName:@"Xander" andLastName:@"Li"];
-    Student *s3 = [[Student alloc]initWithFirstName:@"Gideon" andLastName:@"Yektai"];
+    Student *s1 = [[Student alloc]initWithFirstName:@"Sarah" andLastName:@"Du" grade:12];
+    Student *s2 = [[Student alloc]initWithFirstName:@"Xander" andLastName:@"Li"grade:12];
+    Student *s3 = [[Student alloc]initWithFirstName:@"Gideon" andLastName:@"Yektai" grade: 11];
     
     Table *t1 = [[Table alloc] init];
     Table *t2 = [[Table alloc] init];
     [t1.students addObject:s1];
     [t1.students addObject:s2];
-    [t2.students addObject:s3];
+    [t1.students addObject:s3];
+    [t1 mostNeededGrade];
     
     NSMutableArray *tables = [NSMutableArray arrayWithObjects: t1,t2,nil];
     

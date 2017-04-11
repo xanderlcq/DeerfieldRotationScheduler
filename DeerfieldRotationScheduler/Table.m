@@ -64,11 +64,32 @@
 -(NSString *)mostNeededGender{
     return [self numOfMale]>[self numOfFemale]?@"M":@"F";
 }
+
+//returns grade with least # of people
 -(int) mostNeededGrade{
     int nine = 0;
     int ten = 0;
-    int elevent = 0;
+    int eleven = 0;
     int twelve = 0;
+    
+    for (Student *student in self.students) {
+        if (student.grade == 9){
+            nine++;
+        }
+        else if (student.grade == 10){
+            ten++;
+        }
+        else if (student.grade == 11){
+            eleven++;
+        }
+        else if (student.grade == 12){
+            twelve++;
+        }
+    }
+    int minUnder = MIN(nine, ten);
+    int minUpper = MIN(eleven, twelve);
+    int min = MIN(minUpper, minUnder);
+    NSLog(@"9: %i, 10: %i, 11: %i, 12: %i",nine, ten, eleven, twelve);
 #warning complete this method
     return -1;
 }
