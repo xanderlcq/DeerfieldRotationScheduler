@@ -17,6 +17,6 @@
 //Record history
 //Read history
 
--(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals andStudents:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
+-(id)initWithNumOfTables:(int)numOfTables numOfMeals:(int) numOfMeals studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
 -(NSMutableArray *) generateWaiters;
 @end
