@@ -21,7 +21,7 @@
 }
 -(Rotation *) generateRandomRotationFromPastHistory{
     NSMutableArray *waiters = [self generateWaiters];
-    [self assignRandomWaiters:waiters pastHistory:self.pastRotations];
+    [self assignRandomWaiters:waiters];
     self.students = [self eliminateDuplicateOf:waiters in:self.students]; //delete waiters from students list of this rotation
     return self.currentRotation;
 }
@@ -64,13 +64,13 @@
 }
 -(BOOL)neverSatBefore:(Student *) key withStudents:(NSMutableArray *) targetStudents{
     for(Student *s in targetStudents){
-        if([self satTogetherBefore:key and:s pathHistory:self.pastRotations]){
+        if([self satTogetherBefore:key and:s]){
             return NO;
         }
     }
     return YES;
 }
--(void) assignRandomWaiters:(NSMutableArray *) waiters pastHistory:(NSMutableArray *) pastRotations{
+-(void) assignRandomWaiters:(NSMutableArray *) waiters{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
     //waiters array has an even length
@@ -89,7 +89,7 @@
             int j = (int)[waiters count];
             while(j >= 0){
                 secondWaiter = [waiters objectAtIndex:j];
-                BOOL neverSatTogether = ![self satTogetherBefore:firstwaiter and:secondWaiter pathHistory:pastRotations] || i >= 3;
+                BOOL neverSatTogether = ![self satTogetherBefore:firstwaiter and:secondWaiter] || i >= 3;
                 BOOL isDifferentGrade = firstwaiter.grade != secondWaiter.grade || i >= 2;
                 BOOL isDifferentGender = ![firstwaiter.gender isEqualToString:secondWaiter.gender] || i>=1;
                 if (neverSatTogether && isDifferentGrade && isDifferentGender) {
@@ -106,9 +106,9 @@
     }
 }
 
--(BOOL) satTogetherBefore:(Student *) a and:(Student *)b pathHistory:(NSMutableArray *) pastRotations{
-    for(int i = 0; i < [pastRotations count];i++){
-        if([(Rotation *)[pastRotations objectAtIndex:i] student:a isSittingWith:b])
+-(BOOL) satTogetherBefore:(Student *) a and:(Student *)b{
+    for(Rotation *r in self.pastRotations){
+        if([r student:a isSittingWith:b])
             return YES;
     }
     return NO;
