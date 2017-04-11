@@ -30,7 +30,7 @@
     [t1.students addObject:s1];
     [t1.students addObject:s2];
     [t1.students addObject:s3];
-    [t1 mostNeededGrade];
+    NSLog(@"%i",[t1 mostNeededGrade]);
     
     NSMutableArray *tables = [NSMutableArray arrayWithObjects: t1,t2,nil];
     

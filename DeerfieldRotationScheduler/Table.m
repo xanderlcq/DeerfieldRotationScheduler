@@ -73,24 +73,33 @@
     int twelve = 0;
     
     for (Student *student in self.students) {
-        if (student.grade == 9){
+        if (student.grade == 9)
             nine++;
-        }
-        else if (student.grade == 10){
+        else if (student.grade == 10)
             ten++;
-        }
-        else if (student.grade == 11){
+        else if (student.grade == 11)
             eleven++;
-        }
-        else if (student.grade == 12){
+        else if (student.grade == 12)
             twelve++;
-        }
     }
     int minUnder = MIN(nine, ten);
     int minUpper = MIN(eleven, twelve);
     int min = MIN(minUpper, minUnder);
+    
     NSLog(@"9: %i, 10: %i, 11: %i, 12: %i",nine, ten, eleven, twelve);
-#warning complete this method
+    
+    if (min == twelve)
+        return 12;
+    
+    if (min == eleven)
+        return 11;
+    
+    if (min == ten)
+        return 10;
+    
+    if (min == nine)
+        return 9;
+    
     return -1;
 }
 -(NSString*) description{
