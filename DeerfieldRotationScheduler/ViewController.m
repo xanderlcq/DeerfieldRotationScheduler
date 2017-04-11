@@ -24,47 +24,20 @@
     Student *s1 = [[Student alloc]initWithFirstName:@"Sarah" andLastName:@"Du"];
     Student *s2 = [[Student alloc]initWithFirstName:@"Xander" andLastName:@"Li"];
     Student *s3 = [[Student alloc]initWithFirstName:@"Gideon" andLastName:@"Yektai"];
-    NSMutableArray *students1 = [NSMutableArray arrayWithObjects:
-                                      s1, s2, nil];
-    NSMutableArray *students2 = [NSMutableArray arrayWithObjects:
-                                 s3, nil];
-    Table *t1 = [[Table alloc]initWithStudents:students1 first:s1 andSecond:s2 wTable:1];
-    Table *t2 = [[Table alloc]initWithStudents:students2 first:s3 andSecond:s3 wTable:2];
+    
+    Table *t1 = [[Table alloc] init];
+    Table *t2 = [[Table alloc] init];
+    [t1.students addObject:s1];
+    [t1.students addObject:s2];
+    [t2.students addObject:s3];
     
     NSMutableArray *tables = [NSMutableArray arrayWithObjects: t1,t2,nil];
     
     Rotation *r1 = [[Rotation alloc]initWithTables:tables andMeals:3 andTables:2];
-    NSLog(@"is Sarah sitting with Xander: %d",[r1 student:s1 isSittingWith:s2]);
-    NSLog(@"is Sarah sitting with Gideon: %d",[r1 student:s1 isSittingWith:s3]);
+    NSLog(@"is Sarah sitting with Xander: %hhd",[r1 student:s1 isSittingWith:s2]);
+    NSLog(@"is Sarah sitting with Gideon: %hhd",[r1 student:s1 isSittingWith:s3]);
     
-//    DataProc *proc = [[DataProc alloc] init];
-//    
-//    students1 = [proc readNames:@"names"];
-//    for(int i = 0; i <[students1 count];i++){
-//        ((Student *)[students1 objectAtIndex:i]).rotationsWaited = arc4random_uniform(5);
-//    }
-//    StudentsSorter *sorter = [[StudentsSorter alloc] init];
-//    NSMutableArray *after = [sorter sortByRotationsWaited:students1];
-//    //NSLog(@"%@",after);
-//    RotationGenerator *gen = [[RotationGenerator alloc] init];
-//    gen.currentRotation = [[Rotation alloc] initWithTables:nil andMeals:5 andTables:5];
-//    NSLog(@"Waiters: %@",[gen generateWaiters:after]);
-    
-    
-    
-//    Table* t1 = [[Table alloc]initWithStudents:pretendStudents first:pretendStudents[0] andSecond:pretendStudents[2] wTable:38];
-//    NSLog(@"DES: %@",[t1 description]);
-//
-//    [t1 initFromString:@"{<Student: 0x6080000868b0>, <Student: 0x608000086950>, <Student: 0x6080000869a0>}; Sarah Du; Gideon Yektai; 38"];
-//    
-//    
-//    NSMutableArray *pretendTables = [NSMutableArray arrayWithObjects:
-//                                      t1, nil];
-//    Rotation* r1 = [[Rotation alloc]initWithTables:pretendTables andMeals:3 andTables:60];
-//    NSLog(@"DES: %@",[r1 description]);
-//
-//    DataProc* da = [[DataProc alloc] init];
-//    [da readNames:@"names"];
+
 
 }
 

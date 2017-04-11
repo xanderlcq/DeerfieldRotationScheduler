@@ -16,7 +16,7 @@
 //Generate random
 //Record history
 //Read history
--(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals andStudents:(NSMutableArray *) students;
--(NSMutableArray *) generateWaiters:(NSMutableArray *) studentsList;
--(NSMutableArray *) shallowCopy:(NSMutableArray *) original;
+
+-(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals andStudents:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
+-(NSMutableArray *) generateWaiters;
 @end

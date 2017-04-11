@@ -10,17 +10,18 @@
 
 @implementation RotationGenerator
 
--(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals andStudents:(NSMutableArray *) students{
+-(id)initWithNumOfTables:(int) numOfTables numOfMeals:(int) numOfMeals andStudents:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
     self = [super init];
     if(self){
         self.currentRotation = [[Rotation alloc] initEmptyRotationWithNumOfMeals:numOfMeals andNumOfTables:numOfMeals];
         self.students = [self shallowCopy:students];
+        self.pastRotations = past;
     }
     return self;
 }
--(Rotation *) generateRandomRotationFromPastHistory:(NSMutableArray *) pastRotations{
-    NSMutableArray *waiters = [self generateWaiters:self.students];
-    [self assignRandomWaiters:waiters pastHistory:pastRotations];
+-(Rotation *) generateRandomRotationFromPastHistory{
+    NSMutableArray *waiters = [self generateWaiters];
+    [self assignRandomWaiters:waiters pastHistory:self.pastRotations];
     self.students = [self eliminateDuplicateOf:waiters in:self.students]; //delete waiters from students list of this rotation
     return self.currentRotation;
 }
