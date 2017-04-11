@@ -22,7 +22,10 @@
 //-(id)initEmptyTableWithNum:(int) tableNumber;
 -(id)initWithStudents:(NSMutableArray*) students first:(Student*)firstW andSecond:(Student*)secondW wTable:(int) tableNum;
 -(id) initFromString:(NSString*) string;
-
+-(int) numOfMale;
+-(int) numOfFemale;
+-(int) mostNeededGrade;
+-(NSString *)mostNeededGender;
 //to-string
 //init from string
 @end

@@ -37,7 +37,33 @@
     }
     return self;
 }
-
+-(int) numOfMale{
+    int counter = 0;
+    for(Student *a in self.students){
+        if([a.gender isEqualToString:@"M"])
+            counter++;
+    }
+    return counter;
+}
+-(int) numOfFemale{
+    int counter = 0;
+    for(Student *a in self.students){
+        if([a.gender isEqualToString:@"F"])
+            counter++;
+    }
+    return counter;
+}
+-(NSString *)mostNeededGender{
+    return [self numOfMale]>[self numOfFemale]?@"M":@"F";
+}
+-(int) mostNeededGrade{
+    int nine = 0;
+    int ten = 0;
+    int elevent = 0;
+    int twelve = 0;
+#warning complete this method
+    return -1;
+}
 -(NSString*) description{
     NSString* str = [self.students componentsJoinedByString:@", "];
     //str will be replaced by [self.students description]
