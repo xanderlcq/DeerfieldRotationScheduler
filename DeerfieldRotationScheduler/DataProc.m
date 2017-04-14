@@ -10,7 +10,7 @@
 
 @implementation DataProc
 
--(NSMutableArray *)readNames:(NSString *)fileName{
+-(NSMutableArray *)readNamesToStudents:(NSString *)fileName{
     NSString* filepath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"txt"];
     // make the file a string
     NSString* allFile = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];

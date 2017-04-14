@@ -11,5 +11,5 @@
 
 @interface DataProc : NSObject
 //Read names list
--(NSMutableArray*)readNames:(NSString*)fileName;
+-(NSMutableArray *)readNamesToStudents:(NSString *)fileName;
 @end

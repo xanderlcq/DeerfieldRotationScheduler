@@ -13,7 +13,7 @@
 -(id)initWithNumOfTables:(int)numOfTables numOfMeals:(int) numOfMeals studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
     self = [super init];
     if(self){
-        self.currentRotation = [[Rotation alloc] initEmptyRotationWithNumOfMeals:numOfMeals andNumOfTables:numOfMeals];
+        self.currentRotation = [[Rotation alloc] initEmptyRotationWithNumOfMeals:numOfMeals andNumOfTables:numOfTables];
         self.students = [self shallowCopy:students];
         self.pastRotations = past;
     }
@@ -22,10 +22,11 @@
 -(Rotation *) generateRandomRotation{
     NSMutableArray *waiters = [self generateWaiters];
     [self assignRandomWaiters:waiters];
-    self.students = [self eliminateDuplicateOf:waiters in:self.students]; //delete waiters from students list of this rotation
+    self.students = [self eliminateDuplicateOf:waiters inList:self.students]; //delete waiters from students list of this rotation
+    [self assignRandomStudents];
     return self.currentRotation;
 }
--(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates in:(NSMutableArray *) source{
+-(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source{
     NSMutableArray *copy = [self shallowCopy:source];
     for(int i = 0; i < [duplicates count];i++){
         Student *dup = [duplicates objectAtIndex:i];
@@ -42,11 +43,14 @@
 }
 -(void) assignRandomStudents{
     for(Table *t in self.currentRotation.tables){
-        while([t.students count] < t.numerOfStudents){
+        while([t.students count] < t.numerOfStudents-2){
             //While this table needs more students
             NSString *neededGender = [t mostNeededGender];
+            NSLog(@"%@",neededGender);
             int neededGrade = [t mostNeededGrade];
             for(int i = 0; i < 4;i++){
+                if([self.students count] == 0)
+                    return;
                 for(Student * s in self.students){
                     BOOL isNeededGrade = neededGrade == s.grade || i>=1;
                     BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
@@ -74,6 +78,7 @@
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
     //waiters array has an even length
+    int tableNumber = 1;
     while([waiters count] > 0){
         //Pop the first student
         Student *firstwaiter = [waiters objectAtIndex:0];
@@ -86,7 +91,7 @@
         // 3.Gender
         // We eliminate one constrains if nothing is quelified
         for(int i = 0; i < 4; i++){
-            int j = (int)[waiters count];
+            int j = (int)[waiters count]-1;
             while(j >= 0){
                 secondWaiter = [waiters objectAtIndex:j];
                 BOOL neverSatTogether = ![self satTogetherBefore:firstwaiter and:secondWaiter] || i >= 3;
@@ -95,15 +100,19 @@
                 if (neverSatTogether && isDifferentGrade && isDifferentGender) {
                     //break both loops
                     i = 5;
+                    [waiters removeObjectAtIndex:j];
                     break;
                 }
                 j--;
             }
         }
         
-        Table *newTable = [[Table alloc] initWithFirstWaiter:firstwaiter SecondWaiter:secondWaiter andTableNum:0];
+        Table *newTable = [[Table alloc] initWithFirstWaiter:firstwaiter SecondWaiter:secondWaiter andTableNum:tableNumber];
+        newTable.numerOfStudents = 10;
+        tableNumber++;
         [self.currentRotation.tables addObject:newTable];
     }
+    
 }
 
 -(BOOL) satTogetherBefore:(Student *) a and:(Student *)b{

@@ -19,4 +19,7 @@
 
 -(id)initWithNumOfTables:(int)numOfTables numOfMeals:(int) numOfMeals studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
 -(NSMutableArray *) generateWaiters;
+-(void) assignRandomWaiters:(NSMutableArray *) waiters;
+-(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source;
+-(void) assignRandomStudents;
 @end

@@ -16,27 +16,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    DataProc* data = [[DataProc alloc] init];
-//    [data readNames:@"names"];
-    // Do any additional setup after loading the view.
+    DataProc* data = [[DataProc alloc] init];
+    NSMutableArray *students = [data readNamesToStudents:@"names"];
+    for(Student *s in students){
+        s.grade = arc4random_uniform(4)+9;
+        s.gender = arc4random_uniform(2) == 0?@"F":@"M";
+        s.rotationsWaited = arc4random_uniform(2);
+    }
     
-    //testing table toString
-    Student *s1 = [[Student alloc]initWithFirstName:@"Sarah" andLastName:@"Du" grade:12];
-    Student *s2 = [[Student alloc]initWithFirstName:@"Xander" andLastName:@"Li"grade:12];
-    Student *s3 = [[Student alloc]initWithFirstName:@"Gideon" andLastName:@"Yektai" grade: 11];
-    
-    Table *t1 = [[Table alloc] init];
-    Table *t2 = [[Table alloc] init];
-    [t1.students addObject:s1];
-    [t1.students addObject:s2];
-    [t1.students addObject:s3];
-    NSLog(@"%i",[t1 mostNeededGrade]);
-    
-    NSMutableArray *tables = [NSMutableArray arrayWithObjects: t1,t2,nil];
-    
-    Rotation *r1 = [[Rotation alloc]initWithTables:tables andMeals:3 andTables:2];
-    NSLog(@"is Sarah sitting with Xander: %hhd",[r1 student:s1 isSittingWith:s2]);
-    NSLog(@"is Sarah sitting with Gideon: %hhd",[r1 student:s1 isSittingWith:s3]);
+    //NSLog(@"%@",students);
+    NSLog(@"%lu",(unsigned long)[students count]);
+    RotationGenerator *gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] init]];
+    //NSLog(@"test generate waiters:");
+    NSMutableArray *waiters =[gen generateWaiters];
+    NSLog(@"%lu",(unsigned long)[waiters count]);
+    //NSLog(@"%@",waiters);
+    [gen assignRandomWaiters:waiters];
+    //NSLog(@"%@",gen.currentRotation.tables);
+    //NSLog(@"%@",waiters);
+    students = [gen eliminateDuplicateOf:waiters inList:students];
+    NSLog(@"%lu",(unsigned long)[students count]);
+    [gen assignRandomStudents];
+    NSLog(@"%@",gen.currentRotation.tables);
+
     
 
 
