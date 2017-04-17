@@ -105,7 +105,7 @@
 -(NSString*) description{
     NSString* str = [self.students componentsJoinedByString:@", "];
     //str will be replaced by [self.students description]
-    return [NSString stringWithFormat: @"{%@}; FirstW:%@; FirstW:%@; #:%i", str, self.firstWaiter.description, self.secondWaiter.description, self.tableNumber];
+    return [NSString stringWithFormat: @"{%@}; FirstW:%@; SecondW:%@; #:%i", str, self.firstWaiter.description, self.secondWaiter.description, self.tableNumber];
 }
 
 -(id) initFromString:(NSString*) string{

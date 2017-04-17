@@ -14,7 +14,7 @@
 -(NSString*) description{
     NSString* tablesStr = [self.tables componentsJoinedByString:@", "];
     //taableStr will be replaced by [self.students description]
-    return [NSString stringWithFormat: @"{%@}; %i; %i", tablesStr, self.numberOfMeals, self.numberOfTables];
+    return [NSString stringWithFormat: @"Tables: {%@}; Number of tables: %i", tablesStr, self.numberOfTables];
 }
 
 //for testing purposes/init without string

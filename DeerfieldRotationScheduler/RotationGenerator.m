@@ -49,8 +49,10 @@
             NSLog(@"%@",neededGender);
             int neededGrade = [t mostNeededGrade];
             for(int i = 0; i < 4;i++){
-                if([self.students count] == 0)
+                if([self.students count] == 0){
+                    NSLog(@"No more students. At table #%i",t.tableNumber);
                     return;
+                }
                 for(Student * s in self.students){
                     BOOL isNeededGrade = neededGrade == s.grade || i>=1;
                     BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;

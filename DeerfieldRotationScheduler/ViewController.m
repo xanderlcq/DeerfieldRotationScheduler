@@ -27,6 +27,9 @@
     //NSLog(@"%@",students);
     NSLog(@"%lu",(unsigned long)[students count]);
     RotationGenerator *gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] init]];
+    Rotation *result = [gen generateRandomRotation];
+    NSLog(@"%@",result);
+    /*
     //NSLog(@"test generate waiters:");
     NSMutableArray *waiters =[gen generateWaiters];
     NSLog(@"%lu",(unsigned long)[waiters count]);
@@ -35,11 +38,12 @@
     //NSLog(@"%@",gen.currentRotation.tables);
     //NSLog(@"%@",waiters);
     students = [gen eliminateDuplicateOf:waiters inList:students];
+    gen.students = students;
     NSLog(@"%lu",(unsigned long)[students count]);
     [gen assignRandomStudents];
     NSLog(@"%@",gen.currentRotation.tables);
 
-    
+    */
 
 
 }

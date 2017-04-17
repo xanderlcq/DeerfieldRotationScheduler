@@ -22,4 +22,5 @@
 -(void) assignRandomWaiters:(NSMutableArray *) waiters;
 -(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source;
 -(void) assignRandomStudents;
+-(Rotation *) generateRandomRotation;
 @end
