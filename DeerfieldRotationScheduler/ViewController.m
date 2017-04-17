@@ -20,7 +20,7 @@
     NSMutableArray *students = [data readNamesToStudents:@"names"];
     for(Student *s in students){
         s.grade = arc4random_uniform(4)+9;
-        s.gender = arc4random_uniform(2) == 0?@"F":@"M";
+//        s.gender = arc4random_uniform(2) == 0?@"F":@"M";
         s.rotationsWaited = arc4random_uniform(2);
     }
     

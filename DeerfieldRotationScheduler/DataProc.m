@@ -19,11 +19,13 @@
     
     NSMutableArray* students = [[NSMutableArray alloc] init];
     for(int i = 0; i < [allLines count]-1; i++){
+        NSLog(@"%i",i);
         NSArray* names = [allLines[i] componentsSeparatedByString:@","];
         NSString* lastName = names[0];
         NSString* firstName = names[1];
+        NSString* gender = names[2];
         firstName = [firstName stringByReplacingOccurrencesOfString:@" " withString:@""];
-        Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName];
+        Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName gender:gender];
         [students addObject:s];
     }
     //Fix format

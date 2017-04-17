@@ -44,6 +44,26 @@
     return self;
 }
 
+//for testing
+-(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last gender:(NSString*) gender{
+    self = [super init];
+    if (self) {
+        self.firstName = first;
+        self.lastName = last;
+        self.gender = gender;
+        self.rotationsWaited = 0;
+        self.mealsWaited = 0;
+        self.cocurric = @"Undefined Cocurric";
+        self.grade = 0;
+        self.frees = [[NSMutableArray alloc]initWithObjects:[[NSNumber alloc] initWithInt:0], nil];
+        self.birthday = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:0];
+        self.linkedStudents = [[NSMutableArray alloc] init];
+        self.dayStudent = NO;
+    }
+    return self;
+}
+
+
 -(NSString*)description{
     NSString* str = @"";
     str = [NSString stringWithFormat:@"{%@,%@,%i,%@,%i}", self.firstName, self.lastName, self.rotationsWaited,self.gender,self.grade];

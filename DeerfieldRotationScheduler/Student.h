@@ -26,6 +26,7 @@
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last;
 //for testing
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last grade:(int) grade;
+-(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last gender:(NSString*) gender;
 -(NSString*)description;
 -(Student*)initFromString:(NSString*)str;
 //to-string
