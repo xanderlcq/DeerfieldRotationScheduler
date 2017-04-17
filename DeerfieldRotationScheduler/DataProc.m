@@ -24,6 +24,7 @@
         NSString* lastName = names[0];
         NSString* firstName = names[1];
         NSString* gender = names[2];
+        //NSString* grade = names[3];
         firstName = [firstName stringByReplacingOccurrencesOfString:@" " withString:@""];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName gender:gender];
         [students addObject:s];
