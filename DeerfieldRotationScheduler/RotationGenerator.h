@@ -23,4 +23,8 @@
 -(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source;
 -(void) assignRandomStudents;
 -(Rotation *) generateRandomRotation;
+
+//sarah testing lock
+-(void) lockStudent:(Student*) student atTable:(int)tableNum;
+
 @end

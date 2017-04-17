@@ -27,6 +27,7 @@
     //NSLog(@"%@",students);
     NSLog(@"%lu",(unsigned long)[students count]);
     RotationGenerator *gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] init]];
+    [gen lockStudent:[students objectAtIndex:0] atTable:1];
     Rotation *result = [gen generateRandomRotation];
     NSLog(@"%@",result);
     NSLog(@"=====\n\n\n\n");

@@ -54,14 +54,16 @@
                     return;
                 }
                 for(Student * s in self.students){
-                    BOOL isNeededGrade = neededGrade == s.grade || i>=1;
-                    BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
-                    BOOL isNeverSatTogether = [self neverSatBefore:s withStudents:t.students] || i>= 3;
-                    if(isNeededGrade && isNeededGender &&isNeverSatTogether){
-                        [self.students removeObject:s];
-                        [t.students addObject:s];
-                        i = 4;
-                        break;
+                    if (!s.locked){
+                        BOOL isNeededGrade = neededGrade == s.grade || i>=1;
+                        BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
+                        BOOL isNeverSatTogether = [self neverSatBefore:s withStudents:t.students] || i>= 3;
+                        if(isNeededGrade && isNeededGender &&isNeverSatTogether){
+                            [self.students removeObject:s];
+                            [t.students addObject:s];
+                            i = 4;
+                            break;
+                        }
                     }
                 }
             }
@@ -143,5 +145,12 @@
         
     }
     return copy;
+}
+
+-(void) lockStudent:(Student*) student atTable:(int)tableNum{
+    student.locked = YES;
+    // add student to given table. Tables array in current rotation are uninitialized at this point, so student array can't be accesed...
+    Table* table = [self.currentRotation.tables objectAtIndex:tableNum];
+    [table.students addObject:student];
 }
 @end

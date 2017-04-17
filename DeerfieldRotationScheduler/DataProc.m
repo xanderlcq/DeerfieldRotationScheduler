@@ -19,7 +19,6 @@
     
     NSMutableArray* students = [[NSMutableArray alloc] init];
     for(int i = 0; i < [allLines count]-1; i++){
-        NSLog(@"%i",i);
         NSArray* names = [allLines[i] componentsSeparatedByString:@","];
         NSString* lastName = names[0];
         NSString* firstName = names[1];

@@ -22,6 +22,7 @@
 @property NSMutableArray *linkedStudents;
 @property BOOL dayStudent;
 @property NSMutableArray *studentsSatWith;
+@property BOOL locked;
 //init with name, grade and birthday initialized to 0 
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last;
 //for testing
