@@ -46,7 +46,7 @@
         while([t.students count] < t.numerOfStudents-2){
             //While this table needs more students
             NSString *neededGender = [t mostNeededGender];
-            NSLog(@"%@",neededGender);
+            //NSLog(@"%@",neededGender);
             int neededGrade = [t mostNeededGrade];
             for(int i = 0; i < 4;i++){
                 if([self.students count] == 0){
@@ -85,6 +85,7 @@
         //Pop the first student
         Student *firstwaiter = [waiters objectAtIndex:0];
         [waiters removeObjectAtIndex:0];
+        firstwaiter.rotationsWaited++;
         //Find the second waiter who's in a different grade and hasn't sat with 1st waiter before
         Student *secondWaiter;
         
@@ -108,7 +109,7 @@
                 j--;
             }
         }
-        
+        secondWaiter.rotationsWaited++;
         Table *newTable = [[Table alloc] initWithFirstWaiter:firstwaiter SecondWaiter:secondWaiter andTableNum:tableNumber];
         newTable.numerOfStudents = 10;
         tableNumber++;

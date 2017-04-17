@@ -29,6 +29,10 @@
     RotationGenerator *gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] init]];
     Rotation *result = [gen generateRandomRotation];
     NSLog(@"%@",result);
+    NSLog(@"=====\n\n\n\n");
+    gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] initWithObjects:result, nil]];
+    result = [gen generateRandomRotation];
+    NSLog(@"%@",result);
     /*
     //NSLog(@"test generate waiters:");
     NSMutableArray *waiters =[gen generateWaiters];
