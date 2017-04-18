@@ -17,12 +17,12 @@
 //Record history
 //Read history
 
--(id)initWithNumOfTables:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
+-(id)initWithEmptyRotation:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
 -(NSMutableArray *) generateWaiters;
 -(void) assignRandomWaiters:(NSMutableArray *) waiters;
 -(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source;
 -(void) assignRandomStudents;
--(Rotation *) generateRandomRotation;
+-(void) generateRandomRotation;
 
 //sarah testing lock
 -(void) lockStudent:(Student*) student atTable:(int)tableNum;

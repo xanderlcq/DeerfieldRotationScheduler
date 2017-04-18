@@ -16,9 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
-
+    DataProc *proc = [[DataProc alloc] init];
+    NSMutableArray *studentList = [proc readNamesToStudents:@"names"];
+    Rotation *testRotation = [[Rotation alloc] initEmptyRotation];
+    for(int i = 0; i < 68;i++){
+        [testRotation addEmptyTable:9];
+    }
+    
+    RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:testRotation studentList:studentList andPastHistory:[[NSMutableArray alloc] init]];
+    [gen generateRandomRotation];
+    NSLog(@"%@",testRotation);
 }
 
 

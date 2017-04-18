@@ -19,8 +19,8 @@
 -(NSString*) description;
 //init-from string
 
-//Collision check
+-(void) addEmptyTable:(int) tableSize;
 -(BOOL) student:(Student*) first isSittingWith:(Student *) second;
 -(int) numberOfTables;
-
+-(id) initEmptyRotation;
 @end

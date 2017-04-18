@@ -26,17 +26,18 @@
 //    }
 //    return self;
 //}
--(id) initEmptyRotationWithNumOfMeals:(int) numOfMeals{
+-(id) initEmptyRotation{
     
     self = [super init];
     if (self){
         self.tables = [[NSMutableArray alloc] init];
-        self.numberOfMeals = numOfMeals;
     }
     return self;
 }
 -(void) addEmptyTable:(int) tableSize{
-    [self.tables addObject:[[Table alloc] initWithSize:tableSize]];
+    Table *t =[[Table alloc] initWithSize:tableSize];
+    t.tableNumber = (int)[self.tables count];
+    [self.tables addObject:t];
 }
 //-(id) initFromString:(NSString*) string{
 //    self = [super init];

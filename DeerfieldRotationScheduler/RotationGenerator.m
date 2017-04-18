@@ -10,7 +10,7 @@
 
 @implementation RotationGenerator
 
--(id)initWithNumOfTables:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
+-(id)initWithEmptyRotation:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
     self = [super init];
     if(self){
         self.currentRotation = emptyRotation;
@@ -19,12 +19,12 @@
     }
     return self;
 }
--(Rotation *) generateRandomRotation{
+-(void) generateRandomRotation{
     NSMutableArray *waiters = [self generateWaiters];
     [self assignRandomWaiters:waiters];
     self.students = [self eliminateDuplicateOf:waiters inList:self.students]; //delete waiters from students list of this rotation
     [self assignRandomStudents];
-    return self.currentRotation;
+    //return self.currentRotation;
 }
 -(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source{
     NSMutableArray *copy = [self shallowCopy:source];
