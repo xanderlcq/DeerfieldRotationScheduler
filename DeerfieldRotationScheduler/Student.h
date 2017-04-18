@@ -32,5 +32,5 @@
 -(Student*)initFromString:(NSString*)str;
 //to-string
 //init from string
-
+-(BOOL) isEqualTo:(Student *) target;
 @end

@@ -10,10 +10,10 @@
 
 @implementation RotationGenerator
 
--(id)initWithNumOfTables:(int)numOfTables numOfMeals:(int) numOfMeals studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
+-(id)initWithNumOfTables:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
     self = [super init];
     if(self){
-        self.currentRotation = [[Rotation alloc] initEmptyRotationWithNumOfMeals:numOfMeals andNumOfTables:numOfTables];
+        self.currentRotation = emptyRotation;
         self.students = [self shallowCopy:students];
         self.pastRotations = past;
     }
@@ -81,9 +81,9 @@
 -(void) assignRandomWaiters:(NSMutableArray *) waiters{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
+    
     //waiters array has an even length
-    int tableNumber = 1;
-    while([waiters count] > 0){
+    for(Table *t in self.currentRotation.tables){
         //Pop the first student
         Student *firstwaiter = [waiters objectAtIndex:0];
         [waiters removeObjectAtIndex:0];
@@ -112,10 +112,8 @@
             }
         }
         secondWaiter.rotationsWaited++;
-        Table *newTable = [[Table alloc] initWithFirstWaiter:firstwaiter SecondWaiter:secondWaiter andTableNum:tableNumber];
-        newTable.numerOfStudents = 10;
-        tableNumber++;
-        [self.currentRotation.tables addObject:newTable];
+        t.firstWaiter = firstwaiter;
+        t.secondWaiter = secondWaiter;
     }
     
 }

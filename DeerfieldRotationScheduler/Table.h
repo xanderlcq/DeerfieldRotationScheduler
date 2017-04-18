@@ -18,15 +18,17 @@
 @property int numerOfStudents;
 
 -(NSString*) description;
--(id)init;
+
+-(id)initWithSize:(int) size;
 -(id)initWithFirstWaiter:(Student*)firstW SecondWaiter:(Student*)secondW andTableNum:(int) tableNum;
 //-(id)initEmptyTableWithNum:(int) tableNumber;
 -(id)initWithStudents:(NSMutableArray*) students first:(Student*)firstW andSecond:(Student*)secondW wTable:(int) tableNum;
--(id) initFromString:(NSString*) string;
+//-(id) initFromString:(NSString*) string;
 -(int) numOfMale;
 -(int) numOfFemale;
 -(int) mostNeededGrade;
 -(NSString *)mostNeededGender;
+-(BOOL) student:(Student *) a isSittingWith:(Student *)b;
 //to-string
 //init from string
 @end

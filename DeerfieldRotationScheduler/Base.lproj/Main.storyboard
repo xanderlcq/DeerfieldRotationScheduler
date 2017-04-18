@@ -689,18 +689,5 @@
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
-        <!--Add StudentVC-->
-        <scene sceneID="MFq-Nl-bT6">
-            <objects>
-                <viewController id="yWT-50-cna" customClass="AddStudentVC" sceneMemberID="viewController">
-                    <view key="view" id="W2T-y6-1tW">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="9NF-En-nfL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="561" y="655"/>
-        </scene>
     </scenes>
 </document>

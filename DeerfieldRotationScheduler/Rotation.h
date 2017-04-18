@@ -13,7 +13,7 @@
 
 @property NSMutableArray *tables;
 @property int numberOfMeals;
-@property int numberOfTables;
+
 @property NSMutableArray *students;
 //to-string
 -(NSString*) description;
@@ -21,8 +21,6 @@
 
 //Collision check
 -(BOOL) student:(Student*) first isSittingWith:(Student *) second;
+-(int) numberOfTables;
 
-//WHO NAME THIS???????????? with tables and tables???
--(id) initWithTables:(NSMutableArray*)tables andMeals:(int)numMeals andTables:(int)numTables;
--(id) initEmptyRotationWithNumOfMeals:(int) numOfMeals andNumOfTables:(int) numOfTables;
 @end

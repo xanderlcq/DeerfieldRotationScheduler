@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DataProc.h"
+
 //Sarah's first commit
 @interface ViewController : NSViewController
 

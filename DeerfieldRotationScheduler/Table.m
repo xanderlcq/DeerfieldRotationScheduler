@@ -10,10 +10,11 @@
 
 @implementation Table
 
--(id)init{
+-(id)initWithSize:(int) size{
     self = [super init];
     if(self){
         self.students = [[NSMutableArray alloc] init];
+        self.numerOfStudents = size;
     }
     return self;
 }
@@ -107,39 +108,49 @@
     //str will be replaced by [self.students description]
     return [NSString stringWithFormat: @"{%@}; FirstW:%@; SecondW:%@; #:%i", str, self.firstWaiter.description, self.secondWaiter.description, self.tableNumber];
 }
-
--(id) initFromString:(NSString*) string{
-    self = [super init];
-    //take in first part of string, feed into init from string for student
-    if(self){
-        //get all student strings into an array
-        NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
-        
-        //add students to self.students
-        for (int i = 0; i < [studentStrings count]; i++){
-            NSString* studentString = [studentStrings objectAtIndex:i];
-//<<<<<<< Updated upstream
+-(BOOL) student:(Student *) a isSittingWith:(Student *)b{
+    BOOL aIsHere = NO;
+    BOOL bIsHere = NO;
+    for(Student * s in self.students){
+        if([s isEqualTo:a])
+            aIsHere = YES;
+        if([s isEqualTo:b])
+            bIsHere = YES;
+    }
+    return aIsHere && bIsHere;
+}
+//-(id) initFromString:(NSString*) string{
+//    self = [super init];
+//    //take in first part of string, feed into init from string for student
+//    if(self){
+//        //get all student strings into an array
+//        NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
+//        
+//        //add students to self.students
+//        for (int i = 0; i < [studentStrings count]; i++){
+//            NSString* studentString = [studentStrings objectAtIndex:i];
+////<<<<<<< Updated upstream
+//////            Student *newS = [[Student alloc]initFromString:studentString]
+//////            [self.students addObject:newS];
+////||||||| merged common ancestors
 ////            Student *newS = [[Student alloc]initFromString:studentString]
 ////            [self.students addObject:newS];
-//||||||| merged common ancestors
-//            Student *newS = [[Student alloc]initFromString:studentString]
-//            [self.students addObject:newS];
-//=======
-//          //  Student *newS = [[Student alloc]initFromString:studentString]
-//           // [self.students addObject:newS];
-//>>>>>>> Stashed changes
-        }
-        //create waiters - will be duplicate
-        NSString* firstWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:1];
-        //self.firstWaiter = [[Student alloc]initFromString:firstWaiter];
-        
-        NSString* secondWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:2];
-        //self.secondWaiter = [[Student alloc]initFromString:secondWaiter];
-        
-        //table number
-        self.tableNumber = [[[string componentsSeparatedByString:@";"] objectAtIndex:3]intValue];
-    }
-    return self;
-}
+////=======
+////          //  Student *newS = [[Student alloc]initFromString:studentString]
+////           // [self.students addObject:newS];
+////>>>>>>> Stashed changes
+//        }
+//        //create waiters - will be duplicate
+//        NSString* firstWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:1];
+//        //self.firstWaiter = [[Student alloc]initFromString:firstWaiter];
+//        
+//        NSString* secondWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:2];
+//        //self.secondWaiter = [[Student alloc]initFromString:secondWaiter];
+//        
+//        //table number
+//        self.tableNumber = [[[string componentsSeparatedByString:@";"] objectAtIndex:3]intValue];
+//    }
+//    return self;
+//}
 
 @end

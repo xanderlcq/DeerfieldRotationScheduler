@@ -17,7 +17,7 @@
 //Record history
 //Read history
 
--(id)initWithNumOfTables:(int)numOfTables numOfMeals:(int) numOfMeals studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
+-(id)initWithNumOfTables:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
 -(NSMutableArray *) generateWaiters;
 -(void) assignRandomWaiters:(NSMutableArray *) waiters;
 -(NSMutableArray *) eliminateDuplicateOf:(NSMutableArray *)duplicates inList:(NSMutableArray *) source;

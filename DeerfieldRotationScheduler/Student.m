@@ -112,5 +112,7 @@
 
     return self;
 }
-
+-(BOOL) isEqualTo:(Student *) target{
+    return [self.firstName isEqualToString:target.firstName] && [self.lastName isEqualToString:target.lastName];
+}
 @end
