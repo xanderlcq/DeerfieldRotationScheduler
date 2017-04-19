@@ -145,6 +145,7 @@
     return copy;
 }
 
+
 -(void) lockStudent:(Student*) student atTable:(int)tableNum{
     student.locked = YES;
     // add student to given table. Tables array in current rotation are uninitialized at this point, so student array can't be accesed...
