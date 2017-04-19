@@ -24,11 +24,9 @@
         [testRotation addEmptyTable:9];
     }
     
-<<<<<<< Updated upstream
     RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:testRotation studentList:studentList andPastHistory:[[NSMutableArray alloc] init]];
     [gen generateRandomRotation];
     NSLog(@"%@",testRotation);
-||||||| merged common ancestors
     //NSLog(@"%@",students);
     NSLog(@"%lu",(unsigned long)[students count]);
     RotationGenerator *gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] init]];
@@ -54,9 +52,6 @@
     NSLog(@"%@",gen.currentRotation.tables);
 
     */
-
-
-=======
     //NSLog(@"%@",students);
     NSLog(@"%lu",(unsigned long)[students count]);
     RotationGenerator *gen = [[RotationGenerator alloc] initWithNumOfTables:68 numOfMeals:30 studentList:students andPastHistory:[[NSMutableArray alloc] init]];
