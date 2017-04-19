@@ -18,7 +18,15 @@
 
 
 @interface EditStudentVC : NSViewController <NSTableViewDataSource,NSTableViewDelegate>
+@property (weak) IBOutlet NSTextField *genderInput;
+@property (weak) IBOutlet NSTextField *gradeInput;
+@property (weak) IBOutlet NSTextField *lastNameInput;
+@property (weak) IBOutlet NSTextField *firstNameInput;
+- (IBAction)returnButton:(id)sender;
 @property (weak) IBOutlet NSTableView *tableView;
+- (IBAction)addStudentButton:(id)sender;
+- (IBAction)deleteButton:(id)sender;
+
 @property NSMutableArray *studentList;
 @property (nonatomic,weak) id<EditStudentVCDelegate>delegate;
 @end

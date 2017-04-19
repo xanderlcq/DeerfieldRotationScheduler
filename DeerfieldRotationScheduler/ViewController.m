@@ -14,12 +14,17 @@
 #import "RotationGenerator.h"
 
 @implementation ViewController
+
 -(void) closeWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller{
-    [self dismissController:controller];
+    NSLog(@"%@",studentsList);
+    [self dismissViewController:controller];
     self.studentsList = studentsList;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Student *s = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" gender:@"M"];
+    s.grade = 10;
+    self.studentsList = [[NSMutableArray alloc] initWithObjects:s, nil];
 
 }
 
@@ -32,6 +37,7 @@
 -(void) prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender{
 //editStudentsSeg
     if([segue.identifier isEqualToString:@"editStudentsSeg"]){
+        NSLog(@"editStudentsSeg");
         EditStudentVC *vc = [segue destinationController];
         vc.delegate = self;
         vc.studentList = self.studentsList;
