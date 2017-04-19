@@ -8,11 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DataProc.h"
+#import "EditStudentVC.h"
 
-//Sarah's first commit
-@interface ViewController : NSViewController
-- (IBAction)testButton:(id)sender;
 
+@interface ViewController : NSViewController <EditStudentVCDelegate>
+
+@property NSMutableArray *studentsList;
 
 @end
 

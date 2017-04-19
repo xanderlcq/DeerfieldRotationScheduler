@@ -14,7 +14,10 @@
 #import "RotationGenerator.h"
 
 @implementation ViewController
-
+-(void) closeWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller{
+    [self dismissController:controller];
+    self.studentsList = studentsList;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -27,9 +30,14 @@
     // Update the view, if already loaded.
 }
 -(void) prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender{
-
+//editStudentsSeg
+    if([segue.identifier isEqualToString:@"editStudentsSeg"]){
+        EditStudentVC *vc = [segue destinationController];
+        vc.delegate = self;
+        vc.studentList = self.studentsList;
+    }
 }
-- (IBAction)testButton:(id)sender {
+- (void)testOpenDialog {
     NSLog(@"123");
     // Create the File Open Dialog class.
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
@@ -56,5 +64,6 @@
             NSLog(@"%@",[u path]);
         }
     }
+
 }
 @end

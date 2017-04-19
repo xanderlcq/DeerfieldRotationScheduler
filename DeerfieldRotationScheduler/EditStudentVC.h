@@ -7,7 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Student.h"
 
-@interface EditStudentVC : NSViewController
+@class EditStudentVC;
+@protocol EditStudentVCDelegate <NSObject>
 
+-(void) closeWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller;
+
+@end
+
+
+@interface EditStudentVC : NSViewController <NSTableViewDataSource,NSTableViewDelegate>
+@property (weak) IBOutlet NSTableView *tableView;
+@property NSMutableArray *studentList;
+@property (nonatomic,weak) id<EditStudentVCDelegate>delegate;
 @end
