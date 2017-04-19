@@ -36,7 +36,7 @@
 }
 -(void) addEmptyTable:(int) tableSize{
     Table *t =[[Table alloc] initWithSize:tableSize];
-    t.tableNumber = (int)[self.tables count];
+    t.tableNumber = (int)[self.tables count]+1;
     [self.tables addObject:t];
 }
 //-(id) initFromString:(NSString*) string{
@@ -66,5 +66,7 @@
     }
     return NO;
 }
+
+//write to text file?? 
 
 @end

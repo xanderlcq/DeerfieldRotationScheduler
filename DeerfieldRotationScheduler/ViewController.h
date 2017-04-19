@@ -11,6 +11,7 @@
 
 //Sarah's first commit
 @interface ViewController : NSViewController
+- (IBAction)testButton:(id)sender;
 
 
 @end
