@@ -67,13 +67,6 @@
     return NO;
 }
 
-//write to text file??
--(void) writeToFile{
-    NSError *error;
-    NSString *stringToWrite = @"kid1\nkid2\nkid3\nkid4";
-    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"myfile.txt"];
-    [stringToWrite writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-
-}
+//write to text file?? 
 
 @end
