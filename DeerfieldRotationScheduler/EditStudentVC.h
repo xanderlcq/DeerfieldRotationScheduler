@@ -13,6 +13,7 @@
 @protocol EditStudentVCDelegate <NSObject>
 
 -(void) closeWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller;
+-(void) closeWithoutSaving:(EditStudentVC *)controller;
 
 @end
 

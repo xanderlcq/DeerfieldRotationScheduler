@@ -20,6 +20,9 @@
     [self dismissViewController:controller];
     self.studentsList = studentsList;
 }
+-(void) closeWithoutSaving:(EditStudentVC *)controller{
+    [self dismissViewController:controller];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     Student *s = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" gender:@"M"];

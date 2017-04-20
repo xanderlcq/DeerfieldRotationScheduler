@@ -46,7 +46,24 @@
 
     
 }
-
+-(void) viewWillDisappear{
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Save"];
+    [alert addButtonWithTitle:@"Discard"];
+        [alert setMessageText:@"Invalid format"];
+        [alert setInformativeText:@"Please enter a valid grade (9-12)"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        NSModalResponse response = [alert runModal];
+        if(response == NSAlertFirstButtonReturn){
+            NSLog(@"first button");
+            [self.delegate closeWithStudentsList:self.studentList vc:self];
+        }
+        if(response == NSAlertSecondButtonReturn){
+            NSLog(@"second button");
+            [self.delegate closeWithoutSaving:self];
+        }
+    
+}
 - (IBAction)returnButton:(id)sender {
     NSLog(@"return button");
     [self.delegate closeWithStudentsList:self.studentList vc:self];
