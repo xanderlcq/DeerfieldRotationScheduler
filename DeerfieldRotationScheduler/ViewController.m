@@ -23,10 +23,12 @@
 -(void) closeWithoutSaving:(EditStudentVC *)controller{
     [self dismissViewController:controller];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     Student *s = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" gender:@"M"];
     s.grade = 10;
+    
     self.studentsList = [[NSMutableArray alloc] initWithObjects:s, nil];
 
 }
@@ -43,7 +45,7 @@
         NSLog(@"editStudentsSeg");
         EditStudentVC *vc = [segue destinationController];
         vc.delegate = self;
-        vc.studentList = self.studentsList;
+        vc.studentList = [self shallowCopy:self.studentsList];
     }
 }
 - (void)testOpenDialog {
@@ -74,5 +76,13 @@
         }
     }
 
+}
+-(NSMutableArray *) shallowCopy:(NSMutableArray *) original{
+    NSMutableArray *copy = [[NSMutableArray alloc] init];
+    for(int i = 0; i < [original count]; i++){
+        [copy insertObject:[original objectAtIndex:i] atIndex:i];
+        
+    }
+    return copy;
 }
 @end

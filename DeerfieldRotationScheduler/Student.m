@@ -133,6 +133,6 @@
     return self;
 }
 -(BOOL) isEqualTo:(Student *) target{
-    return [self.firstName isEqualToString:target.firstName] && [self.lastName isEqualToString:target.lastName];
+    return [[self.firstName lowercaseString] isEqualToString:[target.firstName lowercaseString]] && [[self.lastName lowercaseString] isEqualToString:[target.lastName lowercaseString]];
 }
 @end

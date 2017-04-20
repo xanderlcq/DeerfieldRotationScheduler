@@ -16,6 +16,7 @@
     // Do view setup here.
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
+    [self.tableView setAllowsMultipleSelection:YES];
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
@@ -42,7 +43,7 @@
 }
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     NSTableView *tableView = notification.object;
-    NSLog(@"User has selected row %ld", (long)tableView.selectedRow);
+    NSLog(@"User has selected row %@", tableView.selectedRowIndexes);
 
     
 }
@@ -64,14 +65,10 @@
         }
     
 }
-- (IBAction)returnButton:(id)sender {
-    NSLog(@"return button");
-    [self.delegate closeWithStudentsList:self.studentList vc:self];
-}
+
 - (IBAction)addStudentButton:(id)sender {
     NSLog(@"add student button");
     NSString *grade =[self.gradeInput.stringValue stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"grade is %@", grade);
     if (![grade isEqualToString: @"9"]&&![grade isEqualToString: @"10"]&&![grade isEqualToString: @"11"]&&![grade isEqualToString: @"12"]){
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
@@ -82,7 +79,8 @@
             return;
         }
     }
-    
+#warning CHECK First/Last Name input is not empty!
+#warning Check if gender is "M" or "F"
     
     Student *s = [[Student alloc] initWithFirstName:self.firstNameInput.stringValue andLastName:self.lastNameInput.stringValue grade:self.gradeInput.intValue gender:self.genderInput.stringValue];
     [self.studentList addObject:s];
@@ -90,8 +88,12 @@
 }
 
 - (IBAction)deleteButton:(id)sender {
-    if(self.tableView.selectedRow != -1){
-        [self.studentList removeObjectAtIndex:self.tableView.selectedRow];
+    NSIndexSet *selectedIndexes = [self.tableView selectedRowIndexes];
+    NSUInteger index = [selectedIndexes lastIndex];
+    while ( index != NSNotFound )
+    {
+        [self.studentList removeObjectAtIndex:index];
+        index = [selectedIndexes indexGreaterThanIndex: index];
     }
     [self.tableView reloadData];
 }
