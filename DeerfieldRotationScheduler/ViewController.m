@@ -48,35 +48,7 @@
         vc.studentList = [self shallowCopy:self.studentsList];
     }
 }
-- (void)testOpenDialog {
-    NSLog(@"123");
-    // Create the File Open Dialog class.
-    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
-    
-    // Enable the selection of files in the dialog.
-    [openDlg setCanChooseFiles:YES];
-    
-    // Multiple files not allowed
-    [openDlg setAllowsMultipleSelection:YES];
-    
-    // Can't select a directory
-    [openDlg setCanChooseDirectories:NO];
-    
-    // Display the dialog. If the OK button was pressed,
-    // process the files.
-    if ( [openDlg runModal] == NSModalResponseOK )
-    {
-        // Get an array containing the full filenames of all
-        // files and directories selected.
-        NSArray* filesURLs = [openDlg URLs];
-        
-        // Loop through all the files and process them.
-        for(NSURL *u in filesURLs){
-            NSLog(@"%@",[u path]);
-        }
-    }
 
-}
 -(NSMutableArray *) shallowCopy:(NSMutableArray *) original{
     NSMutableArray *copy = [[NSMutableArray alloc] init];
     for(int i = 0; i < [original count]; i++){

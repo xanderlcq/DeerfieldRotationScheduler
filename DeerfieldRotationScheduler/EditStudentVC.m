@@ -97,5 +97,59 @@
     }
     [self.tableView reloadData];
 }
+-(void) writeToFile:(NSString *) filePath withContent:(NSString *)content{
+    NSLog(@"%@",filePath);
+    NSLog(@"%@",content);
+    [content writeToFile:filePath
+              atomically:NO
+                encoding:NSStringEncodingConversionAllowLossy
+                   error:nil];
+}
 
+//defaultName example: @"students.csv"
+- (void)promptSaveDialogWithContent:(NSString *) content withDefaultFileName:(NSString *)defaultName{
+    // create the save panel
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    
+    // set a new file name
+    [panel setNameFieldStringValue:defaultName];
+    
+    // display the panel
+    if([panel runModal] == NSModalResponseOK){
+        NSURL *saveURL = [panel URL];
+        NSLog(@"%@",[saveURL path]);
+        [self writeToFile:[saveURL path] withContent:content];
+    }
+}
+- (void)testOpenDialog {
+    NSLog(@"123");
+    // Create the File Open Dialog class.
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+    
+    // Enable the selection of files in the dialog.
+    [openDlg setCanChooseFiles:YES];
+    
+    // Multiple files not allowed
+    [openDlg setAllowsMultipleSelection:YES];
+    
+    // Can't select a directory
+    [openDlg setCanChooseDirectories:NO];
+    
+    // Display the dialog. If the OK button was pressed,
+    // process the files.
+    if ( [openDlg runModal] == NSModalResponseOK )
+    {
+        // Get an array containing the full filenames of all
+        // files and directories selected.
+        NSArray* filesURLs = [openDlg URLs];
+        
+        // Loop through all the files and process them.
+        for(NSURL *u in filesURLs){
+            NSLog(@"%@",[u path]);
+        }
+    }
+}
+- (IBAction)exportTemplateButton:(id)sender {
+    [self testSaveDialog];
+}
 @end

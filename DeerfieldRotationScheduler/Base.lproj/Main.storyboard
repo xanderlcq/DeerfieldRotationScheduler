@@ -1039,6 +1039,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportTemplateButton:" target="DuH-1C-htF" id="sby-Qo-UxZ"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
