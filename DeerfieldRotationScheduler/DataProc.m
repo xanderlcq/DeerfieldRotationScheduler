@@ -31,5 +31,40 @@
     //Fix format
     return students;
 }
+-(void) writeToFile:(NSString *) filePath withContent:(NSString *)content{
+    NSLog(@"%@",filePath);
+    NSLog(@"%@",content);
+    [content writeToFile:filePath atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
+-(NSString *) readFileToStringWithPath:(NSString *) filePath{
+    return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+}
 
+//defaultName example: @"students.csv"
+- (void)promptSaveDialogWithContent:(NSString *) content withDefaultFileName:(NSString *)defaultName{
+    
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    [panel setNameFieldStringValue:defaultName];
+    
+    if([panel runModal] == NSModalResponseOK){
+        [self writeToFile:[[panel URL] path] withContent:content];
+    }
+}
+- (NSString *) openCSVInDialogToString{
+    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    
+    [panel setCanChooseFiles:YES];
+    [panel setFloatingPanel:YES];
+    [panel setAllowsMultipleSelection:NO];
+    NSArray* fileTypes = [NSArray arrayWithObjects:@"csv", @"CSV", nil];
+    [panel setAllowedFileTypes:fileTypes];
+    [panel setCanChooseDirectories:NO];
+    
+    if ( [panel runModal] == NSModalResponseOK )
+    {
+        NSString *path = [[panel URL] path];
+        return [self readFileToStringWithPath:path];
+    }
+    return nil;
+}
 @end

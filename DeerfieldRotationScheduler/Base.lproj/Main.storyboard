@@ -1023,6 +1023,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="importListButton:" target="DuH-1C-htF" id="vL2-CC-cOZ"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wko-QP-19S">
                                 <rect key="frame" x="600" y="73" width="106" height="32"/>
@@ -1031,6 +1034,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportListButton:" target="DuH-1C-htF" id="Ekg-fI-9yF"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Jp-lC-LbC">
                                 <rect key="frame" x="434" y="47" width="140" height="32"/>

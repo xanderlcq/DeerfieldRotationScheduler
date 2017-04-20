@@ -7,9 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import "Student.h"
 
 @interface DataProc : NSObject
 //Read names list
 -(NSMutableArray *)readNamesToStudents:(NSString *)fileName;
+
+-(void) writeToFile:(NSString *) filePath withContent:(NSString *)content;
+-(NSString *) readFileToStringWithPath:(NSString *) filePath;
+
+//defaultName example: @"students.csv"
+- (void)promptSaveDialogWithContent:(NSString *) content withDefaultFileName:(NSString *)defaultName;
+- (NSString *) openCSVInDialogToString;
 @end
