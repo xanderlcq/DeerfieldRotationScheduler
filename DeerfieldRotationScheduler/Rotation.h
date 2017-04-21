@@ -13,7 +13,7 @@
 
 @property NSMutableArray *tables;
 @property int numberOfMeals;
-
+@property NSString *nameOfRotation;
 @property NSMutableArray *students;
 //to-string
 -(NSString*) description;

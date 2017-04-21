@@ -59,9 +59,9 @@
     return (int)[self.tables count];
 }
 //check if at same table - assuming each student has already been assigned to a table. Will be true if bothunassigned to a table
--(BOOL) student:(Student*) first isSittingWith:(Student *) second{
+-(BOOL) student:(Student*) a isSittingWith:(Student *) b{
     for (Table *table in self.tables) {
-        if([table student:first isSittingWith:second])
+        if([table student:a isSittingWith:b])
             return YES;
     }
     return NO;

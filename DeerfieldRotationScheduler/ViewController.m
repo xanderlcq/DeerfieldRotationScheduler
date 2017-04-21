@@ -26,39 +26,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.studentsListTableView setDelegate:self];
+    [self.studentsListTableView setDataSource:self];
+    Student *s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
+    Student *s2 = [[Student alloc] initWithFirstName:@"Gid" andLastName:@":)" grade:11 gender:@"M"];
+    self.studentsList = [[NSMutableArray alloc] initWithObjects:s1,s2, nil];
+    NSLog(@"%lu",[self.studentsList count]);
+    [self refreshRotationsPopupMenu];
 
-}
-
--(void)writeToFile:(Rotation*)rotation{
-    NSString* filepath = @"/Users/gyektai18/Desktop/Rotation.txt";
-    NSString* rotStr = [[NSString alloc] init];
-    NSMutableArray* tables = rotation.tables;
-    for(int i = 0; i < tables.count; i++){
-        rotStr = [NSString stringWithFormat:@"%@ \n\n%@", rotStr, [[tables objectAtIndex:i] namePresentably]];
-    }
-    int three = 0;
-    int four = 0;
-    int five = 0;
-    int six = 0;
-    int other = 0;
-    for(int i = 0; i < tables.count; i++){
-        Table* t = [tables objectAtIndex: i];
-        if([t numOfMale] == 3)
-            three++;
-        else if([t numOfMale] == 4)
-            four++;
-        else if([t numOfMale] == 5)
-            five++;
-        else if([t numOfMale] == 6)
-            six++;
-        else
-            other++;
-    }
-    rotStr = [NSString stringWithFormat:@"3 Male: %i, 4 Male: %i, 5 Male: %i, 6Male: %i, Other: %i \n%@", three, four, five, six, other, rotStr];
-    [rotStr writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    [self.rotationDropDownOutlet addItemWithTitle:@"test"];
+    [self.rotationDropDownOutlet addItemWithTitle:@"test1"];
+    [self.rotationDropDownOutlet addItemWithTitle:@"test2"];
+    
+    
 }
 
 
+-(void) refreshRotationsPopupMenu{
+    [self.rotationDropDownOutlet removeAllItems];
+    for(Rotation *r in self.allRotations){
+        [self.rotationDropDownOutlet addItemWithTitle:r.nameOfRotation];
+    }
+}
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
@@ -86,17 +75,19 @@
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+    NSLog(@"numberOfRows-%@",tableView.identifier);
     if([tableView.identifier isEqualToString:@"rotationTableView"]){
 #warning TODO
     }
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
+        //NSLog(@"numberOfRows:%lu",[self.studentsList count]);
         return [self.studentsList count];
     }
     return 0;
 }
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    //NSLog(@"%@",[tableColumn identifier]);
+    NSLog(@"%@",tableColumn.identifier);
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         Student *s = [self.studentsList objectAtIndex:row];
         if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
@@ -112,6 +103,12 @@
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
         }
     }
+    
     return cellView;
+}
+- (IBAction)rotationDropDown:(id)sender {
+    NSLog(@"%lu",[self.rotationDropDownOutlet indexOfSelectedItem])
+    ;
+    self.currentDisplayedRotation = [self.allRotations objectAtIndex:[self.rotationDropDownOutlet indexOfSelectedItem]];
 }
 @end
