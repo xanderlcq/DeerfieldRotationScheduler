@@ -24,18 +24,7 @@
     [self dismissViewController:controller];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-<<<<<<< HEAD
-    
-}
-||||||| merged common ancestors
-=======
-    Student *s = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" gender:@"M"];
-    s.grade = 10;
-    
-    self.studentsList = [[NSMutableArray alloc] initWithObjects:s, nil];
->>>>>>> origin/master
+- (void)viewDidLoad {}
 
 -(void)writeToFile:(Rotation*)rotation{
     NSString* filepath = @"/Users/gyektai18/Desktop/Rotation.txt";
@@ -71,6 +60,16 @@
     
     return @"";
 }
+||||||| merged common ancestors
+
+=======
+-(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
+    
+    
+    
+    return @"";
+}
+>>>>>>> origin/master
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
@@ -94,7 +93,13 @@
         
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
+||||||| merged common ancestors
+
+=======
+    return copy;
+>>>>>>> origin/master
 ||||||| merged common ancestors
 
 =======
