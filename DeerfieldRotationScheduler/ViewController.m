@@ -92,6 +92,7 @@
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         return [self.studentsList count];
     }
+    return 0;
 }
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
