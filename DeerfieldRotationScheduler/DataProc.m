@@ -67,4 +67,11 @@
     }
     return nil;
 }
+-(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
+    NSString* cvsString = @"First Name,Last Name,Gender,Grade\n";
+    for(Student* stud in list){
+        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade];
+    }
+    return cvsString;
+}
 @end

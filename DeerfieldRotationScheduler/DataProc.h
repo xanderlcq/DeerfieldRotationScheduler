@@ -20,4 +20,5 @@
 //defaultName example: @"students.csv"
 - (void)promptSaveDialogWithContent:(NSString *) content withDefaultFileName:(NSString *)defaultName;
 - (NSString *) openCSVInDialogToString;
+-(NSString *) convertStudentListToCSVString:(NSMutableArray *) list;
 @end

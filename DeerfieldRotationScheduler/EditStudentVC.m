@@ -28,7 +28,6 @@
     //NSLog(@"%@",[tableColumn identifier]);
     Student *s = [self.studentList objectAtIndex:row];
     if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
-        
         cellView.textField.stringValue = s.firstName;
     }
     if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
@@ -53,8 +52,8 @@
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"Save"];
     [alert addButtonWithTitle:@"Discard"];
-        [alert setMessageText:@"Invalid format"];
-        [alert setInformativeText:@"Please enter a valid grade (9-12)"];
+        [alert setMessageText:@"Exiting Student Edit Screen"];
+        [alert setInformativeText:@"Do you want to save your changes?"];
         [alert setAlertStyle:NSWarningAlertStyle];
         NSModalResponse response = [alert runModal];
         if(response == NSAlertFirstButtonReturn){
@@ -104,8 +103,7 @@
 
 
 - (IBAction)exportTemplateButton:(id)sender {
-    NSString *templateContent = @"";
-#warning write templateContent string
+    NSString *templateContent = @"First Name,Last Name,Gender,Grade\nXander,Li,M,12\nSarah,Du,F,12\nGideo,Yektai,M,11";
     DataProc *proc = [[DataProc alloc] init];
     [proc promptSaveDialogWithContent:templateContent withDefaultFileName:@"student list template.csv"];
 }
@@ -113,15 +111,14 @@
 - (IBAction)importListButton:(id)sender {
     DataProc *proc = [[DataProc alloc] init];
     NSString *result = [proc openCSVInDialogToString];
+    NSLog(@"%@",result);
 #warning ENFORE CSV Format check
 #warning convert and import info in csv to student objects.
 }
 
 - (IBAction)exportListButton:(id)sender {
-    //NSString *content = @"";
-#warning convert array of students to our cvs format
-    NSString *content = @"First,Last,Grade,Gender\nXander,Li,12,M\n";
     DataProc *proc = [[DataProc alloc] init];
+    NSString *content = [proc convertStudentListToCSVString:self.studentList];
     [proc promptSaveDialogWithContent:content withDefaultFileName:@"Student List.csv"];
 }
 @end

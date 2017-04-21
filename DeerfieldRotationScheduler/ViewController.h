@@ -11,9 +11,10 @@
 #import "EditStudentVC.h"
 
 
-@interface ViewController : NSViewController <EditStudentVCDelegate>
+@interface ViewController : NSViewController <EditStudentVCDelegate,NSTableViewDataSource,NSTableViewDelegate>
 
 @property NSMutableArray *studentsList;
+@property (weak) IBOutlet NSTableView *studentsListTableView;
 
 @end
 

@@ -28,6 +28,7 @@
 - (IBAction)exportListButton:(id)sender;
 
 @property (weak) IBOutlet NSTableView *tableView;
+
 - (IBAction)addStudentButton:(id)sender;
 - (IBAction)deleteButton:(id)sender;
 

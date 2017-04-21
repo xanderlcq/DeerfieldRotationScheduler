@@ -26,15 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Student* s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
-    Student* s2 = [[Student alloc] initWithFirstName:@"Brian" andLastName:@"Weer" grade:9 gender:@"F"];
-    Student* s3 = [[Student alloc] initWithFirstName:@"EvErEtt" andLastName:@"Tsai" grade:10 gender:@"M"];
-    NSMutableArray* array = [[NSMutableArray alloc] init];
-    [array addObject:s1];
-    [array addObject:s2];
-    [array addObject:s3];
-    NSString* finalStr = [self convertStudentListToCSVString:array];
-    NSLog(@"%@", finalStr);
+
 }
 
 -(void)writeToFile:(Rotation*)rotation{
@@ -65,14 +57,7 @@
     rotStr = [NSString stringWithFormat:@"3 Male: %i, 4 Male: %i, 5 Male: %i, 6Male: %i, Other: %i \n%@", three, four, five, six, other, rotStr];
     [rotStr writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
--(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
-    NSString* students = @"First Name,Last Name,Gender,Grade\n";
-    for(int i = 0; i < list.count; i++){
-        Student* stud = [list objectAtIndex:i];
-        students = [NSString stringWithFormat:@"%@%@,%@,%@,%i\n", students, stud.firstName, stud.lastName, stud.gender, stud.grade];
-    }
-    return students;
-}
+
 
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -98,5 +83,34 @@
     }
 
     return copy;
+}
+
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+    if([tableView.identifier isEqualToString:@"rotationTableView"]){
+#warning TODO
+    }
+    if([tableView.identifier isEqualToString:@"studentListTableView"]){
+        return [self.studentsList count];
+    }
+}
+-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    //NSLog(@"%@",[tableColumn identifier]);
+    if([tableView.identifier isEqualToString:@"studentListTableView"]){
+        Student *s = [self.studentsList objectAtIndex:row];
+        if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
+            cellView.textField.stringValue = s.firstName;
+        }
+        if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
+            cellView.textField.stringValue = s.lastName;
+        }
+        if([[tableColumn identifier] isEqualToString:@"genderCol"]){
+            cellView.textField.stringValue = s.gender;
+        }
+        if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
+        }
+    }
+    return cellView;
 }
 @end
