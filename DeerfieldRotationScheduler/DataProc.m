@@ -74,4 +74,21 @@
     }
     return cvsString;
 }
+
+-(NSMutableArray*)makeStudentsFromString:(NSString*)str{
+    NSArray* allStudentStrings = [str componentsSeparatedByString:@"\n"];
+    NSMutableArray* allStudents = [[NSMutableArray alloc] init];
+    for(int i = 1; i < allStudentStrings.count; i++){
+        NSString* individualStudentString = [allStudentStrings objectAtIndex:i];
+        NSArray* a = [individualStudentString componentsSeparatedByString:@","];
+        NSString* firstName = [a objectAtIndex:0];
+        NSString* lastName = [a objectAtIndex:1];
+        NSString* gender = [a objectAtIndex:2];
+        NSString* gradeString = [a objectAtIndex:3];
+        int grade = (int)[gradeString integerValue];
+        Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName grade:grade gender:gender];
+        [allStudents addObject: s];
+    }
+    return allStudents;
+}
 @end

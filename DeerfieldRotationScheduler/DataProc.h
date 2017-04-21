@@ -14,11 +14,13 @@
 //Read names list
 -(NSMutableArray *)readNamesToStudents:(NSString *)fileName;
 
--(void) writeToFile:(NSString *) filePath withContent:(NSString *)content;
--(NSString *) readFileToStringWithPath:(NSString *) filePath;
+- (void) writeToFile:(NSString *) filePath withContent:(NSString *)content;
+- (NSString *) readFileToStringWithPath:(NSString *) filePath;
 
 //defaultName example: @"students.csv"
 - (void)promptSaveDialogWithContent:(NSString *) content withDefaultFileName:(NSString *)defaultName;
 - (NSString *) openCSVInDialogToString;
--(NSString *) convertStudentListToCSVString:(NSMutableArray *) list;
+- (NSString *) convertStudentListToCSVString:(NSMutableArray *) list;
+
+- (NSMutableArray*) makeStudentsFromString:(NSString*) str;
 @end
