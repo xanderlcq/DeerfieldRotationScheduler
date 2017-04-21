@@ -24,7 +24,18 @@
     [self dismissViewController:controller];
 }
 
-- (void)viewDidLoad {}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    Student* s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
+    Student* s2 = [[Student alloc] initWithFirstName:@"Brian" andLastName:@"Weer" grade:9 gender:@"F"];
+    Student* s3 = [[Student alloc] initWithFirstName:@"EvErEtt" andLastName:@"Tsai" grade:10 gender:@"M"];
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    [array addObject:s1];
+    [array addObject:s2];
+    [array addObject:s3];
+    NSString* finalStr = [self convertStudentListToCSVString:array];
+    NSLog(@"%@", finalStr);
+}
 
 -(void)writeToFile:(Rotation*)rotation{
     NSString* filepath = @"/Users/gyektai18/Desktop/Rotation.txt";
@@ -55,21 +66,14 @@
     [rotStr writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 -(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
-    
-    
-    
-    return @"";
+    NSString* students = [[NSString alloc] init];
+    for(int i = 0; i < list.count; i++){
+        Student* stud = [list objectAtIndex:i];
+        students = [NSString stringWithFormat:@"%@%@,%@,%@,%i\n", students, stud.firstName, stud.lastName, stud.gender, stud.grade];
+    }
+    return students;
 }
-||||||| merged common ancestors
 
-=======
--(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
-    
-    
-    
-    return @"";
-}
->>>>>>> origin/master
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
@@ -92,18 +96,7 @@
         [copy insertObject:[original objectAtIndex:i] atIndex:i];
         
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-||||||| merged common ancestors
 
-=======
     return copy;
->>>>>>> origin/master
-||||||| merged common ancestors
-
-=======
-    return copy;
->>>>>>> origin/master
 }
 @end
