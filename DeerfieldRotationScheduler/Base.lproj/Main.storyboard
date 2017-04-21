@@ -698,7 +698,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="45.5" minWidth="40" maxWidth="1000" id="HQd-lC-e7r">
+                                                <tableColumn identifier="tableNumCol" width="45.5" minWidth="40" maxWidth="1000" id="HQd-lC-e7r">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Table #">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -731,7 +731,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="71.5" minWidth="40" maxWidth="1000" id="5yj-3y-Oft">
+                                                <tableColumn identifier="firstNameCol" width="71.5" minWidth="40" maxWidth="1000" id="5yj-3y-Oft">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="First Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -764,7 +764,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="75.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="aRI-m6-eTB">
+                                                <tableColumn identifier="lastNameCol" width="75.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="aRI-m6-eTB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Last Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -797,7 +797,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="50" minWidth="10" maxWidth="3.4028234663852886e+38" id="vif-dD-RBJ">
+                                                <tableColumn identifier="waiterCol" width="50" minWidth="10" maxWidth="3.4028234663852886e+38" id="vif-dD-RBJ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Waiter">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -830,7 +830,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="53.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="K1J-xh-UWm">
+                                                <tableColumn identifier="gradeCol" width="53.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="K1J-xh-UWm">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Grade">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -863,7 +863,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="65" minWidth="10" maxWidth="3.4028234663852886e+38" id="eVf-Ja-J8d">
+                                                <tableColumn identifier="genderCol" width="65" minWidth="10" maxWidth="3.4028234663852886e+38" id="eVf-Ja-J8d">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Gender">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

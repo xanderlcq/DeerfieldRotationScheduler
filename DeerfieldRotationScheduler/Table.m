@@ -65,6 +65,14 @@
 -(NSString *)mostNeededGender{
     return [self numOfMale]<[self numOfFemale]?@"M":@"F";
 }
+-(BOOL)contains:(Student *)s{
+    for(Student *stud in self.students){
+        if([stud isEqualTo:s]){
+            return YES;
+        }
+    }
+    return NO;
+}
 
 //returns grade with least # of people
 -(int) mostNeededGrade{
@@ -119,39 +127,7 @@
     }
     return aIsHere && bIsHere;
 }
-//-(id) initFromString:(NSString*) string{
-//    self = [super init];
-//    //take in first part of string, feed into init from string for student
-//    if(self){
-//        //get all student strings into an array
-//        NSArray* studentStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
-//        
-//        //add students to self.students
-//        for (int i = 0; i < [studentStrings count]; i++){
-//            NSString* studentString = [studentStrings objectAtIndex:i];
-////<<<<<<< Updated upstream
-//////            Student *newS = [[Student alloc]initFromString:studentString]
-//////            [self.students addObject:newS];
-////||||||| merged common ancestors
-////            Student *newS = [[Student alloc]initFromString:studentString]
-////            [self.students addObject:newS];
-////=======
-////          //  Student *newS = [[Student alloc]initFromString:studentString]
-////           // [self.students addObject:newS];
-////>>>>>>> Stashed changes
-//        }
-//        //create waiters - will be duplicate
-//        NSString* firstWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:1];
-//        //self.firstWaiter = [[Student alloc]initFromString:firstWaiter];
-//        
-//        NSString* secondWaiter = (NSString *)[[string componentsSeparatedByString:@";"] objectAtIndex:2];
-//        //self.secondWaiter = [[Student alloc]initFromString:secondWaiter];
-//        
-//        //table number
-//        self.tableNumber = [[[string componentsSeparatedByString:@";"] objectAtIndex:3]intValue];
-//    }
-//    return self;
-//}
+
 -(NSString*)namePresentably{
     NSString* table = [NSString stringWithFormat:@"%i\n1ST %@, %@\n2ND %@, %@\n", self.tableNumber, self.firstWaiter.lastName, self.firstWaiter.firstName, self.secondWaiter.lastName, self.secondWaiter.firstName];
     for(int i = 0; i < self.students.count; i++){

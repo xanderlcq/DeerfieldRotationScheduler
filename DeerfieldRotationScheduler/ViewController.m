@@ -77,10 +77,9 @@
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     NSLog(@"numberOfRows-%@",tableView.identifier);
     if([tableView.identifier isEqualToString:@"rotationTableView"]){
-#warning TODO
+        return [self.currentDisplayedRotation.students count];
     }
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
-        //NSLog(@"numberOfRows:%lu",[self.studentsList count]);
         return [self.studentsList count];
     }
     return 0;
@@ -102,6 +101,34 @@
         if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
         }
+    }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
+        Student *s = [self.currentDisplayedRotation.students objectAtIndex:row];
+        if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
+            cellView.textField.stringValue = s.firstName;
+        }
+        if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
+            cellView.textField.stringValue = s.lastName;
+        }
+        if([[tableColumn identifier] isEqualToString:@"genderCol"]){
+            cellView.textField.stringValue = s.gender;
+        }
+        if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
+        }
+        if([[tableColumn identifier] isEqualToString:@"tableNumCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",[self.currentDisplayedRotation getTableNumberOfStudent:s]];
+        }
+        if([[tableColumn identifier] isEqualToString:@"waiterCol"]){
+            if([self.currentDisplayedRotation isFirstWaiter:s]){
+                cellView.textField.stringValue = @"1";
+            }else if([self.currentDisplayedRotation isSecondWaiter:s]){
+                cellView.textField.stringValue = @"2";
+            }else{
+                cellView.textField.stringValue = @"";
+            }
+        }
+#warning re designed a structure in Rotation to hold all these info without computation
+        
     }
     
     return cellView;

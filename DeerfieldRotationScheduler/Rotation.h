@@ -23,4 +23,7 @@
 -(BOOL) student:(Student*) first isSittingWith:(Student *) second;
 -(int) numberOfTables;
 -(id) initEmptyRotation;
+-(int) getTableNumberOfStudent:(Student *) student;
+-(BOOL)isFirstWaiter:(Student *)student;
+-(BOOL)isSecondWaiter:(Student *)student;
 @end

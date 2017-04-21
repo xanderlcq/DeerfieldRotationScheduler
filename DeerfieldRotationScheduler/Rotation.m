@@ -17,15 +17,28 @@
     return [NSString stringWithFormat: @"Tables: {%@}; Number of tables: %i", tablesStr, self.numberOfTables];
 }
 
-//for testing purposes/init without string
-//-(id) initWithTables:(NSMutableArray*)tables andMeals:(int)numMeals andTables:(int)numTables{
-//    self = [super init];
-//    if (self){
-//        self.tables = tables;
-//        self.numberOfMeals = numMeals;
-//    }
-//    return self;
-//}
+-(int) getTableNumberOfStudent:(Student *) student{
+    for(Table *t in self.tables){
+        if([t contains:student])
+            return t.tableNumber;
+    }
+    return -1;
+}
+-(BOOL)isFirstWaiter:(Student *)student{
+    for(Table *t in self.tables){
+        if([t.firstWaiter isEqualTo:student])
+            return YES;
+    }
+    return NO;
+}
+-(BOOL)isSecondWaiter:(Student *)student{
+    for(Table *t in self.tables){
+        if([t.secondWaiter isEqualTo:student])
+            return YES;
+    }
+    return NO;
+}
+
 -(id) initEmptyRotation{
     
     self = [super init];
