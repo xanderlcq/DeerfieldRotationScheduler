@@ -118,9 +118,9 @@
 }
 
 - (IBAction)exportListButton:(id)sender {
-    NSString *content = @"";
+    //NSString *content = @"";
 #warning convert array of students to our cvs format
-    
+    NSString *content = @"First,Last,Grade,Gender\nXander,Li,12,M\n";
     DataProc *proc = [[DataProc alloc] init];
     [proc promptSaveDialogWithContent:content withDefaultFileName:@"Student List.csv"];
 }

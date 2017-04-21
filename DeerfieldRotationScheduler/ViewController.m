@@ -32,7 +32,12 @@
     self.studentsList = [[NSMutableArray alloc] initWithObjects:s, nil];
 
 }
-
+-(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
+    
+    
+    
+    return @"";
+}
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
