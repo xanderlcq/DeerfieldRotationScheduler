@@ -17,6 +17,7 @@
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     [self.tableView setAllowsMultipleSelection:YES];
+    [self.tableView setAllowsColumnSelection:YES];
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
@@ -43,7 +44,8 @@
 }
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     NSTableView *tableView = notification.object;
-    NSLog(@"User has selected row %@", tableView.selectedRowIndexes);
+    NSLog(@"User has selected row %@ column %@", tableView.selectedRowIndexes,tableView.selectedColumnIndexes);
+#warning sort the list when a column is selected
 
     
 }
@@ -92,8 +94,9 @@
     NSUInteger index = [selectedIndexes lastIndex];
     while ( index != NSNotFound )
     {
+        
         [self.studentList removeObjectAtIndex:index];
-        index = [selectedIndexes indexGreaterThanIndex: index];
+        index = [selectedIndexes indexLessThanIndex: index];
     }
     [self.tableView reloadData];
 }
@@ -105,7 +108,6 @@
 #warning write templateContent string
     DataProc *proc = [[DataProc alloc] init];
     [proc promptSaveDialogWithContent:templateContent withDefaultFileName:@"student list template.csv"];
-
 }
 
 - (IBAction)importListButton:(id)sender {
