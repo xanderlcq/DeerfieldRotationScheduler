@@ -66,7 +66,7 @@
     [rotStr writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 -(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
-    NSString* students = [[NSString alloc] init];
+    NSString* students = @"First Name,Last Name,Gender,Grade\n";
     for(int i = 0; i < list.count; i++){
         Student* stud = [list objectAtIndex:i];
         students = [NSString stringWithFormat:@"%@%@,%@,%@,%i\n", students, stud.firstName, stud.lastName, stud.gender, stud.grade];
