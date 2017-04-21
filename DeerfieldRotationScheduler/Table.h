@@ -31,4 +31,5 @@
 -(BOOL) student:(Student *) a isSittingWith:(Student *)b;
 //to-string
 //init from string
+-(NSString*)namePresentably;
 @end

@@ -152,5 +152,14 @@
 //    }
 //    return self;
 //}
+-(NSString*)namePresentably{
+    NSString* table = [NSString stringWithFormat:@"%i\n1ST %@, %@\n2ND %@, %@\n", self.tableNumber, self.firstWaiter.lastName, self.firstWaiter.firstName, self.secondWaiter.lastName, self.secondWaiter.firstName];
+    for(int i = 0; i < self.students.count; i++){
+        Student* s = [self.students objectAtIndex:i];
+        if(s != self.firstWaiter && s!= self.secondWaiter)
+            table = [NSString stringWithFormat:@"%@\n%@, %@", table, s.lastName, s.firstName];
+    }
+    return table;
+}
 
 @end
