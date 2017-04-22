@@ -51,14 +51,13 @@
     [self.studentsListTableView setDataSource:self];
     [self.rotationTableView setDelegate:self];
     [self.rotationTableView setDataSource:self];
+    self.currentDisplayedRotation.nameOfRotation = @"abc";
+    self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];
     //[self.rotationTableView reloadData];
         //NSLog(@"%@",self.currentDisplayedRotation.studentsInfo);
     
     
     [self refreshRotationsPopupMenu];
-    [self.rotationDropDownOutlet addItemWithTitle:@"test"];
-    [self.rotationDropDownOutlet addItemWithTitle:@"test1"];
-    [self.rotationDropDownOutlet addItemWithTitle:@"test2"];
 //
     
 }
@@ -99,7 +98,6 @@
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     NSLog(@"numberOfRows-%@",tableView.identifier);
     if([tableView.identifier isEqualToString:@"rotationTableView"]){
-        NSLog(@"%lu",(unsigned long)[self.currentDisplayedRotation.studentsInfo count]);
         return [self.currentDisplayedRotation.studentsInfo count];
     }
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
@@ -152,5 +150,6 @@
     NSLog(@"%lu",[self.rotationDropDownOutlet indexOfSelectedItem])
     ;
     self.currentDisplayedRotation = [self.allRotations objectAtIndex:[self.rotationDropDownOutlet indexOfSelectedItem]];
+    [self.rotationTableView reloadData];
 }
 @end
