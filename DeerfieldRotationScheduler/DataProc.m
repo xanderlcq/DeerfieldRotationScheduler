@@ -10,6 +10,18 @@
 
 @implementation DataProc
 
+-(NSString *)convertRotationToCVSString:(Rotation *)r{
+    NSString *result = [NSString stringWithFormat:@"%@,,\nTable Number,First Name,Last Name\n",r.nameOfRotation];
+    [r updateStudentInfo];
+    for(StudentInfoUnit *i in r.studentsInfo){
+        result = [NSString stringWithFormat:@"%@%@,%@,%@\n",result,[i tableNum],[i firstName],[i lastName]];
+    }
+    
+    return result;
+}
+
+
+
 -(NSMutableArray *)readNamesToStudents:(NSString *)fileName{
     NSString* filepath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"txt"];
     // make the file a string

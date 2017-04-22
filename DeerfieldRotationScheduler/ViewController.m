@@ -52,14 +52,10 @@
     [self.rotationTableView setDelegate:self];
     [self.rotationTableView setDataSource:self];
     self.currentDisplayedRotation.nameOfRotation = @"abc";
-    self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];
-    //[self.rotationTableView reloadData];
-        //NSLog(@"%@",self.currentDisplayedRotation.studentsInfo);
-    
-    
+    self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];    
     [self refreshRotationsPopupMenu];
-//
-    
+    DataProc *proc = [[DataProc alloc] init];
+    NSLog(@"%@",[proc convertRotationToCVSString:self.currentDisplayedRotation]);
 }
 
 
@@ -91,12 +87,11 @@
         [copy insertObject:[original objectAtIndex:i] atIndex:i];
         
     }
-
     return copy;
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-    NSLog(@"numberOfRows-%@",tableView.identifier);
+    //NSLog(@"numberOfRows-%@",tableView.identifier);
     if([tableView.identifier isEqualToString:@"rotationTableView"]){
         return [self.currentDisplayedRotation.studentsInfo count];
     }
@@ -107,7 +102,7 @@
 }
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    NSLog(@"%@",tableColumn.identifier);
+    //NSLog(@"%@",tableColumn.identifier);
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         Student *s = [self.studentsList objectAtIndex:row];
         if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
@@ -124,7 +119,7 @@
         }
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
         StudentInfoUnit *s = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
-        NSLog(@"%@",s.waiter);
+        //NSLog(@"%@",s.waiter);
        if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
             cellView.textField.stringValue = [s firstName];
         }
@@ -138,7 +133,7 @@
             cellView.textField.stringValue = [s grade];
         }
         if([[tableColumn identifier] isEqualToString:@"tableNumCol"]){
-            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",[s tableNumber]];
+            cellView.textField.stringValue = [s tableNum];
         }
         if([[tableColumn identifier] isEqualToString:@"waiterCol"]){
             cellView.textField.stringValue = [s waiter];
@@ -150,6 +145,7 @@
     NSLog(@"%lu",[self.rotationDropDownOutlet indexOfSelectedItem])
     ;
     self.currentDisplayedRotation = [self.allRotations objectAtIndex:[self.rotationDropDownOutlet indexOfSelectedItem]];
+    [self.currentDisplayedRotation updateStudentInfo];
     [self.rotationTableView reloadData];
 }
 @end
