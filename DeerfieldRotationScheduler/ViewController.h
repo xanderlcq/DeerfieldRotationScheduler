@@ -19,6 +19,7 @@
 @property (weak) IBOutlet NSTableView *studentsListTableView;
 - (IBAction)rotationDropDown:(id)sender;
 @property (weak) IBOutlet NSPopUpButton *rotationDropDownOutlet;
+@property (weak) IBOutlet NSTableView *rotationTableView;
 
 @end
 

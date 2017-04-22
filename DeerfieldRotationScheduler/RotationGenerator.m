@@ -20,6 +20,7 @@
     return self;
 }
 -(void) generateRandomRotation{
+    self.currentRotation.students = [self shallowCopy:self.students];
     NSMutableArray *waiters = [self generateWaiters];
     [self assignRandomWaiters:waiters];
     self.students = [self eliminateDuplicateOf:waiters inList:self.students]; //delete waiters from students list of this rotation
@@ -69,6 +70,9 @@
             }
         }
     }
+    if([self.students count] > 0 ){
+        
+    }
 }
 -(BOOL)neverSatBefore:(Student *) key withStudents:(NSMutableArray *) targetStudents{
     for(Student *s in targetStudents){
@@ -114,6 +118,8 @@
         secondWaiter.rotationsWaited++;
         t.firstWaiter = firstwaiter;
         t.secondWaiter = secondWaiter;
+        [t.students addObject:firstwaiter];
+        [t.students addObject:secondWaiter];
     }
     
 }

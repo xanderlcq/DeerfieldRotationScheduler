@@ -897,6 +897,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="m2S-Jp-Qdl" id="Adu-fT-mpw"/>
+                                                <outlet property="delegate" destination="m2S-Jp-Qdl" id="TEd-3U-6wR"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -1113,6 +1117,7 @@
                     </view>
                     <connections>
                         <outlet property="rotationDropDownOutlet" destination="VcF-3W-pVJ" id="P68-ik-FZo"/>
+                        <outlet property="rotationTableView" destination="9On-Uv-rz6" id="0ut-rC-zbu"/>
                         <outlet property="studentsListTableView" destination="6W7-6s-ckG" id="9sA-I2-SuU"/>
                     </connections>
                 </viewController>

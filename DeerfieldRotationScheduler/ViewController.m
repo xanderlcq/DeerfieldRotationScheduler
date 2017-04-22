@@ -19,25 +19,47 @@
     NSLog(@"%@",studentsList);
     [self dismissViewController:controller];
     self.studentsList = studentsList;
+    [self.studentsListTableView reloadData];
 }
 -(void) closeWithoutSaving:(EditStudentVC *)controller{
     [self dismissViewController:controller];
+    [self.studentsListTableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.studentsListTableView setDelegate:self];
-    [self.studentsListTableView setDataSource:self];
+
     Student *s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
     Student *s2 = [[Student alloc] initWithFirstName:@"Gid" andLastName:@":)" grade:11 gender:@"M"];
-    self.studentsList = [[NSMutableArray alloc] initWithObjects:s1,s2, nil];
-    NSLog(@"%lu",[self.studentsList count]);
-    [self refreshRotationsPopupMenu];
+    Student *s3 = [[Student alloc] initWithFirstName:@"Sarah" andLastName:@"Du" grade:12 gender:@"F"];
+    Student *s4 = [[Student alloc] initWithFirstName:@"Kate" andLastName:@":)" grade:9 gender:@"F"];
+    Student *s5 = [[Student alloc] initWithFirstName:@"Extra" andLastName:@":)" grade:9 gender:@"F"];
 
+    self.studentsList = [[NSMutableArray alloc] initWithObjects:s1,s2,s3,s4,s5, nil];
+    //NSLog(@"%lu",[self.studentsList count]);
+    
+    self.currentDisplayedRotation =[[Rotation alloc] initEmptyRotation];
+    [self.currentDisplayedRotation addEmptyTable:2];
+    [self.currentDisplayedRotation addEmptyTable:2];
+    RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.currentDisplayedRotation studentList:self.studentsList andPastHistory:[[NSMutableArray alloc] init]];
+    [gen generateRandomRotation];
+    
+    [self.currentDisplayedRotation updateStudentInfo];
+    NSLog(@"%@",self.currentDisplayedRotation);
+    
+    [self.studentsListTableView setDelegate:self];
+    [self.studentsListTableView setDataSource:self];
+    [self.rotationTableView setDelegate:self];
+    [self.rotationTableView setDataSource:self];
+    //[self.rotationTableView reloadData];
+        //NSLog(@"%@",self.currentDisplayedRotation.studentsInfo);
+    
+    
+    [self refreshRotationsPopupMenu];
     [self.rotationDropDownOutlet addItemWithTitle:@"test"];
     [self.rotationDropDownOutlet addItemWithTitle:@"test1"];
     [self.rotationDropDownOutlet addItemWithTitle:@"test2"];
-    
+//
     
 }
 
@@ -77,7 +99,8 @@
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     NSLog(@"numberOfRows-%@",tableView.identifier);
     if([tableView.identifier isEqualToString:@"rotationTableView"]){
-        return [self.currentDisplayedRotation.students count];
+        NSLog(@"%lu",(unsigned long)[self.currentDisplayedRotation.studentsInfo count]);
+        return [self.currentDisplayedRotation.studentsInfo count];
     }
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         return [self.studentsList count];
@@ -102,35 +125,27 @@
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
         }
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
-        Student *s = [self.currentDisplayedRotation.students objectAtIndex:row];
-        if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
-            cellView.textField.stringValue = s.firstName;
+        StudentInfoUnit *s = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
+        NSLog(@"%@",s.waiter);
+       if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
+            cellView.textField.stringValue = [s firstName];
         }
         if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
-            cellView.textField.stringValue = s.lastName;
+            cellView.textField.stringValue = [s lastName];
         }
         if([[tableColumn identifier] isEqualToString:@"genderCol"]){
-            cellView.textField.stringValue = s.gender;
+            cellView.textField.stringValue = [s gender];
         }
         if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
-            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
+            cellView.textField.stringValue = [s grade];
         }
         if([[tableColumn identifier] isEqualToString:@"tableNumCol"]){
-            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",[self.currentDisplayedRotation getTableNumberOfStudent:s]];
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",[s tableNumber]];
         }
         if([[tableColumn identifier] isEqualToString:@"waiterCol"]){
-            if([self.currentDisplayedRotation isFirstWaiter:s]){
-                cellView.textField.stringValue = @"1";
-            }else if([self.currentDisplayedRotation isSecondWaiter:s]){
-                cellView.textField.stringValue = @"2";
-            }else{
-                cellView.textField.stringValue = @"";
-            }
+            cellView.textField.stringValue = [s waiter];
         }
-#warning re designed a structure in Rotation to hold all these info without computation
-        
     }
-    
     return cellView;
 }
 - (IBAction)rotationDropDown:(id)sender {

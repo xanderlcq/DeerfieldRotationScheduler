@@ -7,7 +7,6 @@
 //
 
 #import "Rotation.h"
-#import "Table.h"
 
 @implementation Rotation
 
@@ -16,7 +15,20 @@
     //taableStr will be replaced by [self.students description]
     return [NSString stringWithFormat: @"Tables: {%@}; Number of tables: %i", tablesStr, self.numberOfTables];
 }
-
+-(void)updateStudentInfo{
+    self.studentsInfo = [[NSMutableArray alloc] init];
+    for(Student *s in self.students){
+        StudentInfoUnit *info = [[StudentInfoUnit alloc] init];
+        info.student = s;
+        info.tableNumber = [self getTableNumberOfStudent:s];
+        info.waiter = [NSString stringWithFormat:@""];
+        if([self isFirstWaiter:s])
+            info.waiter = [NSString stringWithFormat:@"1"];
+        else if([self isSecondWaiter:s])
+            info.waiter = [NSString stringWithFormat:@"2"];
+        [self.studentsInfo addObject:info];
+    }
+}
 -(int) getTableNumberOfStudent:(Student *) student{
     for(Table *t in self.tables){
         if([t contains:student])
