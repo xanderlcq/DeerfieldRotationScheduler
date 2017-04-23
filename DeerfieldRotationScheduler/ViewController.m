@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self initializeViews];
     Student *s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
     Student *s2 = [[Student alloc] initWithFirstName:@"Gid" andLastName:@":)" grade:11 gender:@"M"];
     Student *s3 = [[Student alloc] initWithFirstName:@"Sarah" andLastName:@"Du" grade:12 gender:@"F"];
@@ -47,14 +47,11 @@
     [self.currentDisplayedRotation updateStudentInfo];
     NSLog(@"%@",self.currentDisplayedRotation);
     
-    [self.studentsListTableView setDelegate:self];
-    [self.studentsListTableView setDataSource:self];
-    [self.rotationTableView setDelegate:self];
-    [self.rotationTableView setDataSource:self];
+
     
     
     self.currentDisplayedRotation.nameOfRotation = @"abc";
-    self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];    
+    [self.allRotations addObject:self.currentDisplayedRotation];
     
     
     DataProc *proc = [[DataProc alloc] init];
@@ -72,10 +69,20 @@
     restoredRotation.nameOfRotation = @"123";
     [self.allRotations addObject:restoredRotation];
     
-    [self refreshRotationsPopupMenu];
+    [self refreshView];
 }
-
-
+-(void) refreshView{
+    [self refreshRotationsPopupMenu];
+    [self.rotationTableView reloadData];
+    [self.studentsListTableView reloadData];
+}
+-(void) initializeViews{
+    [self.studentsListTableView setDelegate:self];
+    [self.studentsListTableView setDataSource:self];
+    [self.rotationTableView setDelegate:self];
+    [self.rotationTableView setDataSource:self];
+    self.allRotations = [[NSMutableArray alloc] init];
+}
 -(void) refreshRotationsPopupMenu{
     [self.rotationDropDownOutlet removeAllItems];
     for(Rotation *r in self.allRotations){
