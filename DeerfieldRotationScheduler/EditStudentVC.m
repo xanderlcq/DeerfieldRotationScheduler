@@ -58,11 +58,11 @@
         NSModalResponse response = [alert runModal];
         if(response == NSAlertFirstButtonReturn){
             NSLog(@"first button");
-            [self.delegate closeWithStudentsList:self.studentList vc:self];
+            [self.delegate closeEditStudentVCWithStudentsList:self.studentList vc:self];
         }
         if(response == NSAlertSecondButtonReturn){
             NSLog(@"second button");
-            [self.delegate closeWithoutSaving:self];
+            [self.delegate closeEditStudentVCWithoutSaving:self];
         }
     
 }
@@ -111,9 +111,14 @@
 - (IBAction)importListButton:(id)sender {
     DataProc *proc = [[DataProc alloc] init];
     NSString *result = [proc openCSVInDialogToString];
+    NSMutableArray *imported = [proc makeStudentsFromString:result];
+    for(Student *stud in imported){
+        [self.studentList addObject:stud];
+    }
+    [self.tableView reloadData];
     NSLog(@"%@",result);
 #warning ENFORE CSV Format check
-#warning convert and import info in csv to student objects.
+#warning  check for duplicate
 }
 
 - (IBAction)exportListButton:(id)sender {

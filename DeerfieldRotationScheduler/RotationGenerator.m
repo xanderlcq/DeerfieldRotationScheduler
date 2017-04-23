@@ -98,7 +98,7 @@
         // 1.Never sit together before
         // 2.Grade
         // 3.Gender
-        // We eliminate one constrains if nothing is quelified
+        // We eliminate one constrains if nothing is qualified
         for(int i = 0; i < 4; i++){
             int j = (int)[waiters count]-1;
             while(j >= 0){

@@ -12,8 +12,8 @@
 @class EditStudentVC;
 @protocol EditStudentVCDelegate <NSObject>
 
--(void) closeWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller;
--(void) closeWithoutSaving:(EditStudentVC *)controller;
+-(void) closeEditStudentVCWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller;
+-(void) closeEditStudentVCWithoutSaving:(EditStudentVC *)controller;
 
 @end
 
@@ -33,5 +33,7 @@
 - (IBAction)deleteButton:(id)sender;
 
 @property NSMutableArray *studentList;
+
 @property (nonatomic,weak) id<EditStudentVCDelegate>delegate;
+
 @end

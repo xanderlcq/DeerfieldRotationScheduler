@@ -10,8 +10,10 @@
 #import "DataProc.h"
 #import "EditStudentVC.h"
 #import "Rotation.h"
+#import "GenerateRotationVC.h"
 
-@interface ViewController : NSViewController <EditStudentVCDelegate,NSTableViewDataSource,NSTableViewDelegate>
+
+@interface ViewController : NSViewController <EditStudentVCDelegate,NSTableViewDataSource,NSTableViewDelegate,GenerateRotationVCDelegate>
 
 @property NSMutableArray *studentsList;
 @property NSMutableArray *allRotations;
@@ -20,6 +22,7 @@
 - (IBAction)rotationDropDown:(id)sender;
 @property (weak) IBOutlet NSPopUpButton *rotationDropDownOutlet;
 @property (weak) IBOutlet NSTableView *rotationTableView;
+- (IBAction)exportRotationButton:(id)sender;
 
 @end
 

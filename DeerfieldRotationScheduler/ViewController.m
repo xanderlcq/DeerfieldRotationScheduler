@@ -14,16 +14,27 @@
 #import "RotationGenerator.h"
 
 @implementation ViewController
+-(void)closeGenRotationVCWithNewRotation:(Rotation*) r andVC:(GenerateRotationVC *)controller{
+    [self dismissController:controller];
+    [self.allRotations insertObject:r atIndex:0];
+    self.currentDisplayedRotation = r;
+    [self refreshView];
+    
+}
+-(void)closeGenRotationVCWithoutSaving:(GenerateRotationVC *)controller{
+    [self dismissController:controller];
+    [self refreshView];
+}
 
--(void) closeWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller{
+-(void) closeEditStudentVCWithStudentsList:(NSMutableArray *)studentsList vc:(EditStudentVC *)controller{
     NSLog(@"%@",studentsList);
     [self dismissViewController:controller];
     self.studentsList = studentsList;
-    [self.studentsListTableView reloadData];
+    [self refreshView];
 }
--(void) closeWithoutSaving:(EditStudentVC *)controller{
+-(void) closeEditStudentVCWithoutSaving:(EditStudentVC *)controller{
     [self dismissViewController:controller];
-    [self.studentsListTableView reloadData];
+    [self refreshView];
 }
 
 - (void)viewDidLoad {
@@ -103,6 +114,14 @@
         vc.delegate = self;
         vc.studentList = [self shallowCopy:self.studentsList];
     }
+    if([segue.identifier isEqualToString:@"genRotationSeg"]){
+        NSLog(@"genRotationSeg");
+        GenerateRotationVC *vc = [segue destinationController];
+        vc.delegate = self;
+        vc.allRotations = self.allRotations;
+        vc.rotation = self.currentDisplayedRotation;
+        vc.studentList = [self shallowCopy:self.studentsList];
+    }
 }
 
 -(NSMutableArray *) shallowCopy:(NSMutableArray *) original{
@@ -171,5 +190,11 @@
     self.currentDisplayedRotation = [self.allRotations objectAtIndex:[self.rotationDropDownOutlet indexOfSelectedItem]];
     [self.currentDisplayedRotation updateStudentInfo];
     [self.rotationTableView reloadData];
+}
+- (IBAction)exportRotationButton:(id)sender {
+    [self.currentDisplayedRotation updateStudentInfo];
+    DataProc *proc = [[DataProc alloc] init];
+    NSString *cvs  = [proc convertRotationToCVSString:self.currentDisplayedRotation];
+    [proc promptSaveDialogWithContent:cvs withDefaultFileName:[NSString stringWithFormat:@"%@%@",self.currentDisplayedRotation.nameOfRotation,@".csv"]];
 }
 @end
