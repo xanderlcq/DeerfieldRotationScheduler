@@ -55,7 +55,7 @@
     
     self.currentDisplayedRotation.nameOfRotation = @"abc";
     self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];    
-    [self refreshRotationsPopupMenu];
+    
     
     DataProc *proc = [[DataProc alloc] init];
     NSString *rotationCvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
@@ -64,8 +64,15 @@
     NSMutableArray *restoredInfoUnits = [proc convertCVSStringToRotationInfoUnits:rotationCvs];
     NSMutableArray *restoredStudentsList = [proc makeStudentsFromString:studentListCvs];
     Rotation *restoredRotation = [[Rotation alloc] initFromCVSStringWithStudentsList:restoredStudentsList infoUnits:restoredInfoUnits andNameOfRotation:rotationName];
+    Student *new = [[Student alloc] initWithFirstName:@"a" andLastName:@"b" grade:11 gender:@"F"];
     
-    NSLog(@"check");
+    [((Table*)[restoredRotation.tables objectAtIndex:0]).students addObject:new];
+    [restoredRotation.students addObject:new];
+    [restoredRotation updateStudentInfo];
+    restoredRotation.nameOfRotation = @"123";
+    [self.allRotations addObject:restoredRotation];
+    
+    [self refreshRotationsPopupMenu];
 }
 
 
