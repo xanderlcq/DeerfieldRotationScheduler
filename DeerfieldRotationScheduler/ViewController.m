@@ -55,7 +55,10 @@
     self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];    
     [self refreshRotationsPopupMenu];
     DataProc *proc = [[DataProc alloc] init];
-    NSLog(@"%@",[proc convertRotationToCVSString:self.currentDisplayedRotation]);
+    NSString *cvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
+    NSLog(@"%@",[[cvs componentsSeparatedByString:@","] objectAtIndex:0]);
+    NSMutableArray *r = [proc convertCVSStringToRotationInfoUnits:cvs];
+    NSLog(@"check");
 }
 
 

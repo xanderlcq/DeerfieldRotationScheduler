@@ -10,6 +10,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Student.h"
 #import "Rotation.h"
+
 @interface DataProc : NSObject
 //Read names list
 -(NSMutableArray *)readNamesToStudents:(NSString *)fileName;
@@ -23,5 +24,10 @@
 - (NSString *) convertStudentListToCSVString:(NSMutableArray *) list;
 
 - (NSMutableArray*) makeStudentsFromString:(NSString*) str;
+
+
+
+#warning change the name of this
 - (NSString *)convertRotationToCVSString:(Rotation *)r;
+- (NSMutableArray*)convertCVSStringToRotationInfoUnits:(NSString*)str;
 @end

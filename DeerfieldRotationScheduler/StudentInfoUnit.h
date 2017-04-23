@@ -12,6 +12,8 @@
 @property Student *student;
 @property (nonatomic) int tableNumber;
 @property (nonatomic) NSString *waiter;
+@property NSString *fName;
+@property NSString *lName;
 
 -(NSString*)firstName;
 -(NSString*)lastName;

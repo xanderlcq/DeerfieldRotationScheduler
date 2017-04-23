@@ -10,6 +10,8 @@
 #import "Student.h"
 #import "Table.h"
 #import "StudentInfoUnit.h"
+
+
 @interface Rotation : NSObject
 
 @property NSMutableArray *tables;
@@ -20,6 +22,7 @@
 //to-string
 -(NSString*) description;
 //init-from string
+-(id) initFromCVSStringWithStudentsList:(NSMutableArray *) studentsList andInfoUnits:(NSMutableArray *) infoUnit;
 -(void)updateStudentInfo;
 -(void) addEmptyTable:(int) tableSize;
 -(BOOL) student:(Student*) first isSittingWith:(Student *) second;

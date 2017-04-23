@@ -20,6 +20,8 @@
     for(Student *s in self.students){
         StudentInfoUnit *info = [[StudentInfoUnit alloc] init];
         info.student = s;
+        info.fName = s.firstName;
+        info.lName = s.lastName;
         info.tableNumber = [self getTableNumberOfStudent:s];
         info.waiter = [NSString stringWithFormat:@""];
         if([self isFirstWaiter:s])
@@ -28,6 +30,18 @@
             info.waiter = [NSString stringWithFormat:@"2"];
         [self.studentsInfo addObject:info];
     }
+}
+-(id) initFromCVSStringWithStudentsList:(NSMutableArray *) studentsList andInfoUnits:(NSMutableArray *) infoUnit{
+    self = [super init];
+    if(self){
+        self.studentsInfo = infoUnit;
+        self.students = studentsList;
+        [self restoreFromStudentsAndInfos];
+    }
+    return self;
+}
+-(void)restoreFromStudentsAndInfos{
+#warning implement
 }
 -(int) getTableNumberOfStudent:(Student *) student{
     for(Table *t in self.tables){

@@ -11,16 +11,31 @@
 @implementation DataProc
 
 -(NSString *)convertRotationToCVSString:(Rotation *)r{
-    NSString *result = [NSString stringWithFormat:@"%@,,\nTable Number,First Name,Last Name\n",r.nameOfRotation];
+    NSString *result = [NSString stringWithFormat:@"%@,,,\nTable Number,First Name,Last Name,Waiter\n",r.nameOfRotation];
     [r updateStudentInfo];
     for(StudentInfoUnit *i in r.studentsInfo){
-        result = [NSString stringWithFormat:@"%@%@,%@,%@\n",result,[i tableNum],[i firstName],[i lastName]];
+        result = [NSString stringWithFormat:@"%@%@,%@,%@,%@\n",result,[i tableNum],[i firstName],[i lastName],[i waiter]];
     }
     
     return result;
 }
 
-
+-(NSMutableArray*)convertCVSStringToRotationInfoUnits:(NSString*)str{
+    NSArray *lines = [str componentsSeparatedByString:@"\n"];
+    NSMutableArray *infoUnits = [[NSMutableArray alloc] init];
+    for(int i = 2; i < [lines count];i++){
+        NSArray *components = [[lines objectAtIndex:i] componentsSeparatedByString:@","];
+        if([components count]!=4 )
+            break;
+        StudentInfoUnit *u = [[StudentInfoUnit alloc] init];
+        u.fName = [components objectAtIndex:1];
+        u.lName = [components objectAtIndex:2];
+        u.tableNumber = [[components objectAtIndex:0] intValue];
+        u.waiter = [components objectAtIndex:3];
+        [infoUnits addObject:u];
+    }
+    return infoUnits;
+}
 
 -(NSMutableArray *)readNamesToStudents:(NSString *)fileName{
     NSString* filepath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"txt"];
