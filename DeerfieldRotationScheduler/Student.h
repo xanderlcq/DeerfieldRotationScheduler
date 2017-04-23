@@ -30,7 +30,7 @@
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last gender:(NSString*) gender;
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last grade:(int) grade gender:(NSString*) gender;
 -(NSString*)description;
--(Student*)initFromString:(NSString*)str;
+//-(Student*)initFromString:(NSString*)str;
 //to-string
 //init from string
 -(BOOL) isEqualTo:(Student *) target;

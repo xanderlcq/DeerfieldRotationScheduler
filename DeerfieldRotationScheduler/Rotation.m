@@ -31,17 +31,59 @@
         [self.studentsInfo addObject:info];
     }
 }
--(id) initFromCVSStringWithStudentsList:(NSMutableArray *) studentsList andInfoUnits:(NSMutableArray *) infoUnit{
+-(id) initFromCVSStringWithStudentsList:(NSMutableArray *) studentsList infoUnits:(NSMutableArray *) infoUnit andNameOfRotation:(NSString *) name{
     self = [super init];
     if(self){
+        self.nameOfRotation = name;
         self.studentsInfo = infoUnit;
         self.students = studentsList;
+        self.tables = [[NSMutableArray alloc] init];
         [self restoreFromStudentsAndInfos];
     }
     return self;
 }
 -(void)restoreFromStudentsAndInfos{
-#warning implement
+    for(StudentInfoUnit *infoUnit in self.studentsInfo){
+        //Find the actual student from students list
+        Student *stud = [self getStudentWithFirstName:infoUnit.fName andLastName:infoUnit.lName];
+        if(!stud){
+            stud = [[Student alloc] initWithFirstName:infoUnit.fName andLastName:infoUnit.lName grade:-1 gender:@""];
+        }
+        //Find the table if exists
+        Table *table = [self getTableWithNumber:infoUnit.tableNumber];
+        if(!table){
+            table = [[Table alloc] initWithTableNumber:infoUnit.tableNumber];
+            [self.tables addObject:table];
+        }
+        //Add to the table
+        [table.students addObject:stud];
+        //Assign as waiter if the student is
+        if([infoUnit.waiter isEqualToString:@"1"])
+            table.firstWaiter = stud;
+        if([infoUnit.waiter isEqualToString:@"2"])
+            table.secondWaiter = stud;
+        
+            
+    }
+    //Re calculate table size
+    for(Table *t in self.tables){
+        t.numerOfStudents = (int)[t.students count];
+    }
+}
+-(Student *) getStudentWithFirstName:(NSString *) f andLastName:(NSString *)l{
+    Student *temp = [[Student alloc] initWithFirstName:f andLastName:l];
+    for(Student *s in self.students){
+        if([s isEqualTo:temp])
+            return s;
+    }
+    return nil;
+}
+-(Table *) getTableWithNumber:(int) num{
+    for(Table *t in self.tables){
+        if(t.tableNumber == num)
+            return t;
+    }
+    return nil;
 }
 -(int) getTableNumberOfStudent:(Student *) student{
     for(Table *t in self.tables){

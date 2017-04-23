@@ -51,13 +51,20 @@
     [self.studentsListTableView setDataSource:self];
     [self.rotationTableView setDelegate:self];
     [self.rotationTableView setDataSource:self];
+    
+    
     self.currentDisplayedRotation.nameOfRotation = @"abc";
     self.allRotations = [[NSMutableArray alloc] initWithObjects:self.currentDisplayedRotation, nil];    
     [self refreshRotationsPopupMenu];
+    
     DataProc *proc = [[DataProc alloc] init];
-    NSString *cvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
-    NSLog(@"%@",[[cvs componentsSeparatedByString:@","] objectAtIndex:0]);
-    NSMutableArray *r = [proc convertCVSStringToRotationInfoUnits:cvs];
+    NSString *rotationCvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
+    NSString *studentListCvs = [proc convertStudentListToCSVString:self.currentDisplayedRotation.students];
+    NSString *rotationName =[[rotationCvs componentsSeparatedByString:@","] objectAtIndex:0];
+    NSMutableArray *restoredInfoUnits = [proc convertCVSStringToRotationInfoUnits:rotationCvs];
+    NSMutableArray *restoredStudentsList = [proc makeStudentsFromString:studentListCvs];
+    Rotation *restoredRotation = [[Rotation alloc] initFromCVSStringWithStudentsList:restoredStudentsList infoUnits:restoredInfoUnits andNameOfRotation:rotationName];
+    
     NSLog(@"check");
 }
 

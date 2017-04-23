@@ -9,7 +9,14 @@
 #import "Table.h"
 
 @implementation Table
-
+-(id)initWithTableNumber:(int)num{
+    self = [super init];
+    if(self){
+        self.students = [[NSMutableArray alloc] init];
+        self.tableNumber = num;
+    }
+    return self;
+}
 -(id)initWithSize:(int) size{
     self = [super init];
     if(self){

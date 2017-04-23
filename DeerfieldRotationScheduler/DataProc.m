@@ -1,3 +1,4 @@
+
 //
 //  DataProc.m
 //  DeerfieldRotationScheduler
@@ -26,7 +27,7 @@
     for(int i = 2; i < [lines count];i++){
         NSArray *components = [[lines objectAtIndex:i] componentsSeparatedByString:@","];
         if([components count]!=4 )
-            break;
+            continue;
         StudentInfoUnit *u = [[StudentInfoUnit alloc] init];
         u.fName = [components objectAtIndex:1];
         u.lName = [components objectAtIndex:2];
@@ -108,6 +109,8 @@
     for(int i = 1; i < allStudentStrings.count; i++){
         NSString* individualStudentString = [allStudentStrings objectAtIndex:i];
         NSArray* a = [individualStudentString componentsSeparatedByString:@","];
+        if([a count]!=4 )
+            continue;
         NSString* firstName = [a objectAtIndex:0];
         NSString* lastName = [a objectAtIndex:1];
         NSString* gender = [a objectAtIndex:2];
