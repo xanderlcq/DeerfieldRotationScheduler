@@ -55,7 +55,7 @@
         firstName = [firstName stringByReplacingOccurrencesOfString:@" " withString:@""];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName gender:gender];
         [students addObject:s];
-        
+
     }
     //Fix format
     return students;
