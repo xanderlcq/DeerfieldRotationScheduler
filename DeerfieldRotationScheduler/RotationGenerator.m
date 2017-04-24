@@ -43,6 +43,9 @@
     return copy;
 }
 -(void) assignRandomStudents{
+    StudentsSorter *sorter = [[StudentsSorter alloc] init];
+
+    self.students = [sorter sortByGrades:self.students];
     for(Table *t in self.currentRotation.tables){
         while([t.students count] < t.numerOfStudents){
             //While this table needs more students

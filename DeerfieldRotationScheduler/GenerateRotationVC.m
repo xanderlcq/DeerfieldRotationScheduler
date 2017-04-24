@@ -38,11 +38,11 @@
     [alert setAlertStyle:NSWarningAlertStyle];
     NSModalResponse response = [alert runModal];
     if(response == NSAlertFirstButtonReturn){
-        NSLog(@"first button");
+        //NSLog(@"first button");
         [self.delegate closeGenRotationVCWithNewRotation:self.rotation students:self.studentListWorkingCopy andVC:self];
     }
     if(response == NSAlertSecondButtonReturn){
-        NSLog(@"second button");
+        //NSLog(@"second button");
         [self.delegate closeGenRotationVCWithoutSaving:self];
     }
     
@@ -68,8 +68,8 @@
 }
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    NSLog(@"%@",tableView.identifier);
-    NSLog(@"%@",tableColumn.identifier);
+    //NSLog(@"%@",tableView.identifier);
+    //NSLog(@"%@",tableColumn.identifier);
     
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         Student *s = [self.studentList objectAtIndex:row];

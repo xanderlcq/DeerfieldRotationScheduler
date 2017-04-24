@@ -57,18 +57,17 @@
         [alert setAlertStyle:NSWarningAlertStyle];
         NSModalResponse response = [alert runModal];
         if(response == NSAlertFirstButtonReturn){
-            NSLog(@"first button");
             [self.delegate closeEditStudentVCWithStudentsList:self.studentList vc:self];
         }
         if(response == NSAlertSecondButtonReturn){
-            NSLog(@"second button");
+
             [self.delegate closeEditStudentVCWithoutSaving:self];
         }
     
 }
 
 - (IBAction)addStudentButton:(id)sender {
-    NSLog(@"add student button");
+    //NSLog(@"add student button");
     NSString *grade =[self.gradeInput.stringValue stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (![grade isEqualToString: @"9"]&&![grade isEqualToString: @"10"]&&![grade isEqualToString: @"11"]&&![grade isEqualToString: @"12"]){
         NSAlert *alert = [[NSAlert alloc] init];

@@ -164,8 +164,7 @@
     return cellView;
 }
 - (IBAction)rotationDropDown:(id)sender {
-    NSLog(@"%lu",[self.rotationDropDownOutlet indexOfSelectedItem])
-    ;
+    //NSLog(@"%lu",[self.rotationDropDownOutlet indexOfSelectedItem]);
     self.currentDisplayedRotation = [self.allRotations objectAtIndex:[self.rotationDropDownOutlet indexOfSelectedItem]];
     [self.currentDisplayedRotation updateStudentInfo];
     [self.rotationTableView reloadData];
