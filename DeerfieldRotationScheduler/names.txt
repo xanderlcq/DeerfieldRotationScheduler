@@ -58,13 +58,13 @@ BROWN, Jennifer, F, 9
 BROWN, Jack, M, 11
 BROWN, Mary Mack, F, 11
 BU, Ines, F, 11
-BURCH, Mia, F
-BURKE, Ely, F
+BURCH, Mia, F, 10
+BURKE, Ely, F, 10
 CABOT, Sam, M, 11
 CAI, Acy, F, 9
 CAMELIO, Chris, M, 11
-CAO, Howard, M
-CAPUTO, Jack, M
+CAO, Howard, M, 10
+CAPUTO, Jack, M, 12
 CAREY, Madeline, F, 9
 CARPENTER, Caroline, F
 CARR-MAL, Arayana, F, 9
@@ -72,577 +72,577 @@ CARROLL, Jillian, F, 11
 CASTELLANO-WOOD, Theo, M
 CASTLEMAN, Mila, F, 11
 CAZEAU, Arie, F, 11
-CEGLA, Lukasz, M
+CEGLA, Lukasz, M, 12
 CENTOLA, Sophia, F, 11
-CHAI, Maddie, F
-CHAN, Serena, F
+CHAI, Maddie, F, 12
+CHAN, Serena, F, 12
 CHANG, Ashley, F, 11
-CHANG, William, M
+CHANG, William, M, 10
 CHATHAM, Jenn, F, 11
-CHEETHAM, Bailey, F
-CHEN, Alaina, F
+CHEETHAM, Bailey, F, 10
+CHEN, Alaina, F, 12
 CHEN, Amelia, F, 11
 CHEN, David, M, 9
 CHEN, Ethan, M, 9
 CHEN, Janis, F, 9
 CHEN, Kevin, M, 11
-CHEN, Lisa, F
+CHEN, Lisa, F, 11
 CHERYAZDANOV, Daulet, M
-CHEUNG, Britney, F
-CHONG, Nate, M
+CHEUNG, Britney, F, 12
+CHONG, Nate, M, 12
 CHUKWUMA, Justice, M, 11
 CHUNG, John, M, 9
 COAN, Jordan, F, 11
 COHLAN, Jackson, M, 11
 COLLINS, Chase, M, 9
-CONSTANT, Levi, M
+CONSTANT, Levi, M, 10
 CONZELMAN, Carolina, F, 11
 CRAFT, Tommy, M, 11
-CRIMMINS, Luke, M
-CRISSY, Jordan, M
+CRIMMINS, Luke, M, 12
+CRISSY, Jordan, M, 12
 CROCKER, Sam, M, 9
-CROSBY, Ian, M
-CUDA, Mia, F
-CUI, Amanda, F
-CUI, Daniel, M
+CROSBY, Ian, M, 12
+CUDA, Mia, F, 12
+CUI, Amanda, F, 11
+CUI, Daniel, M, 10
 CUMMINGS, Samara, F, 9
-DA COSTA, Nicole, F
+DA COSTA, Nicole, F, 10
 DALE, Thomas, M
-DALE, Will, M
+DALE, Will, M, 10
 DANFORTH, Kevin, M, 11
-DANFORTH, Scott, M
+DANFORTH, Scott, M, 12
 DARTEY, Darrel, M, 9
-DAVIS, Brian, M
-DAVIS, Ramona, F
+DAVIS, Brian, M, 12
+DAVIS, Ramona, F, 12
 DAVIS, Zach, M, 9
-DAVY, Lily, F
-DAY, Aiden, M
+DAVY, Lily, F, 10
+DAY, Aiden, M, 12
 DEFAY, Milo, M, 11
-DELISSER, Mimi, F
-DEMALLIE, Bayard, M
-DEMARCO, Erin, F
+DELISSER, Mimi, F, 12
+DEMALLIE, Bayard, M, 10
+DEMARCO, Erin, F, 10
 DERINGER, Hanna, F, 9
-DESHONG, Cassie, F
-DESWANDHY, Andari, F
+DESHONG, Cassie, F, 12
+DESWANDHY, Andari, F, 10
 DEVEREAUX, Aurora, F, 9
-DEWEY, Robby, M
+DEWEY, Robby, M, 12
 DIAMOND, Oliver, M, 11
-DIAZ, Melanie, F
+DIAZ, Melanie, F, 12
 DILLON, Tom, M, 11
-DO, Sophia, F
+DO, Sophia, F, 12
 DOHENY, Eamon, M, 9
-DONNELLEY, Teddy, M
-DONOVAN, Matt, M
-DONVILLE, Jonathan, M
+DONNELLEY, Teddy, M, 12
+DONOVAN, Matt, M, 12
+DONVILLE, Jonathan, M, 12
 DOUGAL, Ali, F, 11
 DOWNES, Helen, F, 11
-DOWNIE, Owen, M
+DOWNIE, Owen, M, 12
 DU, Sarah, F, 9
-DULAM, Sai, M
-DURFEE, Teddy, M
+DULAM, Sai, M, 10
+DURFEE, Teddy, M, 10
 EARLS, Emma, F, 9
 EDE-OSIFO, Uwa, F, 11
-EDMONDS, Mary, F
-EDWARDS, Ally, F
-EGU, Chelsea, F
-EKHATOR, Ericka, F
-EMERSON, Mae, F
+EDMONDS, Mary, F, 10
+EDWARDS, Ally, F, 12
+EGU, Chelsea, F, 10
+EKHATOR, Ericka, F, 12
+EMERSON, Mae, F, 10
 ESONWUNE, Adimora, M, 11
-ESPOSITO, John, M
+ESPOSITO, John, M, 12
 EVANS, Amelia, F, 11
-EVERETT, Peter, M
-FAIR, George, M
-FAIRMAN, Cole, M
+EVERETT, Peter, M, 10
+FAIR, George, M, 12
+FAIRMAN, Cole, M, 12
 FAN, Michelle, F, 11
-FANG, Joshua, M
+FANG, Joshua, M, 10
 FANJUL, Peps, M, 9
 FANJUL, Lulu, F, 11
-FARR, Danny, M
-FARRIS, Jack, M
-FAUCETT, Lily, F
-FAURA, Daniella, F
-FAUVER, Lily, F
+FARR, Danny, M, 12
+FARRIS, Jack, M, 12
+FAUCETT, Lily, F, 10
+FAURA, Daniella, F, 12
+FAUVER, Lily, F, 12
 FAUX, Jared, M, 9
-FENG, Markus, M
-FERGUSON, Cassia, F
-FERRAGAMO, Federico, M
-FERRAGAMO, Giacomo, M
+FENG, Markus, M, 12
+FERGUSON, Cassia, F, 12
+FERRAGAMO, Federico, M, 10
+FERRAGAMO, Giacomo, M, 12
 FINEMORE, Connor, M, 11
-FINNEGAN, Daniel, M
+FINNEGAN, Daniel, M, 12
 FIORONI, Anne, F, 9
 FISCHER, Molly, F, 9
 FLAGG, Elliot, M, 9
 FLAGG, Emmeline, F, 11
 FLUTY, Nick, M, 9
 FREIRE, Conrad, M, 11
-FRIENDS, Ellie, F
+FRIENDS, Ellie, F, 12
 FU, Anna, F, 9
-FUJIYOSHI, Ali, F
-GAHAGAN, Harry, M
-GALE, Thomas, M
-GALLEHDARI, Jake, M
+FUJIYOSHI, Ali, F, 10
+GAHAGAN, Harry, M, 12
+GALE, Thomas, M, 10
+GALLEHDARI, Jake, M, 12
 GARDNER, Matthew, M, 9
-GENEREUX, Margot, F
-GERACI, Isabella, F
-GERACI, Olivia, F
-GERACI, Max, M
+GENEREUX, Margot, F, 12
+GERACI, Isabella, F, 10
+GERACI, Olivia, F, 10
+GERACI, Max, M, 10
 GERBER, Annabel, F, 9
-GERBER, Tim, M
+GERBER, Tim, M, 12
 GILBERT, Paige, F, 9
-GILMORE, Isabel, F
+GILMORE, Isabel, F, 11
 GILMORE, Tommy, M, 9
 GINDER, Jordan, M, 11
 GLINTON, Jonathan, M, 10
-GOGUEN, Caroline, F
-GONZALEZ, Ricardo, M
-GOODRIDGE, Imani, F
-GOODRIDGE, Nia, F
+GOGUEN, Caroline, F, 12
+GONZALEZ, Ricardo, M, 10
+GOODRIDGE, Imani, F, 12
+GOODRIDGE, Nia, F, 12
 GORANOV, Chris, M, 9
 GORANOV, Jimmy, M, 9
-GORDON, Ian, M
+GORDON, Ian, M, 10
 GRACE, Adeliza, F, 11
-GRANT, Carl, M
+GRANT, Carl, M, 12
 GRAVES, Megan, F, 11
-GRAVES, Shane, M
-GREENBAUM, Jenna, F
-GREENE, Georgia, F
-GREENE, Vishawn, M
+GRAVES, Shane, M, 12
+GREENBAUM, Jenna, F, 12
+GREENE, Georgia, F, 12
+GREENE, Vishawn, M, 12
 GREGG, Sydney, F, 9
-GRENNON, Kathryn, F
-GUO, Alex, M
-GUO, Yingtong, F
-GURKAN, Melisa, F
-GUSTAVSON, Henry, M
-HADLEY, Katherine, F
-HAGGERTY, Sullivan, M
-HALE, Brett, F
-HALE, Thomas, M
+GRENNON, Kathryn, F, 12
+GUO, Alex, M, 12
+GUO, Yingtong, F, 11
+GURKAN, Melisa, F, 10
+GUSTAVSON, Henry, M, 10
+HADLEY, Katherine, F, 12
+HAGGERTY, Sullivan, M, 12
+HALE, Brett, F, 11
+HALE, Thomas, M, 12
 HALLORAN, Christina, F, 9
-HALLORAN, Meghan, F
-HAMM, Perry, F
-HAMPSON, Carter, M
-HAN, Andy, M
-HAN, Patrick, M
-HANAU, Hollin, F
+HALLORAN, Meghan, F, 12
+HAMM, Perry, F, 12
+HAMPSON, Carter, M, 9
+HAN, Andy, M, 10
+HAN, Patrick, M, 12
+HANAU, Hollin, F, 11
 HARRINGTON, Jarod, M, 9
 HART, Maya, F, 11
-HARVEY, Anna, F
+HARVEY, Anna, F, 11
 HAY, Nicky, M, 9
 HAYDEN, Henry, M, 11
-HEANEY, Meredith, F
-HEARD, Cameron, F
+HEANEY, Meredith, F, 10
+HEARD, Cameron, F, 10
 HEARD, Ossie, M, 11
-HENDERSON, Emily, F
+HENDERSON, Emily, F, 10
 HENDRICK, Kevin, M, 11
-HETHERINGTON, Valerie, F
+HETHERINGTON, Valerie, F, 10
 HICKS, Helen, F, 11
-HILL, Raegan, F
-HINCKLEY, Sasha, F
+HILL, Raegan, F, 10
+HINCKLEY, Sasha, F, 10
 HIOE, Kathryn, F, 9
 HIRSCH, Ben, M, 11
 HIRSCH, Michael, M, 11
 HOAR, Brenna, F, 11
 HOBBS, Dallas, M
-HOLLAND, Michael, M
+HOLLAND, Michael, M, 10
 HOLLO, Ollie, M, 11
-HOLOWESKO, Ella, F
+HOLOWESKO, Ella, F, 9
 HOLOWESKO, Liam, M, 11
-HOROWITCH, Lily, F
-HORTON, Mason, M
-HOUGH, Penelope, F
-HOWARD, Jada, F
-HOWE, Erin, F
-HRABCHAK, Will, M
-HU, Nathan, M
-HUDSON, Erin, F
-HUNT, Cosmo, M
+HOROWITCH, Lily, F, 12
+HORTON, Mason, M, 10
+HOUGH, Penelope, F, 12
+HOWARD, Jada, F, 11
+HOWE, Erin, F, 10
+HRABCHAK, Will, M, 12
+HU, Nathan, M, 10
+HUDSON, Erin, F, 11
+HUNT, Cosmo, M, 10
 HUR, Young, M, 11
-HURVITT, Celia, F
+HURVITT, Celia, F, 12
 ILSLEY, Annie, F, 11
-IRIZARRY, Javy, M
-JACKSON, Naji, M
-JACOB, Julia, F
-JAMES, Kevin, M
-JASKOLSKI, Emma, F
-JEON, Liam, M
-JHA, Aditya, M
-JI, Eli, M
+IRIZARRY, Javy, M, 10
+JACKSON, Naji, M, 12
+JACOB, Julia, F, 10
+JAMES, Kevin, M, 12
+JASKOLSKI, Emma, F, 10
+JEON, Liam, M, 12
+JHA, Aditya, M, 12
+JI, Eli, M, 10
 JIANG, Lynnette, F, 11
-JIMENEZ, Netanya, M
-JO, Nadia, F
-JOHNSON, Freddie, M
-JOHNSON, Gordon, M
-JONES, Chenelle, F
+JIMENEZ, Netanya, M, 9
+JO, Nadia, F, 10
+JOHNSON, Freddie, M, 12
+JOHNSON, Gordon, M, 12
+JONES, Chenelle, F, 10
 JONES, Olivia, F, 11
-JUNG, Noah, M
-JUNG, Sarah, F
-KA, Aminata, F
-KADRY, Mohamed, M
-KAMINSKY, Alex, M
-KANE, Britt, F
-KANG, Hannah, F
-KELL, Ally, F
+JUNG, Noah, M, 10
+JUNG, Sarah, F, 10
+KA, Aminata, F, 10
+KADRY, Mohamed, M, 12
+KAMINSKY, Alex, M, 12
+KANE, Britt, F, 12
+KANG, Hannah, F, 12
+KELL, Ally, F, 9
 KELLEHER, Camden, M, 11
-KELLER, Hunter, F
-KELLY, Ethan, M
-KELLY, Tyler, M
-KERBRAT, Wiggle, M
-KIM, Aerin, F
+KELLER, Hunter, F, 10
+KELLY, Ethan, M, 10
+KELLY, Tyler, M, 10
+KERBRAT, Wiggle, M, 12
+KIM, Aerin, F, 12
 KIM, Eric, M, 11
-KIM, Ryan, M
-KIM, Celine, F
-KIM, Lucas, M
-KNIGHT, Grace, F
-KNIGHT, Logan, M
-KO, Sooah, F
+KIM, Ryan, M, 10
+KIM, Celine, F, 12
+KIM, Lucas, M, 12
+KNIGHT, Grace, F, 9
+KNIGHT, Logan, M, 12
+KO, Sooah, F, 12
 KOCH, Katie, F, 11
 KOEPPEL, Claire, F, 11
-KOSCHIK, Ellie, F
-KOSYUK, Ivan, M
-KRISHNAMURTHY, Manan, M
-KRONENWETTER, Shaun, M
-L'ESPERANCE, Pierson, M
+KOSCHIK, Ellie, F, 12
+KOSYUK, Ivan, M, 12
+KRISHNAMURTHY, Manan, M, 12
+KRONENWETTER, Shaun, M, 10
+L'ESPERANCE, Pierson, M, 12
 LABADAN, Nic, M, 11
-LAHART, Billy, M
-LAM, Simon, M
+LAHART, Billy, M, 12
+LAM, Simon, M, 10
 LANG, Noah, M, 11
-LAUR, Maya, F
-LAUR, Sam, M
-LEE, Soo-Min, F
+LAUR, Maya, F, 9
+LAUR, Sam, M, 9
+LEE, Soo-Min, F, 10
 LEGREE, Sharif, M
-LEKOVIC, Punisa, M
+LEKOVIC, Punisa, M, 10
 LENZ, Theo, M, 11
-LEONE, Nick, M
-LEONG, Alexander, M
+LEONE, Nick, M, 12
+LEONG, Alexander, M, 10
 LEVIT, Alexis, F, 11
-LI, Xander, M
-LI, Christina, F
-LI, Susan, F
-LI, Steven, M
-LIANG, Mina, F
-LIANG, Ella, F
+LI, Xander, M, 12
+LI, Christina, F, 9
+LI, Susan, F, 10
+LI, Steven, M, 10
+LIANG, Mina, F, 10
+LIANG, Ella, F, 10
 LIEW, Kye, M, 11
-LINEBERRY, Shai, F
-LIU, Jason, M
-LIVELY, Steve, M
-LLORENTE, Catalina, F
-LONG, Hunter, M
-LOPEZ, Andrea, F
-LOPEZ, Sofia, F
+LINEBERRY, Shai, F, 12
+LIU, Jason, M, 10
+LIVELY, Steve, M, 12
+LLORENTE, Catalina, F, 10
+LONG, Hunter, M, 12
+LOPEZ, Andrea, F, 10
+LOPEZ, Sofia, F, 9
 LOUIS, Lily, F, 11
-LOUIS, Owen, M
-LOWE, Henry, M
+LOUIS, Owen, M, 10
+LOWE, Henry, M, 10
 LUBER, Emily, F, 11
 LUBER, Parker, M, 11
-LUGO, Cynthia, F
-LUND, Jack, M
+LUGO, Cynthia, F, 9
+LUND, Jack, M, 10
 LUPI, Abby, F, 11
-LYNCH, Ned, M
-MA, Valerie, F
+LYNCH, Ned, M, 10
+MA, Valerie, F, 12
 MACKAY, Cornelia, F, 11
-MACKAY, Duncan, M
+MACKAY, Duncan, M, 12
 MACPHEE, Owen, M, 11
-MAJERCAK, Kalina, F
-MAKRIDIS, Michael, M
-MALLACH, Jane, F, M
-MANCINI, Anthony, M
-MANGUILLI, Caleigh, M
-MANNING, Ashley, F
-MANNING, Jordan, F
-MANNIX, Jackson, M
-MANNIX, Tess, F
+MAJERCAK, Kalina, F, 12
+MAKRIDIS, Michael, M, 10
+MALLACH, Jane, F, 9
+MANCINI, Anthony, M, 12
+MANGUILLI, Caleigh, M, 10
+MANNING, Ashley, F, 10
+MANNING, Jordan, F, 10
+MANNIX, Jackson, M, 12
+MANNIX, Tess, F, 9
 MAO, Devin, M, 11
-MARCHESE, Peter, M
-MARINI-RAPOPORT, Orlee, F
+MARCHESE, Peter, M, 9
+MARINI-RAPOPORT, Orlee, F, 10
 MARKEY, Nora, F, 11
-MARLER, Justin, M
+MARLER, Justin, M, 12
 MARSANS, Marco, M, 11
-MARSH, FJ, F
-MARTINEZ, Steph, F
+MARSH, FJ, F, 10
+MARTINEZ, Steph, F, 9
 MARTINO, Megan, F, 11
-MASELLA, Justin, M
-MAURI, Annabelle, F
-MAZUR, Grace, F
+MASELLA, Justin, M, 12
+MAURI, Annabelle, F, 11
+MAZUR, Grace, F, 10
 MAZUR, Suzy, F, 11
-MCAVOY, Sean, M
-MCCARTHY, Teddy, M
-MCDERMOTT, Tyler, M
-MCDONALD, Izzy, F
+MCAVOY, Sean, M, 10
+MCCARTHY, Teddy, M, 9
+MCDERMOTT, Tyler, M, 9
+MCDONALD, Izzy, F, 9
 MCDOWELL, Griffin, M, 11
-MCKEE, Pat, M
-MCLEOD, Hollis, F
-MCMANEMIN, Audrey, F
-MCMILLAN, Adeleke, F
-MCNAMARA, Eamon, M
+MCKEE, Pat, M, 10
+MCLEOD, Hollis, F, 12
+MCMANEMIN, Audrey, F, 12
+MCMILLAN, Adeleke, F, 12
+MCNAMARA, Eamon, M, 9
 MCNAMARA, Will, M, 11
 MEAD, Connor, M, 11
 MELVIN, Carolyn, F, 11
-MENAFEE, Miles, M
-MENAFEE, Vera Grace, F
+MENAFEE, Miles, M, 12
+MENAFEE, Vera Grace, F, 9
 MENG, Michael, M, 11
-MESSINA, Livi, F
-MEYER, Monet, F
-MEYER, Bobby, M
-MICHELSON, Dani, M
-MIESSAU, Ireland, F
-MIKESELL, Liv, F
-MILLS, Tessa, F
-MILMO, Andres, M
-MINOR, Jacqueline, F
-MISHCHENKO, Anna, F
-MOE, Garrett, M
-MOLLO, Guiseppe, M
-MOLLO, Robert, M
-MOOS, Gabe, M
-MORGAN, William, M
-MORRISSEY, Jackie, F
-MORSE, Katie, F
-MULLOWNEY, Deirdre, F
-MUNN, Cameron, F
-MURPHY, Virginia, F
-NAGLE, Dylan, M
-NANDY, Protik, M
-NEWMAN, Zakiya, F
-NIE, Neil, M
-NILES, Helen, F
+MESSINA, Livi, F, 12
+MEYER, Monet, F, 10
+MEYER, Bobby, M, 12
+MICHELSON, Dani, M, 12
+MIESSAU, Ireland, F, 12
+MIKESELL, Liv, F, 12
+MILLS, Tessa, F, 12
+MILMO, Andres, M, 12
+MINOR, Jacqueline, F, 12
+MISHCHENKO, Anna, F, 10
+MOE, Garrett, M, 10
+MOLLO, Guiseppe, M, 9
+MOLLO, Robert, M, 12
+MOOS, Gabe, M, 10
+MORGAN, William, M, 12
+MORRISSEY, Jackie, F, 9
+MORSE, Katie, F, 12
+MULLOWNEY, Deirdre, F, 10
+MUNN, Cameron, F, 12
+MURPHY, Virginia, F, 12
+NAGLE, Dylan, M, 12
+NANDY, Protik, M, 10
+NEWMAN, Zakiya, F, 12
+NIE, Neil, M, 10
+NILES, Helen, F, 10
 NORRIS, Alli, F, 11
-NOTTEBOHM, Annabel, F
+NOTTEBOHM, Annabel, F, 12
 NOVAK, Sofia, F, 11
-NUELLE, Sky, F
+NUELLE, Sky, F, 12
 NURJADIN, Iqbal, M, 11
 NWOGBO, Gozzy, M, 11
-O'BRIEN, Alina, F
-O'BRIEN, Graham, M
+O'BRIEN, Alina, F, 12
+O'BRIEN, Graham, M, 10
 O'BRIEN, Meaghan, F, 11
-O'BRIEN, Robby, M
-O'BRIEN, Tim, M
-O'BYRNE, Cate, F
-O'CONNOR, Gillian, F
-O'CONNOR, Jill, F
+O'BRIEN, Robby, M, 10
+O'BRIEN, Tim, M, 9
+O'BYRNE, Cate, F, 10
+O'CONNOR, Gillian, F, 12
+O'CONNOR, Jill, F, 10
 O'CONNOR, Sarah Jane, F, 11
 O'DONNELL, Julian, M, 11
-O'NEIL, Jack, M
-ODHIAMBO, Charles, M
-ODURO, Joshua, M
-OH, Soo, F
-OLSON, Colin, M
-OPLER, Sophie, F
-ORTEGA, Nick, M
+O'NEIL, Jack, M, 9
+ODHIAMBO, Charles, M, 12
+ODURO, Joshua, M, 9
+OH, Soo, F, 10
+OLSON, Colin, M, 10
+OPLER, Sophie, F, 10
+ORTEGA, Nick, M, 10
 ORTIZ, Izzy, F, 11
-OTT, Claire, F
+OTT, Claire, F, 9
 OTTO-BERNSTEIN, Joni, M, 9
-OYOLU, Stephanie, F
-PAES, Angel, M
-PAEZ, Xochitl, M
-PAIVA OLIVEIRA, Caio, M
-PALMER, Jackson, M
-PAN, Henry, M
+OYOLU, Stephanie, F, 11
+PAES, Angel, M, 12
+PAEZ, Xochitl, M, 9
+PAIVA OLIVEIRA, Caio, M, 9
+PALMER, Jackson, M, 10
+PAN, Henry, M, 10
 PANTALONY, Jared, M, 11
-PAPPAS, Caroline, F
-PARK, Richard, M
-PARKER, Katie, F
-PARKER, Rob, M
-PASTOR, Mimi, F
-PASTOR, Bret, M
-PATHAPATI, Deepak, M
+PAPPAS, Caroline, F, 12
+PARK, Richard, M, 12
+PARKER, Katie, F, 10
+PARKER, Rob, M, 12
+PASTOR, Mimi, F, 10
+PASTOR, Bret, M, 11
+PATHAPATI, Deepak, M, 9
 PATTERSON, Victoria, F, 11
-PATTON, Jimmy, M
-PATTON, JP, M
-PAVLOVA, Rada, M
+PATTON, Jimmy, M, 9
+PATTON, JP, M, 10
+PAVLOVA, Rada, M, 11
 PECK, Andrew, M, 11
-PECORA, Nick, M
-PELLETIER, Nikita, F
+PECORA, Nick, M, 9
+PELLETIER, Nikita, F, 9
 PENNER, Andrew, M, 11
-PENNER, Rachel, F
-PERRY, Juliet, F
-PERSONS, Molly, F
-PEYTON, Tendayi, F
-PHILIE, Austin, M
+PENNER, Rachel, F, 10
+PERRY, Juliet, F, 10
+PERSONS, Molly, F, 10
+PEYTON, Tendayi, F, 12
+PHILIE, Austin, M, 10
 PINK, Charlie, M, 11
-PINK, Ollie, M
-PITCHER, Jackson, M
+PINK, Ollie, M, 9
+PITCHER, Jackson, M, 10
 PITCHON, Emilia, F, 11
-PITCHON, Maxime, M
+PITCHON, Maxime, M, 10
 PLATT, Alex, M, 11
 POLK, Louise, F
 POMERANTZ, Mim, F, 11
-PONCE, Fernanda, F
+PONCE, Fernanda, F, 10
 POWELL, Sam, M, 11
-PRESNAL, Dylan, M
+PRESNAL, Dylan, M, 12
 PRESNAL, Jake, M, 11
-PRICHETT, Bailyn, F
+PRICHETT, Bailyn, F, 10
 PULAI, Peter, M, 11
-QUAN, Claire, F
-QUESNELLE, Georgia, F
+QUAN, Claire, F, 9
+QUESNELLE, Georgia, F, 10
 RAJAN, Maya, F, 11
-RAMOS, Jazmine, F
-RANSOM, Chris, M
-RASHID, Fatima, F
-RAWJI, Kiana, F
-REAVIS, Emma, F
+RAMOS, Jazmine, F, 9
+RANSOM, Chris, M, 10
+RASHID, Fatima, F, 10
+RAWJI, Kiana, F, 11
+REAVIS, Emma, F, 10
 REED, Avery, M, 11
-REINHARD, Seth, M
-RENELUS, Felicia, F
-RENELUS, Henry, M
-RICH, Malcolm, M
+REINHARD, Seth, M, 12
+RENELUS, Felicia, F, 12
+RENELUS, Henry, M, 9
+RICH, Malcolm, M, 10
 RICHARDS, Geraud, M, 11
-RIVERS, Justin, M
-ROBERTS, Annie, F
+RIVERS, Justin, M, 12
+ROBERTS, Annie, F, 12
 ROBERTS, Taylor, M, 11
 ROBINSON, Lily, F, 11
-ROBINSON, Kaleb, M
-ROCHE, Maggie, F
+ROBINSON, Kaleb, M, 12
+ROCHE, Maggie, F, 10
 ROCHE, Tierney, F, 11
 ROCKEFELLER, Nolen, M, 11
 ROSEN, Spencer, M, 11
-ROSSETTER, Winston, F
-SAFIRY, Ryan, M
-SALDARRIAGA, Valentina, F
-SALL, Nafi, F
+ROSSETTER, Winston, F, 12
+SAFIRY, Ryan, M, 10
+SALDARRIAGA, Valentina, F, 10
+SALL, Nafi, F, 9
 SALMON, Lilley, F, 11
 SALVADORE, Sofia, F, 11
-SAN MARTIN, Alex, M
-SANFORD, Will, M
-SANTOS, Evan, M
-SANTOS, Will, M
-SARACHEK, Griffin, M
-SARACHEK, Sevrin, M
+SAN MARTIN, Alex, M, 11
+SANFORD, Will, M, 12
+SANTOS, Evan, M, 12
+SANTOS, Will, M, 12
+SARACHEK, Griffin, M, 12
+SARACHEK, Sevrin, M, 12
 SAVAGE, Carl, M, 11
-SAVAGE, Will, M
-SAWYERS, John, M
-SCALAMANDRE, Max, M
-SCARBOROUGH, Shelby, F
+SAVAGE, Will, M, 9
+SAWYERS, John, M, 12
+SCALAMANDRE, Max, M, 10
+SCARBOROUGH, Shelby, F, 12
 SCOTT, Anna, F, 11
 SCOTT, Brandon, M
 SEELIGSON, Sinclair, F, 11
 SEO, Yeon Ji, F, 11
-SHAH, Chait, M
+SHAH, Chait, M, 10
 SHARMA, Sameer, M, 11
-SHEA, A.J., M
+SHEA, A.J., M, 12
 SHEA, Colman, M, 11
-SHEA, Francis, M
+SHEA, Francis, M, 12
 SHEARON, Charles, M, 11
-SHEVZOV-ZEBRUN, Anya, F
+SHEVZOV-ZEBRUN, Anya, F, 12
 SHI, Shenika, F, 11
 SHILLING, Reid, M, 12
-SHIN, Brian, M
-SHIN, Jiwon, F
-SHUHDA, Will, M
-SHUHDA, Lilly, F
-SHUM, Elven, M
-SHUMAN, Rachie, F
-SIEGEL, Madisen, F
-SILBERSTEIN, Mia, F
-SIMMONS, Francis, M
-SIMS, Zykeem, M
-SINHA, Shreyas, M
+SHIN, Brian, M, 10
+SHIN, Jiwon, F, 12
+SHUHDA, Will, M, 12
+SHUHDA, Lilly, F, 10
+SHUM, Elven, M, 9
+SHUMAN, Rachie, F, 10
+SIEGEL, Madisen, F, 12
+SILBERSTEIN, Mia, F, 9
+SIMMONS, Francis, M, 12
+SIMS, Zykeem, M, 12
+SINHA, Shreyas, M, 10
 SINTES, Sofi, F, 11
-SIRITANTIKORN, JJ, M
+SIRITANTIKORN, JJ, M, 10
 SIROTHPHIPHAT, Sally, F
-SITARAMAN, Anu, F
-SLACK, Tom, M
-SMITH, Alex, M
+SITARAMAN, Anu, F, 9
+SLACK, Tom, M, 12
+SMITH, Alex, M, 10
 SMITH, Bailey, F, 11
-SMITH, Hope, F
+SMITH, Hope, F, 9
 SNOW, Cameron, M, 11
-SO, Jeffrey, M
+SO, Jeffrey, M, 10
 SOLBERG, Nick, M, 11
-SONG, Will, M
-SONG, Thomas, M
+SONG, Will, M, 9
+SONG, Thomas, M, 10
 SOTIRHOS, Sabrina, F, 11
-SOUCY, Quinn, F
+SOUCY, Quinn, F, 10
 SPARKS, Donnie, M, 11
-ST. ARNAULT, Izzy, F
+ST. ARNAULT, Izzy, F, 12
 ST. JEAN, Sammy, M, 11
-STAFFORD, Kimberly, F
-STANKOVITS, Bennett, M
-STEELE, Nate, M
+STAFFORD, Kimberly, F, 10
+STANKOVITS, Bennett, M, 10
+STEELE, Nate, M, 12
 STEPHENS, Emmerson, F, 11
-STEWART, Ashley, F
-STOLL, Brigid, F
-STONESTREET, Emily, F
-STRAUSS, Jared, M
-STUDE, Micajah, M
+STEWART, Ashley, F, 12
+STOLL, Brigid, F, 10
+STONESTREET, Emily, F, 10
+STRAUSS, Jared, M, 12
+STUDE, Micajah, M, 10
 SUGITA, Caitlin, F, 11
-SULLIVAN, Ted, M
+SULLIVAN, Ted, M, 12
 SUMMERS, Melia, F, 11
-SUN, Jeffrey, M
-SUTER, Will, M
-SWEENEY, Kaycie, F
-SWINERTON, Hannah, F
-TAI, Karen, F
-TARAZI, Elisabeth, F
-TARGETT, Meg, F
-TARIQ, Talha, M
-TAYLOR, Cam, M
-TAYLOR, Raheme, M
-TEBEAU, Helena, F
-TERRY, Luke, M
-THAGARD, Chris, M
-THAYUMANAVAN, Ethan, M
-THAYUMANAVAN, Seth, M
-THIES, Maddie, F
-THOMAS, David, M
-THOMAS, Griffin, M
-THOMAS-ADAMS, Aliana, F
-THONGTHAI, Tai, M
-THRASHER, Cameron, M
-TRAPP, Jack, M
-TRELEASE, Lukas, M
+SUN, Jeffrey, M, 12
+SUTER, Will, M, 12
+SWEENEY, Kaycie, F, 12
+SWINERTON, Hannah, F, 12
+TAI, Karen, F, 12
+TARAZI, Elisabeth, F, 10
+TARGETT, Meg, F, 12
+TARIQ, Talha, M, 12
+TAYLOR, Cam, M, 10
+TAYLOR, Raheme, M, 9
+TEBEAU, Helena, F, 12
+TERRY, Luke, M, 9
+THAGARD, Chris, M, 9
+THAYUMANAVAN, Ethan, M, 12
+THAYUMANAVAN, Seth, M, 9
+THIES, Maddie, F, 12
+THOMAS, David, M, 9
+THOMAS, Griffin, M, 12
+THOMAS-ADAMS, Aliana, F, 12
+THONGTHAI, Tai, M, 12
+THRASHER, Cameron, M, 12
+TRAPP, Jack, M, 10
+TRELEASE, Lukas, M, 9
 TSAI, Everett, M, 11
 TSANDILAS, Thanasi, M, 11
 TSULTRIM, Topjor, M, 11
-TUDRYN, Erin, F
-TYDINGS, Maggie, F
-UGHETTA, William, M
-UHL, Ellie, F
+TUDRYN, Erin, F, 11
+TYDINGS, Maggie, F, 9
+UGHETTA, William, M, 12
+UHL, Ellie, F, 12
 VENKATRAMAN, Roopa, F, 11
-VIGNEAULT, Sam, M
-VOGT, Whitney, F
-VON WEISE, Katherine, F
-WAIT, Uno, M
-WANG, Ashley, F
+VIGNEAULT, Sam, M, 12
+VOGT, Whitney, F, 9
+VON WEISE, Katherine, F, 12
+WAIT, Uno, M, 12
+WANG, Ashley, F, 12
 WANG, Michael, M, 11
-WARGER, Lindsay, F
-WARREN, Erika, F
+WARGER, Lindsay, F, 12
+WARREN, Erika, F, 11
 WASSON, Maddie, F, 11
-WATERFALL, Tori, F
+WATERFALL, Tori, F, 10
 WEBER, Brian, M, 11
 WEIL, Lowell, M, 11
-WEINMAN, Alex, M
-WELCH, Ryan, M
-WENNERS, Libby, F
-WEYMOUTH, Carter, M
+WEINMAN, Alex, M, 10
+WELCH, Ryan, M, 9
+WENNERS, Libby, F, 12
+WEYMOUTH, Carter, M, 9
 WEYMOUTH, Philip, M, 11
 WHALEN, Katie, F, 11
-WHITELEY, James, M
+WHITELEY, James, M, 9
 WHITELEY, Tommy, M, 11
-WHITEMAN, Jerrin, M
-WHITNEY, Dominique, F
-WIERZBICKI, Matt, M
-WILLIAMS, Margaret, F
-WILLIAMS, Robbie, M
-WILLIAMS, Sydney, F
-WILLIAMS, Zo, M
-WITT, Tug, M
+WHITEMAN, Jerrin, M, 12
+WHITNEY, Dominique, F, 10
+WIERZBICKI, Matt, M, 10
+WILLIAMS, Margaret, F, 10
+WILLIAMS, Robbie, M, 12
+WILLIAMS, Sydney, F, 12
+WILLIAMS, Zo, M, 10
+WITT, Tug, M, 11
 WONG, Alex, M, 11
 WOOD, Jack, M, 12
-WOODWARD, Harbour, M
-WRIGHT, Sarah, F, M
+WOODWARD, Harbour, M, 10
+WRIGHT, Sarah, F, M, 9
 WUYAN, Matthew, M, 11
-XIA, Flaura, F
-XU, Alina, F
-XU, Johnny, M
-YAO, Adrian, M
-YAO, Arthur, M
-YATTASSAYE, Mamadou, M
-YEKTAI, Gideon, M
-YORK, Zev, M
-YU, Sean, M
-ZAHOOR, Fatima, F
-ZASLAW, Katie, F
-ZHANG, Claire, F
-ZHANG, Doris, F
-ZHENG, Jerilyn, F
-ZHU, Shangyi, F
-ZUSI, Nolan, M
+XIA, Flaura, F, 12
+XU, Alina, F, 12
+XU, Johnny, M, 11
+YAO, Adrian, M, 9
+YAO, Arthur, M, 9
+YATTASSAYE, Mamadou, M, 12
+YEKTAI, Gideon, M, 11
+YORK, Zev, M, 11
+YU, Sean, M, 11
+ZAHOOR, Fatima, F, 11
+ZASLAW, Katie, F, 10
+ZHANG, Claire, F, 11
+ZHANG, Doris, F, 11
+ZHENG, Jerilyn, F, 10
+ZHU, Shangyi, F, 9
+ZUSI, Nolan, M, 10
