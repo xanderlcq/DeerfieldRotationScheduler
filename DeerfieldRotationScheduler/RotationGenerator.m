@@ -44,7 +44,7 @@
 }
 -(void) assignRandomStudents{
     for(Table *t in self.currentRotation.tables){
-        while([t.students count] < t.numerOfStudents-2){
+        while([t.students count] < t.numerOfStudents){
             //While this table needs more students
             NSString *neededGender = [t mostNeededGender];
             //NSLog(@"%@",neededGender);
