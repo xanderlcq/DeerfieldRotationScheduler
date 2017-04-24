@@ -96,10 +96,12 @@
     }
     return nil;
 }
+
+
 -(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
-    NSString* cvsString = @"First Name,Last Name,Gender,Grade\n";
+    NSString* cvsString = @"First Name,Last Name,Gender,Grade,Rotations Waited\n";
     for(Student* stud in list){
-        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade];
+        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i,%i\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade,stud.rotationsWaited];
     }
     return cvsString;
 }
@@ -110,16 +112,24 @@
     for(int i = 1; i < allStudentStrings.count; i++){
         NSString* individualStudentString = [allStudentStrings objectAtIndex:i];
         NSArray* a = [individualStudentString componentsSeparatedByString:@","];
-        if([a count]!=4 )
+        if([a count]!=4 && [a count]!=5)
             continue;
         NSString* firstName = [a objectAtIndex:0];
         NSString* lastName = [a objectAtIndex:1];
         NSString* gender = [a objectAtIndex:2];
         NSString* gradeString = [a objectAtIndex:3];
-        int grade = (int)[gradeString integerValue];
+        
+        int grade = [gradeString intValue];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName grade:grade gender:gender];
+        if([a count] == 5){
+            int rotationWaited = [[a objectAtIndex:4] intValue];
+            s.rotationsWaited = rotationWaited;
+        }
+        
         [allStudents addObject: s];
     }
     return allStudents;
 }
+
+
 @end

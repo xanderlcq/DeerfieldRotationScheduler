@@ -47,12 +47,13 @@
     [self initializeViews];
     StorageHandler *handler = [[StorageHandler alloc] initWithShareApplicationDelegate:[[NSApplication sharedApplication] delegate]];
     self.studentsList = [handler loadMasterStudentListFromCoreData];
-
+    self.allRotations = [handler loadAllRotationsFromCoreData];
     [self refreshView];
 }
 -(void)viewWillDisappear{
     StorageHandler *handler = [[StorageHandler alloc] initWithShareApplicationDelegate:[[NSApplication sharedApplication] delegate]];
     [handler storeMasterStudentList:self.studentsList];
+    [handler storeAllRotations:self.allRotations];
 }
 -(void) refreshView{
     [self.currentDisplayedRotation updateStudentInfo];

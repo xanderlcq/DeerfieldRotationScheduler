@@ -15,5 +15,6 @@
 -(void)storeAllRotations:(NSMutableArray*)allRotations;
 -(NSMutableArray *) loadMasterStudentListFromCoreData;
 -(void)storeMasterStudentList:(NSMutableArray *)studentList;
+-(NSMutableArray *) loadAllRotationsFromCoreData;
 -(id) initWithShareApplicationDelegate:(id) del;
 @end
