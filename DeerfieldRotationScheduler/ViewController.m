@@ -12,8 +12,12 @@
 #import "Rotation.h"
 #import "StudentsSorter.h"
 #import "RotationGenerator.h"
+#import "StorageHandler.h"
 
 @implementation ViewController
+- (void)setRepresentedObject:(id)representedObject {
+    [super setRepresentedObject:representedObject];
+}
 -(void)closeGenRotationVCWithNewRotation:(Rotation*) r students:(NSMutableArray *)studentList andVC:(GenerateRotationVC *)controller{
     [self dismissController:controller];
     [self.allRotations insertObject:r atIndex:0];
@@ -41,50 +45,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initializeViews];
-//    Student *s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
-//    Student *s2 = [[Student alloc] initWithFirstName:@"Gid" andLastName:@":)" grade:11 gender:@"M"];
-//    Student *s3 = [[Student alloc] initWithFirstName:@"Sarah" andLastName:@"Du" grade:12 gender:@"F"];
-//    Student *s4 = [[Student alloc] initWithFirstName:@"Kate" andLastName:@":)" grade:9 gender:@"F"];
-//    Student *s5 = [[Student alloc] initWithFirstName:@"Extra" andLastName:@":)" grade:9 gender:@"F"];
-//
-//    self.studentsList = [[NSMutableArray alloc] initWithObjects:s1,s2,s3,s4,s5, nil];
-//    
-//    self.currentDisplayedRotation =[[Rotation alloc] initEmptyRotation];
-//    [self.currentDisplayedRotation addEmptyTable:2];
-//    [self.currentDisplayedRotation addEmptyTable:2];
-//    RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.currentDisplayedRotation studentList:self.studentsList andPastHistory:[[NSMutableArray alloc] init]];
-//    [gen generateRandomRotation];
-//    
-//    [self.currentDisplayedRotation updateStudentInfo];
-//    NSLog(@"%@",self.currentDisplayedRotation);
-//    
-//
-//    
-//    
-//    self.currentDisplayedRotation.nameOfRotation = @"abc";
-//    [self.allRotations addObject:self.currentDisplayedRotation];
-//    
-//    
-//    DataProc *proc = [[DataProc alloc] init];
-//    NSString *rotationCvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
-//    NSString *studentListCvs = [proc convertStudentListToCSVString:self.currentDisplayedRotation.students];
-//    NSString *rotationName =[[rotationCvs componentsSeparatedByString:@","] objectAtIndex:0];
-//    NSMutableArray *restoredInfoUnits = [proc convertCVSStringToRotationInfoUnits:rotationCvs];
-//    NSMutableArray *restoredStudentsList = [proc makeStudentsFromString:studentListCvs];
-//    Rotation *restoredRotation = [[Rotation alloc] initFromCVSStringWithStudentsList:restoredStudentsList infoUnits:restoredInfoUnits andNameOfRotation:rotationName];
-//    Student *new = [[Student alloc] initWithFirstName:@"a" andLastName:@"b" grade:11 gender:@"F"];
-//    
-//    [((Table*)[restoredRotation.tables objectAtIndex:0]).students addObject:new];
-//    [restoredRotation.students addObject:new];
-//    [restoredRotation updateStudentInfo];
-//    restoredRotation.nameOfRotation = @"123";
-//    [self.allRotations addObject:restoredRotation];
-//    self.currentDisplayedRotation = [[Rotation alloc] initEmptyRotation];
-//    [self.currentDisplayedRotation updateStudentInfo];
+    StorageHandler *handler = [[StorageHandler alloc] initWithShareApplicationDelegate:[[NSApplication sharedApplication] delegate]];
+    self.studentsList = [handler loadMasterStudentListFromCoreData];
 
     [self refreshView];
 }
-
+-(void)viewWillDisappear{
+    StorageHandler *handler = [[StorageHandler alloc] initWithShareApplicationDelegate:[[NSApplication sharedApplication] delegate]];
+    [handler storeMasterStudentList:self.studentsList];
+}
 -(void) refreshView{
     [self.currentDisplayedRotation updateStudentInfo];
     [self refreshRotationsPopupMenu];
@@ -105,11 +74,7 @@
     }
 }
 
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-    
-    // Update the view, if already loaded.
-}
+
 -(void)prompWarning:(NSString*)content{
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"OK"];

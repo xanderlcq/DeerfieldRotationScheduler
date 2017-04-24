@@ -22,7 +22,7 @@
 //to-string
 -(NSString*) description;
 //init-from string
--(id) initFromCVSStringWithStudentsList:(NSMutableArray *) studentsList infoUnits:(NSMutableArray *) infoUnit andNameOfRotation:(NSString *) name;
+-(id) initWithStudentsList:(NSMutableArray *) studentsList infoUnits:(NSMutableArray *) infoUnit andNameOfRotation:(NSString *) name;
 -(void)updateStudentInfo;
 -(void) addEmptyTable:(int) tableSize;
 -(BOOL) student:(Student*) first isSittingWith:(Student *) second;
