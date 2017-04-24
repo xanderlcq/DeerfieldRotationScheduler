@@ -112,30 +112,24 @@
     self = [super init];
     if (self){
         self.tables = [[NSMutableArray alloc] init];
+        self.students = [[NSMutableArray alloc] init];
+        [self updateStudentInfo];
+        self.nameOfRotation = @"";
     }
     return self;
 }
--(void) addEmptyTable:(int) tableSize{
+-(void) addEmptyTable:(int) tableSize {
     Table *t =[[Table alloc] initWithSize:tableSize];
     t.tableNumber = (int)[self.tables count]+1;
     [self.tables addObject:t];
 }
-//-(id) initFromString:(NSString*) string{
-//    self = [super init];
-//    if(self){
-//        NSArray* tableStrings = [[[(NSString *)[[string componentsSeparatedByString:@";"] firstObject] stringByReplacingOccurrencesOfString:@"{" withString:@""] stringByReplacingOccurrencesOfString:@"}" withString:@""] componentsSeparatedByString:@", "];
-//        
-//        //add students to self.students
-//        for (int i = 0; i < [tableStrings count]; i++){
-//            NSString* tableString = [tableStrings objectAtIndex:i];
-//            //            Table *newT = [[Table alloc]initFromString:tableString]
-//            //            [self.tables addObject:newT];
-//        }
-//        self.numberOfMeals = [[[string componentsSeparatedByString:@";"] objectAtIndex:1]intValue];
-//        self.numberOfTables =  [[[string componentsSeparatedByString:@";"] objectAtIndex:2]intValue];
-//    }
-//    return self;
-//}
+-(void)clearStudentsOnTable{
+    for(Table *t in self.tables){
+        [t.students removeAllObjects];
+        t.firstWaiter = nil;
+        t.secondWaiter = nil;
+    }
+}
 -(int) numberOfTables{
     return (int)[self.tables count];
 }

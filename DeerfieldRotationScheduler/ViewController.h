@@ -23,6 +23,7 @@
 @property (weak) IBOutlet NSPopUpButton *rotationDropDownOutlet;
 @property (weak) IBOutlet NSTableView *rotationTableView;
 - (IBAction)exportRotationButton:(id)sender;
+- (IBAction)deleteRotationButton:(id)sender;
 
 @end
 

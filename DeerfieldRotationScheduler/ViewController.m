@@ -14,9 +14,10 @@
 #import "RotationGenerator.h"
 
 @implementation ViewController
--(void)closeGenRotationVCWithNewRotation:(Rotation*) r andVC:(GenerateRotationVC *)controller{
+-(void)closeGenRotationVCWithNewRotation:(Rotation*) r students:(NSMutableArray *)studentList andVC:(GenerateRotationVC *)controller{
     [self dismissController:controller];
     [self.allRotations insertObject:r atIndex:0];
+    self.studentsList = studentList;
     self.currentDisplayedRotation = r;
     [self refreshView];
     
@@ -40,49 +41,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initializeViews];
-    Student *s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
-    Student *s2 = [[Student alloc] initWithFirstName:@"Gid" andLastName:@":)" grade:11 gender:@"M"];
-    Student *s3 = [[Student alloc] initWithFirstName:@"Sarah" andLastName:@"Du" grade:12 gender:@"F"];
-    Student *s4 = [[Student alloc] initWithFirstName:@"Kate" andLastName:@":)" grade:9 gender:@"F"];
-    Student *s5 = [[Student alloc] initWithFirstName:@"Extra" andLastName:@":)" grade:9 gender:@"F"];
+//    Student *s1 = [[Student alloc] initWithFirstName:@"Xander" andLastName:@"Li" grade:12 gender:@"M"];
+//    Student *s2 = [[Student alloc] initWithFirstName:@"Gid" andLastName:@":)" grade:11 gender:@"M"];
+//    Student *s3 = [[Student alloc] initWithFirstName:@"Sarah" andLastName:@"Du" grade:12 gender:@"F"];
+//    Student *s4 = [[Student alloc] initWithFirstName:@"Kate" andLastName:@":)" grade:9 gender:@"F"];
+//    Student *s5 = [[Student alloc] initWithFirstName:@"Extra" andLastName:@":)" grade:9 gender:@"F"];
+//
+//    self.studentsList = [[NSMutableArray alloc] initWithObjects:s1,s2,s3,s4,s5, nil];
+//    
+//    self.currentDisplayedRotation =[[Rotation alloc] initEmptyRotation];
+//    [self.currentDisplayedRotation addEmptyTable:2];
+//    [self.currentDisplayedRotation addEmptyTable:2];
+//    RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.currentDisplayedRotation studentList:self.studentsList andPastHistory:[[NSMutableArray alloc] init]];
+//    [gen generateRandomRotation];
+//    
+//    [self.currentDisplayedRotation updateStudentInfo];
+//    NSLog(@"%@",self.currentDisplayedRotation);
+//    
+//
+//    
+//    
+//    self.currentDisplayedRotation.nameOfRotation = @"abc";
+//    [self.allRotations addObject:self.currentDisplayedRotation];
+//    
+//    
+//    DataProc *proc = [[DataProc alloc] init];
+//    NSString *rotationCvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
+//    NSString *studentListCvs = [proc convertStudentListToCSVString:self.currentDisplayedRotation.students];
+//    NSString *rotationName =[[rotationCvs componentsSeparatedByString:@","] objectAtIndex:0];
+//    NSMutableArray *restoredInfoUnits = [proc convertCVSStringToRotationInfoUnits:rotationCvs];
+//    NSMutableArray *restoredStudentsList = [proc makeStudentsFromString:studentListCvs];
+//    Rotation *restoredRotation = [[Rotation alloc] initFromCVSStringWithStudentsList:restoredStudentsList infoUnits:restoredInfoUnits andNameOfRotation:rotationName];
+//    Student *new = [[Student alloc] initWithFirstName:@"a" andLastName:@"b" grade:11 gender:@"F"];
+//    
+//    [((Table*)[restoredRotation.tables objectAtIndex:0]).students addObject:new];
+//    [restoredRotation.students addObject:new];
+//    [restoredRotation updateStudentInfo];
+//    restoredRotation.nameOfRotation = @"123";
+//    [self.allRotations addObject:restoredRotation];
+//    self.currentDisplayedRotation = [[Rotation alloc] initEmptyRotation];
+//    [self.currentDisplayedRotation updateStudentInfo];
 
-    self.studentsList = [[NSMutableArray alloc] initWithObjects:s1,s2,s3,s4,s5, nil];
-    //NSLog(@"%lu",[self.studentsList count]);
-    
-    self.currentDisplayedRotation =[[Rotation alloc] initEmptyRotation];
-    [self.currentDisplayedRotation addEmptyTable:2];
-    [self.currentDisplayedRotation addEmptyTable:2];
-    RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.currentDisplayedRotation studentList:self.studentsList andPastHistory:[[NSMutableArray alloc] init]];
-    [gen generateRandomRotation];
-    
-    [self.currentDisplayedRotation updateStudentInfo];
-    NSLog(@"%@",self.currentDisplayedRotation);
-    
-
-    
-    
-    self.currentDisplayedRotation.nameOfRotation = @"abc";
-    [self.allRotations addObject:self.currentDisplayedRotation];
-    
-    
-    DataProc *proc = [[DataProc alloc] init];
-    NSString *rotationCvs = [proc convertRotationToCVSString:self.currentDisplayedRotation];
-    NSString *studentListCvs = [proc convertStudentListToCSVString:self.currentDisplayedRotation.students];
-    NSString *rotationName =[[rotationCvs componentsSeparatedByString:@","] objectAtIndex:0];
-    NSMutableArray *restoredInfoUnits = [proc convertCVSStringToRotationInfoUnits:rotationCvs];
-    NSMutableArray *restoredStudentsList = [proc makeStudentsFromString:studentListCvs];
-    Rotation *restoredRotation = [[Rotation alloc] initFromCVSStringWithStudentsList:restoredStudentsList infoUnits:restoredInfoUnits andNameOfRotation:rotationName];
-    Student *new = [[Student alloc] initWithFirstName:@"a" andLastName:@"b" grade:11 gender:@"F"];
-    
-    [((Table*)[restoredRotation.tables objectAtIndex:0]).students addObject:new];
-    [restoredRotation.students addObject:new];
-    [restoredRotation updateStudentInfo];
-    restoredRotation.nameOfRotation = @"123";
-    [self.allRotations addObject:restoredRotation];
-    
     [self refreshView];
 }
+
 -(void) refreshView{
+    [self.currentDisplayedRotation updateStudentInfo];
     [self refreshRotationsPopupMenu];
     [self.rotationTableView reloadData];
     [self.studentsListTableView reloadData];
@@ -106,6 +110,13 @@
     
     // Update the view, if already loaded.
 }
+-(void)prompWarning:(NSString*)content{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:content];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
+}
 -(void) prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender{
     //editStudentsSeg
     if([segue.identifier isEqualToString:@"editStudentsSeg"]){
@@ -119,8 +130,10 @@
         GenerateRotationVC *vc = [segue destinationController];
         vc.delegate = self;
         vc.allRotations = self.allRotations;
-        vc.rotation = self.currentDisplayedRotation;
         vc.studentList = [self shallowCopy:self.studentsList];
+        if([self.studentsList count] == 0){
+            [self prompWarning:@"You must have some students first"];
+        }
     }
 }
 
@@ -192,9 +205,19 @@
     [self.rotationTableView reloadData];
 }
 - (IBAction)exportRotationButton:(id)sender {
+    if(!self.currentDisplayedRotation){
+        return;
+    }
     [self.currentDisplayedRotation updateStudentInfo];
     DataProc *proc = [[DataProc alloc] init];
     NSString *cvs  = [proc convertRotationToCVSString:self.currentDisplayedRotation];
     [proc promptSaveDialogWithContent:cvs withDefaultFileName:[NSString stringWithFormat:@"%@%@",self.currentDisplayedRotation.nameOfRotation,@".csv"]];
+}
+
+- (IBAction)deleteRotationButton:(id)sender {
+    [self.allRotations removeObject:self.currentDisplayedRotation];
+    self.currentDisplayedRotation = [self.allRotations firstObject];
+    [self refreshView];
+    
 }
 @end

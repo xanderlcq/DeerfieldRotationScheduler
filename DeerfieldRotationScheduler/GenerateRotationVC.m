@@ -16,12 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.studentListWorkingCopy = [self deepCopy:self.studentList];
     [self.studentsListTableView setDelegate:self];
     [self.studentsListTableView setDataSource:self];
     [self.rotationTableView setDelegate:self];
     [self.rotationTableView setDataSource:self];
     [self.rotationSelectionTableView setDelegate:self];
     [self.rotationSelectionTableView setDataSource:self];
+    [self.tableConfigTableView setDelegate:self];
+    [self.tableConfigTableView setDataSource:self];
+    [self.rotationSelectionTableView setAllowsMultipleSelection:YES];
+    self.rotation = [[Rotation alloc] initEmptyRotation];
+    [self.rotation updateStudentInfo];
 }
 -(void) viewWillDisappear{
     NSAlert *alert = [[NSAlert alloc] init];
@@ -33,7 +39,7 @@
     NSModalResponse response = [alert runModal];
     if(response == NSAlertFirstButtonReturn){
         NSLog(@"first button");
-        [self.delegate closeGenRotationVCWithNewRotation:self.rotation andVC:self];
+        [self.delegate closeGenRotationVCWithNewRotation:self.rotation students:self.studentListWorkingCopy andVC:self];
     }
     if(response == NSAlertSecondButtonReturn){
         NSLog(@"second button");
@@ -54,11 +60,17 @@
     if([tableView.identifier isEqualToString:@"rotationSelectionTableView"]){
         return [self.allRotations count];
     }
+    if([tableView.identifier isEqualToString:@"tableConfigTableView"]){
+        return [self.rotation.tables count];
+    }
+    
     return 0;
 }
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    //NSLog(@"%@",tableColumn.identifier);
+    NSLog(@"%@",tableView.identifier);
+    NSLog(@"%@",tableColumn.identifier);
+    
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         Student *s = [self.studentList objectAtIndex:row];
         if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
@@ -98,7 +110,85 @@
         Rotation *r = [self.allRotations objectAtIndex:row];
         cellView.textField.stringValue = r.nameOfRotation;
         
+    }else if([tableView.identifier isEqualToString:@"tableConfigTableView"]){
+        Table *t = [self.rotation.tables objectAtIndex:row];
+        if([[tableColumn identifier] isEqualToString:@"tableNumCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",t.tableNumber];
+        }
+        if([[tableColumn identifier] isEqualToString:@"tableSizeCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",t.numerOfStudents];
+        }
+        
     }
     return cellView;
+}
+- (IBAction)addTableButton:(id)sender {
+    for(int i = 0; i < self.tableQuatity.intValue;i++){
+        [self.rotation addEmptyTable:self.tableSize.intValue];
+    }
+    [self.tableConfigTableView reloadData];
+}
+-(void)prompWarning:(NSString*)content{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:content];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert runModal];
+}
+-(BOOL) hasNameDuplicate:(NSString*)name{
+    for(Rotation *r in self.allRotations){
+        if([r.nameOfRotation isEqualToString:name]){
+            return YES;
+        }
+    }
+    return NO;
+}
+- (IBAction)generateRotationButton:(id)sender {
+    if([self.rotation.tables count] == 0){
+        [self prompWarning:@"you must add some tables"];
+        return;
+    }
+    if([self.nameOfRotationOutlet.stringValue isEqualToString:@""]){
+        [self prompWarning:@"you must have a table name"];
+        return;
+    }
+    if([self hasNameDuplicate:self.nameOfRotationOutlet.stringValue]){
+        [self prompWarning:@"you cannot reuse a rotation name"];
+        return;
+    }
+    if([self.studentList count] == 0){
+        [self prompWarning:@"you must go back and add some students first"];
+        return;
+    }
+    self.studentListWorkingCopy = [self deepCopy:self.studentList];
+    [self.rotation clearStudentsOnTable];
+    NSMutableArray *selectedPastHistory =[self selectedPastHistory];
+    RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.rotation studentList:self.studentListWorkingCopy andPastHistory:selectedPastHistory];
+    [gen generateRandomRotation];
+    [self.rotation updateStudentInfo];
+    self.rotation.nameOfRotation = self.nameOfRotationOutlet.stringValue;
+    [self.rotationTableView reloadData];
+}
+-(NSMutableArray *)selectedPastHistory{
+    NSMutableArray *selected = [[NSMutableArray alloc] init];
+    NSIndexSet *selectedIndexes = [self.rotationSelectionTableView selectedRowIndexes];
+    NSUInteger index = [selectedIndexes lastIndex];
+    while ( index != NSNotFound )
+    {
+        [selected addObject:[self.allRotations objectAtIndex:index]];
+        index = [selectedIndexes indexLessThanIndex: index];
+    }
+    return selected;
+}
+
+-(NSMutableArray *) deepCopy:(NSMutableArray*)source{
+    NSMutableArray *copy = [[NSMutableArray alloc] init];
+    for(Student *t in source){
+        Student *n = [[Student alloc] initWithFirstName:t.firstName andLastName:t.lastName grade:t.grade gender:t.gender];
+        n.rotationsWaited = t.rotationsWaited;
+#warning copy other properties
+        [copy addObject:n];
+    }
+    return copy;
 }
 @end

@@ -31,4 +31,5 @@
 -(int) getTableNumberOfStudent:(Student *) student;
 -(BOOL)isFirstWaiter:(Student *)student;
 -(BOOL)isSecondWaiter:(Student *)student;
+-(void)clearStudentsOnTable;
 @end
