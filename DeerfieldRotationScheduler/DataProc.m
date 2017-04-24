@@ -55,11 +55,6 @@
         firstName = [firstName stringByReplacingOccurrencesOfString:@" " withString:@""];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName gender:gender];
         [students addObject:s];
-        if([s.lastName isEqualToString:@"Zusi"])
-            NSLog(@"Done");
-        if(![names objectAtIndex:3])
-            NSLog(@"%@", s.lastName);
-        
     }
     //Fix format
     return students;
