@@ -66,10 +66,10 @@ CAMELIO, Chris, M, 11
 CAO, Howard, M, 10
 CAPUTO, Jack, M, 12
 CAREY, Madeline, F, 9
-CARPENTER, Caroline, F
+CARPENTER, Caroline, F, 10
 CARR-MAL, Arayana, F, 9
 CARROLL, Jillian, F, 11
-CASTELLANO-WOOD, Theo, M
+CASTELLANO-WOOD, Theo, M, 12
 CASTLEMAN, Mila, F, 11
 CAZEAU, Arie, F, 11
 CEGLA, Lukasz, M, 12
@@ -107,7 +107,7 @@ CUI, Amanda, F, 11
 CUI, Daniel, M, 10
 CUMMINGS, Samara, F, 9
 DA COSTA, Nicole, F, 10
-DALE, Thomas, M
+DALE, Thomas, M, 12
 DALE, Will, M, 10
 DANFORTH, Kevin, M, 11
 DANFORTH, Scott, M, 12
@@ -309,7 +309,7 @@ LANG, Noah, M, 11
 LAUR, Maya, F, 9
 LAUR, Sam, M, 9
 LEE, Soo-Min, F, 10
-LEGREE, Sharif, M
+LEGREE, Sharif, M, 12
 LEKOVIC, Punisa, M, 10
 LENZ, Theo, M, 11
 LEONE, Nick, M, 12
@@ -464,7 +464,7 @@ PITCHER, Jackson, M, 10
 PITCHON, Emilia, F, 11
 PITCHON, Maxime, M, 10
 PLATT, Alex, M, 11
-POLK, Louise, F
+POLK, Louise, F, 12
 POMERANTZ, Mim, F, 11
 PONCE, Fernanda, F, 10
 POWELL, Sam, M, 11
@@ -513,7 +513,7 @@ SAWYERS, John, M, 12
 SCALAMANDRE, Max, M, 10
 SCARBOROUGH, Shelby, F, 12
 SCOTT, Anna, F, 11
-SCOTT, Brandon, M
+SCOTT, Brandon, M, 12
 SEELIGSON, Sinclair, F, 11
 SEO, Yeon Ji, F, 11
 SHAH, Chait, M, 10
