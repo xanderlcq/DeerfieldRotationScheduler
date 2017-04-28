@@ -14,7 +14,7 @@
 @property (nonatomic) NSString *waiter;
 @property NSString *fName;
 @property NSString *lName;
-
+@property NSMutableDictionary *studentsSittingTogether;
 -(NSString*)firstName;
 -(NSString*)lastName;
 -(NSString*)tableNum;

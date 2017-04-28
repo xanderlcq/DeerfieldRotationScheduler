@@ -144,6 +144,8 @@
     return NO;
 }
 - (IBAction)generateRotationButton:(id)sender {
+    double timeInSeconds = [[NSDate date] timeIntervalSince1970];
+    NSLog(@"start time%f",timeInSeconds);
     if([self.rotation.tables count] == 0){
         [self prompWarning:@"you must add some tables"];
         return;
@@ -167,7 +169,9 @@
     [gen generateRandomRotation];
     [self.rotation updateStudentInfo];
     self.rotation.nameOfRotation = self.nameOfRotationOutlet.stringValue;
+    NSLog(@"start time%f",[[NSDate date] timeIntervalSince1970]-timeInSeconds);
     [self.rotationTableView reloadData];
+    
 }
 -(NSMutableArray *)selectedPastHistory{
     NSMutableArray *selected = [[NSMutableArray alloc] init];
@@ -186,7 +190,6 @@
     for(Student *t in source){
         Student *n = [[Student alloc] initWithFirstName:t.firstName andLastName:t.lastName grade:t.grade gender:t.gender];
         n.rotationsWaited = t.rotationsWaited;
-#warning copy other properties
         [copy addObject:n];
     }
     return copy;

@@ -28,7 +28,14 @@
             info.waiter = [NSString stringWithFormat:@"1"];
         else if([self isSecondWaiter:s])
             info.waiter = [NSString stringWithFormat:@"2"];
+        info.studentsSittingTogether = [[NSMutableDictionary alloc] init];
+        Table *studentTable = [self getTableWithNumber:info.tableNumber];
+        for(Student *s in studentTable.students){
+            info.studentsSittingTogether[[s.firstName lowercaseString]] = [s.lastName lowercaseString];
+        }
+        //NSLog(@"%@",info.studentsSittingTogether);
         [self.studentsInfo addObject:info];
+        
     }
 }
 -(id) initWithStudentsList:(NSMutableArray *) studentsList infoUnits:(NSMutableArray *) infoUnit andNameOfRotation:(NSString *) name{
@@ -134,10 +141,24 @@
     return (int)[self.tables count];
 }
 //check if at same table - assuming each student has already been assigned to a table. Will be true if bothunassigned to a table
+-(StudentInfoUnit *)getInfoUnitOfStudent:(Student *) s{
+    for(StudentInfoUnit *info in self.studentsInfo){
+        if( [[info.fName lowercaseString] isEqualToString:[s.firstName lowercaseString]] && [[info.lName lowercaseString] isEqualToString:[s.lastName lowercaseString]])
+            return info;
+    }
+    return nil;
+}
 -(BOOL) student:(Student*) a isSittingWith:(Student *) b{
-    for (Table *table in self.tables) {
-        if([table student:a isSittingWith:b])
-            return YES;
+//    for (Table *table in self.tables) {
+//        if([table student:a isSittingWith:b])
+//            return YES;
+//    }
+//    return NO;
+    StudentInfoUnit *info = [self getInfoUnitOfStudent:a];
+    NSString *value =info.studentsSittingTogether[[b.firstName lowercaseString]];
+    if( [value isEqualToString:[b.lastName lowercaseString]]){
+        NSLog(@"is sitting true")
+        return YES;
     }
     return NO;
 }
