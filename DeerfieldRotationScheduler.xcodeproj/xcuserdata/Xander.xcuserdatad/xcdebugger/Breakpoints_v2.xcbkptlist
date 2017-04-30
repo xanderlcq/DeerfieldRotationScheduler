@@ -90,7 +90,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Table.m"
-                  timestampString = "514697457.9405"
+                  timestampString = "515183243.324414"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -105,7 +105,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Table.m"
-                  timestampString = "514697457.941659"
+                  timestampString = "515183243.325435"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -121,44 +121,124 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
-            timestampString = "514731604.702812"
+            filePath = "DeerfieldRotationScheduler/Rotation.m"
+            timestampString = "515182911.20851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-student:isSittingWith:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
+            timestampString = "515183241.963978"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-neverSatBefore:withStudents:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
+            timestampString = "515183241.963978"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-satTogetherBefore:and:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeerfieldRotationScheduler/Rotation.m"
+            timestampString = "515183140.378612"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-student:isSittingWith:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
+            timestampString = "515183229.251833"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-generateRandomRotation"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeerfieldRotationScheduler/Rotation.m"
+            timestampString = "515183388.60247"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-getInfoUnitOfStudent:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[RotationGenerator satTogetherBefore:and:]"
+                  symbolName = "-[Rotation getInfoUnitOfStudent:]"
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/RotationGenerator.m"
-                  timestampString = "514697457.953822"
+                  urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
+                  timestampString = "515183388.606828"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "129">
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "86">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[RotationGenerator satTogetherBefore:and:]"
+                  symbolName = "-[Rotation getInfoUnitOfStudent:]"
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/RotationGenerator.m"
-                  timestampString = "514697457.955024"
+                  urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
+                  timestampString = "515183388.608182"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "137">
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "94">
                </Location>
             </Locations>
          </BreakpointContent>

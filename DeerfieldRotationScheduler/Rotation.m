@@ -149,16 +149,10 @@
     return nil;
 }
 -(BOOL) student:(Student*) a isSittingWith:(Student *) b{
-//    for (Table *table in self.tables) {
-//        if([table student:a isSittingWith:b])
-//            return YES;
-//    }
-//    return NO;
     StudentInfoUnit *info = [self getInfoUnitOfStudent:a];
     NSString *value =info.studentsSittingTogether[[b.firstName lowercaseString]];
-    if( [value isEqualToString:[b.lastName lowercaseString]]){
-        NSLog(@"is sitting true")
-        return YES;
+    if( value && [value isEqualToString:[b.lastName lowercaseString]]){
+         return YES;
     }
     return NO;
 }

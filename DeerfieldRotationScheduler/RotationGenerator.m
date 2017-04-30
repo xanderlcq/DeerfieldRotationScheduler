@@ -20,6 +20,8 @@
     return self;
 }
 -(void) generateRandomRotation{
+    for(Rotation *r in self.pastRotations)
+        [r updateStudentInfo];
     self.currentRotation.students = [self shallowCopy:self.students];
     NSMutableArray *waiters = [self generateWaiters];
     [self assignRandomWaiters:waiters];
