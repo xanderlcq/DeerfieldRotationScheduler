@@ -24,7 +24,5 @@
 -(void) assignRandomStudents;
 -(void) generateRandomRotation;
 
-//sarah testing lock
--(void) lockStudent:(Student*) student atTable:(int)tableNum;
 
 @end

@@ -152,7 +152,7 @@
     StudentInfoUnit *info = [self getInfoUnitOfStudent:a];
     NSString *value =info.studentsSittingTogether[[b.firstName lowercaseString]];
     if( value && [value isEqualToString:[b.lastName lowercaseString]]){
-         return YES;
+          return YES;
     }
     return NO;
 }

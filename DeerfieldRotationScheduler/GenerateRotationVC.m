@@ -29,6 +29,7 @@
     self.rotation = [[Rotation alloc] initEmptyRotation];
     [self.rotation updateStudentInfo];
 }
+
 -(void) viewWillDisappear{
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Save"];
@@ -84,6 +85,9 @@
         }
         if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
+        }
+        if([[tableColumn identifier] isEqualToString:@"lockNumCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.lockTableNum];
         }
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
         StudentInfoUnit *s = [self.rotation.studentsInfo objectAtIndex:row];
@@ -193,5 +197,22 @@
         [copy addObject:n];
     }
     return copy;
+}
+- (IBAction)lockButton:(id)sender {
+    int index = (int)self.studentsListTableView.selectedRow;
+#warning check input must be integer greater than 0
+    if(index != -1){
+        ((Student*)[self.studentList objectAtIndex:index]).lockTableNum = self.lockNumOutlet.intValue;
+    }
+    [self.studentsListTableView reloadData];
+}
+
+- (IBAction)unlockButton:(id)sender {
+    int index = (int)self.studentsListTableView.selectedRow;
+    #warning check input must be integer greater than 0
+    if(index != -1){
+        ((Student*)[self.studentList objectAtIndex:index]).lockTableNum = -99;
+    }
+    [self.studentsListTableView reloadData];
 }
 @end

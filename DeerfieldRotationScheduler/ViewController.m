@@ -139,6 +139,9 @@
         if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
         }
+        if([[tableColumn identifier] isEqualToString:@"lockNumCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.lockTableNum];
+        }
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
         StudentInfoUnit *s = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
         //NSLog(@"%@",s.waiter);
@@ -163,6 +166,7 @@
     }
     return cellView;
 }
+
 - (IBAction)rotationDropDown:(id)sender {
     //NSLog(@"%lu",[self.rotationDropDownOutlet indexOfSelectedItem]);
     self.currentDisplayedRotation = [self.allRotations objectAtIndex:[self.rotationDropDownOutlet indexOfSelectedItem]];
@@ -184,5 +188,20 @@
     self.currentDisplayedRotation = [self.allRotations firstObject];
     [self refreshView];
     
+}
+- (IBAction)lockButton:(id)sender {
+    int index = (int)self.studentsListTableView.selectedRow;
+    if(index != -1){
+        ((Student*)[self.studentsList objectAtIndex:index]).lockTableNum = self.lockNumOutlet.intValue;
+    }
+    [self refreshView];
+}
+
+- (IBAction)unlockButton:(id)sender {
+    int index = (int)self.studentsListTableView.selectedRow;
+    if(index != -1){
+        ((Student*)[self.studentsList objectAtIndex:index]).lockTableNum = -99;
+    }
+    [self refreshView];
 }
 @end

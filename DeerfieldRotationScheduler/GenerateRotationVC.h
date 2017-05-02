@@ -34,4 +34,7 @@
 @property NSMutableArray *studentListWorkingCopy;
 @property NSMutableArray *allRotations;
 @property Rotation *rotation;
+@property (weak) IBOutlet NSTextField *lockNumOutlet;
+- (IBAction)lockButton:(id)sender;
+- (IBAction)unlockButton:(id)sender;
 @end

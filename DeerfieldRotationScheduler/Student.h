@@ -13,16 +13,10 @@
 @property NSString *firstName;
 @property NSString *lastName;
 @property int rotationsWaited;
-@property NSString *cocurric;
 @property NSString *gender;
 @property int grade;
-@property NSMutableArray *frees;
-@property NSDate *birthday;
-@property int mealsWaited;
-@property NSMutableArray *linkedStudents;
 @property BOOL dayStudent;
-@property NSMutableArray *studentsSatWith;
-@property BOOL locked;
+@property int lockTableNum;
 //init with name, grade and birthday initialized to 0 
 -(id)initWithFirstName:(NSString*)first andLastName:(NSString*)last;
 //for testing

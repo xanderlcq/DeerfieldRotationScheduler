@@ -60,7 +60,8 @@
                     return;
                 }
                 for(Student * s in self.students){
-                    if (!s.locked){
+#warning deal with this if statement
+                    if (YES){
                         BOOL isNeededGrade = neededGrade == s.grade || i>=1;
                         BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
                         BOOL isNeverSatTogether = [self neverSatBefore:s withStudents:t.students] || i>= 3;
@@ -128,7 +129,13 @@
     }
     
 }
-
+-(void) assignLockedStudents{
+    for(Student *s in self.students){
+        if(s.lockTableNum != -1){
+#warning implement
+        }
+    }
+}
 -(BOOL) satTogetherBefore:(Student *) a and:(Student *)b{
     for(Rotation *r in self.pastRotations){
         if([r student:a isSittingWith:b])
@@ -157,10 +164,4 @@
 }
 
 
--(void) lockStudent:(Student*) student atTable:(int)tableNum{
-    student.locked = YES;
-    // add student to given table. Tables array in current rotation are uninitialized at this point, so student array can't be accesed...
-    Table* table = [self.currentRotation.tables objectAtIndex:tableNum];
-    [table.students addObject:student];
-}
 @end

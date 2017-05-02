@@ -25,5 +25,9 @@
 - (IBAction)exportRotationButton:(id)sender;
 - (IBAction)deleteRotationButton:(id)sender;
 
+@property (weak) IBOutlet NSTextField *lockNumOutlet;
+- (IBAction)lockButton:(id)sender;
+- (IBAction)unlockButton:(id)sender;
+
 @end
 
