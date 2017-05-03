@@ -32,4 +32,5 @@
 -(BOOL)isFirstWaiter:(Student *)student;
 -(BOOL)isSecondWaiter:(Student *)student;
 -(void)clearStudentsOnTable;
+-(Table *) getTableWithNumber:(int) num;
 @end

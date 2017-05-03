@@ -89,6 +89,9 @@
         if([[tableColumn identifier] isEqualToString:@"lockNumCol"]){
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.lockTableNum];
         }
+        if([[tableColumn identifier] isEqualToString:@"rotationWaitedCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.rotationsWaited];
+        }
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
         StudentInfoUnit *s = [self.rotation.studentsInfo objectAtIndex:row];
         //NSLog(@"%@",s.waiter);
@@ -194,6 +197,7 @@
     for(Student *t in source){
         Student *n = [[Student alloc] initWithFirstName:t.firstName andLastName:t.lastName grade:t.grade gender:t.gender];
         n.rotationsWaited = t.rotationsWaited;
+        n.lockTableNum = t.lockTableNum;
         [copy addObject:n];
     }
     return copy;

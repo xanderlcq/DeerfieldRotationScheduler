@@ -23,6 +23,7 @@
     for(Rotation *r in self.pastRotations)
         [r updateStudentInfo];
     self.currentRotation.students = [self shallowCopy:self.students];
+    [self assignLockedStudents];
     NSMutableArray *waiters = [self generateWaiters];
     [self assignRandomWaiters:waiters];
     self.students = [self eliminateDuplicateOf:waiters inList:self.students]; //delete waiters from students list of this rotation
@@ -46,7 +47,7 @@
 }
 -(void) assignRandomStudents{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
-
+    
     self.students = [sorter sortByGrades:self.students];
     for(Table *t in self.currentRotation.tables){
         while([t.students count] < t.numerOfStudents){
@@ -60,17 +61,15 @@
                     return;
                 }
                 for(Student * s in self.students){
-#warning deal with this if statement
-                    if (YES){
-                        BOOL isNeededGrade = neededGrade == s.grade || i>=1;
-                        BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
-                        BOOL isNeverSatTogether = [self neverSatBefore:s withStudents:t.students] || i>= 3;
-                        if(isNeededGrade && isNeededGender &&isNeverSatTogether){
-                            [self.students removeObject:s];
-                            [t.students addObject:s];
-                            i = 4;
-                            break;
-                        }
+                    BOOL isNeededGrade = neededGrade == s.grade || i>=1;
+                    BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
+                    BOOL isNeverSatTogether = [self neverSatBefore:s withStudents:t.students] || i>= 3;
+                    if(isNeededGrade && isNeededGender &&isNeverSatTogether){
+                        [self.students removeObject:s];
+                        [t.students addObject:s];
+                        i = 4;
+                        break;
+                        
                     }
                 }
             }
@@ -130,11 +129,22 @@
     
 }
 -(void) assignLockedStudents{
+    NSMutableArray *added = [[NSMutableArray alloc] init];
     for(Student *s in self.students){
-        if(s.lockTableNum != -1){
-#warning implement
+        if(s.lockTableNum != -99){
+            Table *t = [self.currentRotation getTableWithNumber:s.lockTableNum];
+            if(t){
+                [t.students addObject:s];
+                
+            }else{
+                t = [[Table alloc] initWithSize:1];
+                t.tableNumber = s.lockTableNum;
+                [t.students addObject:s];
+            }
+            [added addObject:s];
         }
     }
+    self.students = [self eliminateDuplicateOf:added inList:self.students];
 }
 -(BOOL) satTogetherBefore:(Student *) a and:(Student *)b{
     for(Rotation *r in self.pastRotations){
@@ -153,7 +163,7 @@
     
     return waiters;
 }
-    
+
 -(NSMutableArray *) shallowCopy:(NSMutableArray *) original{
     NSMutableArray *copy = [[NSMutableArray alloc] init];
     for(int i = 0; i < [original count]; i++){

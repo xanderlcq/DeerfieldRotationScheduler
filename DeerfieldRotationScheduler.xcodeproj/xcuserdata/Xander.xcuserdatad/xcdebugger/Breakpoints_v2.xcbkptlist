@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/ViewController.m"
-            timestampString = "515422449.846067"
+            timestampString = "515426596.315835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-deleteRotationButton:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/ViewController.m"
-            timestampString = "515422449.846067"
+            timestampString = "515426596.315835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-exportRotationButton:"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,7 +90,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Table.m"
-                  timestampString = "515183243.324414"
+                  timestampString = "515510112.089422"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -105,7 +105,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Table.m"
-                  timestampString = "515183243.325435"
+                  timestampString = "515510112.090453"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -137,38 +137,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
-            timestampString = "515422449.846067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-neverSatBefore:withStudents:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
-            timestampString = "515423414.025209"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "-satTogetherBefore:and:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/Rotation.m"
             timestampString = "515183140.378612"
             startingColumnNumber = "9223372036854775807"
@@ -176,22 +144,6 @@
             startingLineNumber = "151"
             endingLineNumber = "151"
             landmarkName = "-student:isSittingWith:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
-            timestampString = "515183229.251833"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-generateRandomRotation"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -218,7 +170,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
-                  timestampString = "515183388.606828"
+                  timestampString = "515510112.094983"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -233,7 +185,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
-                  timestampString = "515183388.608182"
+                  timestampString = "515510112.096038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"

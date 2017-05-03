@@ -142,6 +142,11 @@
         if([[tableColumn identifier] isEqualToString:@"lockNumCol"]){
             cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.lockTableNum];
         }
+        if([[tableColumn identifier] isEqualToString:@"rotationWaitedCol"]){
+            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.rotationsWaited];
+        }
+        
+        
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
         StudentInfoUnit *s = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
         //NSLog(@"%@",s.waiter);

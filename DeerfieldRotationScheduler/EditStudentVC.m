@@ -39,6 +39,9 @@
     if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
         cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
     }
+    if([[tableColumn identifier] isEqualToString:@"rotationWaitedCol"]){
+        cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.rotationsWaited];
+    }
     return cellView;
 }
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
@@ -115,7 +118,7 @@
         [self.studentList addObject:stud];
     }
     [self.tableView reloadData];
-    NSLog(@"%@",result);
+    //NSLog(@"%@",result);
 #warning ENFORE CSV Format check
 #warning  check for duplicate
 }
