@@ -127,7 +127,7 @@
 }
 -(void) addEmptyTable:(int) tableSize {
     Table *t =[[Table alloc] initWithSize:tableSize];
-    t.tableNumber = (int)[self.tables count]+1;
+    t.tableNumber = [self getNextEmptyTableNumber];
     [self.tables addObject:t];
 }
 -(void)clearStudentsOnTable{
@@ -136,6 +136,15 @@
         t.firstWaiter = nil;
         t.secondWaiter = nil;
     }
+}
+-(int) getNextEmptyTableNumber{
+    int i = 1;
+    Table *t = [self getTableWithNumber:i];
+    while(t){
+        i++;
+        t = [self getTableWithNumber:i];
+    }
+    return i;
 }
 -(int) numberOfTables{
     return (int)[self.tables count];

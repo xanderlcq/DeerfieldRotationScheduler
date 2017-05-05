@@ -202,15 +202,76 @@
     }
     return copy;
 }
+
 - (IBAction)lockButton:(id)sender {
     int index = (int)self.studentsListTableView.selectedRow;
-#warning check input must be integer greater than 0
-    if(index != -1){
-        ((Student*)[self.studentList objectAtIndex:index]).lockTableNum = self.lockNumOutlet.intValue;
+    
+#warning If student is already locked, remove them from old table.
+#warning Refresh Rotation table view
+    if(index == -1){
+        [self prompWarning:@"you must select a student"];
+        return;
     }
-    [self.studentsListTableView reloadData];
-}
+    Student *stud =[self.studentList objectAtIndex:index];
+    Table *t = [self.rotation getTableWithNumber:self.lockNumOutlet.intValue];
+    if(t){
+        if([t.students count] == t.numerOfStudents){
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert addButtonWithTitle:@"Increase size by 1"];
+            [alert addButtonWithTitle:@"Cancel"];
+            [alert setMessageText:@"Table is full!"];
+            [alert setInformativeText:@"Do you want to increase the size by 1?"];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            NSModalResponse response = [alert runModal];
+            if(response == NSAlertFirstButtonReturn){
+                //NSLog(@"first button");
+                [self.delegate closeGenRotationVCWithNewRotation:self.rotation students:self.studentListWorkingCopy andVC:self];
+                stud.lockTableNum = self.lockNumOutlet.intValue;
+                [t.students addObject:stud];
+                [self refreshView];
+                t.numerOfStudents++;
+                return;
+            }
+            if(response == NSAlertSecondButtonReturn){
+                return;
+            }
+            
+            
+        }else{
+            stud.lockTableNum = self.lockNumOutlet.intValue;
+            [t.students addObject:stud];
+            [self refreshView];
+            return;
+        }
+    }else{
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"Add new table"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:@"Table Doesn't exist"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        NSModalResponse response = [alert runModal];
+        if(response == NSAlertFirstButtonReturn){
+            //NSLog(@"first button");
+            t = [[Table alloc] initWithSize:1];
+            [t.students addObject:stud];
+            stud.lockTableNum = self.lockNumOutlet.intValue;
+            t.tableNumber = self.lockNumOutlet.intValue;
+            [self.rotation.tables addObject:t];
+            [self refreshView];
+            return;
+        }
+        if(response == NSAlertSecondButtonReturn){
+            return;
+        }
+    }
 
+
+}
+-(void)refreshView{
+    [self.studentsListTableView reloadData];
+    [self.tableConfigTableView reloadData];
+    [self.rotationTableView reloadData];
+}
 - (IBAction)unlockButton:(id)sender {
     int index = (int)self.studentsListTableView.selectedRow;
     #warning check input must be integer greater than 0

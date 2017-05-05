@@ -132,15 +132,15 @@
     NSMutableArray *added = [[NSMutableArray alloc] init];
     for(Student *s in self.students){
         if(s.lockTableNum != -99){
-            Table *t = [self.currentRotation getTableWithNumber:s.lockTableNum];
-            if(t){
-                [t.students addObject:s];
-                
-            }else{
-                t = [[Table alloc] initWithSize:1];
-                t.tableNumber = s.lockTableNum;
-                [t.students addObject:s];
-            }
+//            Table *t = [self.currentRotation getTableWithNumber:s.lockTableNum];
+//            if(t){
+//                [t.students addObject:s];
+//                
+//            }else{
+//                t = [[Table alloc] initWithSize:1];
+//                t.tableNumber = s.lockTableNum;
+//                [t.students addObject:s];
+//            }
             [added addObject:s];
         }
     }
