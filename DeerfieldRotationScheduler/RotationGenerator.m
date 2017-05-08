@@ -23,7 +23,7 @@
     for(Rotation *r in self.pastRotations)
         [r updateStudentInfo];
     self.currentRotation.students = [self shallowCopy:self.students];
-    [self assignLockedStudents];
+    [self removeLockedStudentsFromList];
     NSMutableArray *waiters = [self generateWaiters];
     [self assignRandomWaiters:waiters];
     self.students = [self eliminateDuplicateOf:waiters inList:self.students]; //delete waiters from students list of this rotation
@@ -128,19 +128,10 @@
     }
     
 }
--(void) assignLockedStudents{
+-(void) removeLockedStudentsFromList{
     NSMutableArray *added = [[NSMutableArray alloc] init];
     for(Student *s in self.students){
         if(s.lockTableNum != -99){
-//            Table *t = [self.currentRotation getTableWithNumber:s.lockTableNum];
-//            if(t){
-//                [t.students addObject:s];
-//                
-//            }else{
-//                t = [[Table alloc] initWithSize:1];
-//                t.tableNumber = s.lockTableNum;
-//                [t.students addObject:s];
-//            }
             [added addObject:s];
         }
     }
@@ -158,7 +149,15 @@
 -(NSMutableArray *) generateWaiters{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     self.students = [sorter sortByRotationsWaited:self.students];
-    int waitersNeeded = self.currentRotation.numberOfTables * 2;
+    int waitersNeeded = 0;
+    for(Table *t in self.currentRotation.tables){
+        if([t.students count] >= t.numerOfStudents)
+            continue;
+        if([t.students count] == t.numerOfStudents - 1)
+            waitersNeeded ++;
+        if([t.students count] <= t.numerOfStudents - 2)
+            waitersNeeded += 2;
+    }
     NSMutableArray* waiters = [[NSMutableArray alloc] initWithArray:[self.students subarrayWithRange:(NSMakeRange(0, waitersNeeded))]];
     
     return waiters;
