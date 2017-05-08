@@ -27,9 +27,42 @@
     [self.tableConfigTableView setDataSource:self];
     [self.rotationSelectionTableView setAllowsMultipleSelection:YES];
     self.rotation = [[Rotation alloc] initEmptyRotation];
+    [self applyAllLockedStudents];
     [self.rotation updateStudentInfo];
+    [self refreshView];
+    
 }
-
+-(void) applyAllLockedStudents{
+#warning implement
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Apply All Locked Student"];
+    [alert addButtonWithTitle:@"Remove All Locks"];
+    [alert setMessageText:@"Apply Locks?"];
+    [alert setInformativeText:@"Do you want to apply all locked students to their table? or remove all locks"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    NSModalResponse response = [alert runModal];
+    if(response == NSAlertFirstButtonReturn){
+        //NSLog(@"first button");
+        for(Student *s in self.studentListWorkingCopy){
+            if(s.lockTableNum != -99){
+                Table *t = [self.rotation getTableWithNumber:s.lockTableNum];
+                if(!t){
+                    t = [[Table alloc] initWithSize:1];
+                    [t.students addObject:s];
+                    t.tableNumber = s.lockTableNum;
+                    [self.rotation.tables addObject:t];
+                }else{
+                    [t.students addObject:s];
+                    t.numerOfStudents++;
+                }
+            }
+        }
+    }
+    if(response == NSAlertSecondButtonReturn){
+        for(Student *s in self.studentListWorkingCopy)
+            s.lockTableNum = -99;
+    }
+}
 -(void) viewWillDisappear{
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Save"];
@@ -56,7 +89,7 @@
         return [self.rotation.studentsInfo count];
     }
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
-        return [self.studentList count];
+        return [self.studentListWorkingCopy count];
     }
     if([tableView.identifier isEqualToString:@"rotationSelectionTableView"]){
         return [self.allRotations count];
@@ -73,7 +106,7 @@
     //NSLog(@"%@",tableColumn.identifier);
     
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
-        Student *s = [self.studentList objectAtIndex:row];
+        Student *s = [self.studentListWorkingCopy objectAtIndex:row];
         if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
             cellView.textField.stringValue = s.firstName;
         }
@@ -165,12 +198,11 @@
         [self prompWarning:@"you cannot reuse a rotation name"];
         return;
     }
-    if([self.studentList count] == 0){
+    if([self.studentListWorkingCopy count] == 0){
         [self prompWarning:@"you must go back and add some students first"];
         return;
     }
-    self.studentListWorkingCopy = [self deepCopy:self.studentList];
-    [self.rotation clearStudentsOnTable];
+    //[self.rotation clearStudentsOnTable];
     NSMutableArray *selectedPastHistory =[self selectedPastHistory];
     RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.rotation studentList:self.studentListWorkingCopy andPastHistory:selectedPastHistory];
     [gen generateRandomRotation];
@@ -206,13 +238,16 @@
 - (IBAction)lockButton:(id)sender {
     int index = (int)self.studentsListTableView.selectedRow;
     
-#warning If student is already locked, remove them from old table.
 #warning Refresh Rotation table view
     if(index == -1){
         [self prompWarning:@"you must select a student"];
         return;
     }
-    Student *stud =[self.studentList objectAtIndex:index];
+    Student *stud =[self.studentListWorkingCopy objectAtIndex:index];
+    if(stud.lockTableNum!= -99){
+        Table *t = [self.rotation getTableWithNumber:stud.lockTableNum];
+        [t.students removeObject:stud];
+    }
     Table *t = [self.rotation getTableWithNumber:self.lockNumOutlet.intValue];
     if(t){
         if([t.students count] == t.numerOfStudents){
@@ -224,8 +259,6 @@
             [alert setAlertStyle:NSWarningAlertStyle];
             NSModalResponse response = [alert runModal];
             if(response == NSAlertFirstButtonReturn){
-                //NSLog(@"first button");
-                [self.delegate closeGenRotationVCWithNewRotation:self.rotation students:self.studentListWorkingCopy andVC:self];
                 stud.lockTableNum = self.lockNumOutlet.intValue;
                 [t.students addObject:stud];
                 [self refreshView];
@@ -274,9 +307,9 @@
 }
 - (IBAction)unlockButton:(id)sender {
     int index = (int)self.studentsListTableView.selectedRow;
-    #warning check input must be integer greater than 0
+    #warning remove the student from table
     if(index != -1){
-        ((Student*)[self.studentList objectAtIndex:index]).lockTableNum = -99;
+        ((Student*)[self.studentListWorkingCopy objectAtIndex:index]).lockTableNum = -99;
     }
     [self.studentsListTableView reloadData];
 }

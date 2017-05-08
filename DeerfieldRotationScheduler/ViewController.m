@@ -194,19 +194,5 @@
     [self refreshView];
     
 }
-- (IBAction)lockButton:(id)sender {
-    int index = (int)self.studentsListTableView.selectedRow;
-    if(index != -1){
-        ((Student*)[self.studentsList objectAtIndex:index]).lockTableNum = self.lockNumOutlet.intValue;
-    }
-    [self refreshView];
-}
 
-- (IBAction)unlockButton:(id)sender {
-    int index = (int)self.studentsListTableView.selectedRow;
-    if(index != -1){
-        ((Student*)[self.studentsList objectAtIndex:index]).lockTableNum = -99;
-    }
-    [self refreshView];
-}
 @end

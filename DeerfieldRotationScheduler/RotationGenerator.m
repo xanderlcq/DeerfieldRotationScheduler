@@ -9,7 +9,7 @@
 #import "RotationGenerator.h"
 
 @implementation RotationGenerator
-
+#warning don't assign waiter to the tables that are already full!!!
 -(id)initWithEmptyRotation:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past{
     self = [super init];
     if(self){
