@@ -872,7 +872,7 @@
                 </viewController>
                 <customObject id="Bci-o7-U1t" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1393"/>
+            <point key="canvasLocation" x="145" y="1476"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

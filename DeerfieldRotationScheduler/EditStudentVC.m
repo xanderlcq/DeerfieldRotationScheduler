@@ -47,7 +47,6 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     NSTableView *tableView = notification.object;
     NSLog(@"User has selected row %@ column %@", tableView.selectedRowIndexes,tableView.selectedColumnIndexes);
-#warning sort the list when a column is selected
 
     
 }
@@ -72,6 +71,9 @@
 - (IBAction)addStudentButton:(id)sender {
     //NSLog(@"add student button");
     NSString *grade =[self.gradeInput.stringValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *first =self.firstNameInput.stringValue;
+    NSString *last =self.lastNameInput.stringValue;
+    NSString *gender =self.genderInput.stringValue;
     if (![grade isEqualToString: @"9"]&&![grade isEqualToString: @"10"]&&![grade isEqualToString: @"11"]&&![grade isEqualToString: @"12"]){
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
@@ -82,10 +84,27 @@
             return;
         }
     }
-#warning CHECK First/Last Name input is not empty!
-#warning Check if gender is "M" or "F"
-    
-    Student *s = [[Student alloc] initWithFirstName:self.firstNameInput.stringValue andLastName:self.lastNameInput.stringValue grade:self.gradeInput.intValue gender:self.genderInput.stringValue];
+    if([first isEqualToString:@""] || [last isEqualToString:@""]){
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Invalid format"];
+        [alert setInformativeText:@"Please enter a valid name"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        if([alert runModal] == NSAlertFirstButtonReturn){
+            return;
+        }
+    }
+    if(![gender isEqualToString:@"M"] || ![gender isEqualToString:@"F"]){
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Invalid format"];
+        [alert setInformativeText:@"Please enter a valid gender (M/F)"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        if([alert runModal] == NSAlertFirstButtonReturn){
+            return;
+        }
+    }
+    Student *s = [[Student alloc] initWithFirstName:first andLastName:last grade:self.gradeInput.intValue gender:gender];
     [self.studentList addObject:s];
     [self.tableView reloadData];
 }
@@ -115,12 +134,12 @@
     NSString *result = [proc openCSVInDialogToString];
     NSMutableArray *imported = [proc makeStudentsFromString:result];
     for(Student *stud in imported){
+        for(Student *existed in self.studentList)
+            if([stud.firstName isEqualToString:existed.firstName] && [stud.lastName isEqualToString:existed.lastName])
+                continue;
         [self.studentList addObject:stud];
     }
     [self.tableView reloadData];
-    //NSLog(@"%@",result);
-#warning ENFORE CSV Format check
-#warning  check for duplicate
 }
 
 - (IBAction)exportListButton:(id)sender {

@@ -33,7 +33,6 @@
     
 }
 -(void) applyAllLockedStudents{
-#warning implement
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Apply All Locked Student"];
     [alert addButtonWithTitle:@"Remove All Locks"];
@@ -237,8 +236,6 @@
 
 - (IBAction)lockButton:(id)sender {
     int index = (int)self.studentsListTableView.selectedRow;
-    
-#warning Refresh Rotation table view
     if(index == -1){
         [self prompWarning:@"you must select a student"];
         return;
@@ -307,9 +304,11 @@
 }
 - (IBAction)unlockButton:(id)sender {
     int index = (int)self.studentsListTableView.selectedRow;
-    #warning remove the student from table
     if(index != -1){
-        ((Student*)[self.studentListWorkingCopy objectAtIndex:index]).lockTableNum = -99;
+        Student *s = [self.studentListWorkingCopy objectAtIndex:index];
+        Table *t = [self.rotation getTableWithNumber:s.lockTableNum];
+        [t.students removeObject:s];
+        s.lockTableNum = -99;
     }
     [self.studentsListTableView reloadData];
 }

@@ -27,7 +27,6 @@
 
 
 
-#warning change the name of this
 - (NSString *)convertRotationToCVSString:(Rotation *)r;
 - (NSMutableArray*)convertCVSStringToRotationInfoUnits:(NSString*)str;
 @end

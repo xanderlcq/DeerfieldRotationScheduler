@@ -42,7 +42,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Table.m"
-                  timestampString = "515904844.106373"
+                  timestampString = "515940358.400789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -57,7 +57,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Table.m"
-                  timestampString = "515904844.108125"
+                  timestampString = "515940358.402165"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -122,7 +122,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
-                  timestampString = "515904844.115599"
+                  timestampString = "515940358.42503"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "154"
@@ -137,7 +137,7 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
-                  timestampString = "515904844.116656"
+                  timestampString = "515940358.42622"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "154"
@@ -145,54 +145,6 @@
                   offsetFromSymbolStart = "94">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/GenerateRotationVC.m"
-            timestampString = "515904843.814429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-applyAllLockedStudents"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/EditStudentVC.m"
-            timestampString = "515904999.845877"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-tableViewSelectionDidChange:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DeerfieldRotationScheduler/EditStudentVC.m"
-            timestampString = "515905037.793731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-viewWillDisappear"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
