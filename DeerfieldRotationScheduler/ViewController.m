@@ -122,54 +122,22 @@
     }
     return 0;
 }
--(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    //NSLog(@"%@",tableColumn.identifier);
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     if([tableView.identifier isEqualToString:@"studentListTableView"]){
         Student *s = [self.studentsList objectAtIndex:row];
-        if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
-            cellView.textField.stringValue = s.firstName;
-        }
-        if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
-            cellView.textField.stringValue = s.lastName;
-        }
-        if([[tableColumn identifier] isEqualToString:@"genderCol"]){
-            cellView.textField.stringValue = s.gender;
-        }
-        if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
-            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
-        }
-        if([[tableColumn identifier] isEqualToString:@"lockNumCol"]){
-            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.lockTableNum];
-        }
-        if([[tableColumn identifier] isEqualToString:@"rotationWaitedCol"]){
-            cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.rotationsWaited];
-        }
-        
-        
+        return [s valueForKey:[tableColumn identifier]];
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
         StudentInfoUnit *s = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
-        //NSLog(@"%@",s.waiter);
-       if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
-            cellView.textField.stringValue = [s firstName];
-        }
-        if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
-            cellView.textField.stringValue = [s lastName];
-        }
-        if([[tableColumn identifier] isEqualToString:@"genderCol"]){
-            cellView.textField.stringValue = [s gender];
-        }
-        if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
-            cellView.textField.stringValue = [s grade];
-        }
-        if([[tableColumn identifier] isEqualToString:@"tableNumCol"]){
-            cellView.textField.stringValue = [s tableNum];
-        }
-        if([[tableColumn identifier] isEqualToString:@"waiterCol"]){
-            cellView.textField.stringValue = [s waiter];
-        }
+        return [s valueForKey:[tableColumn identifier]];
     }
-    return cellView;
+    return nil;
+}
+-(void)tableView:(NSTableView *)tableView sortDescriptorsDidChange: (NSArray *)oldDescriptors
+{
+    NSArray *newDescriptors = [tableView sortDescriptors];
+    [self.studentsList sortUsingDescriptors:newDescriptors];
+    //"results" is my NSMutableArray which is set to be the data source for the NSTableView object.
+    [tableView reloadData];
 }
 
 - (IBAction)rotationDropDown:(id)sender {
