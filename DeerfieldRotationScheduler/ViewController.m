@@ -127,16 +127,19 @@
         Student *s = [self.studentsList objectAtIndex:row];
         return [s valueForKey:[tableColumn identifier]];
     }else if([tableView.identifier isEqualToString:@"rotationTableView"]){
-        StudentInfoUnit *s = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
-        return [s valueForKey:[tableColumn identifier]];
+        StudentInfoUnit *info = [self.currentDisplayedRotation.studentsInfo objectAtIndex:row];
+        return [info valueForKey:[tableColumn identifier]];
     }
     return nil;
 }
 -(void)tableView:(NSTableView *)tableView sortDescriptorsDidChange: (NSArray *)oldDescriptors
 {
     NSArray *newDescriptors = [tableView sortDescriptors];
-    [self.studentsList sortUsingDescriptors:newDescriptors];
-    //"results" is my NSMutableArray which is set to be the data source for the NSTableView object.
+    NSLog(@"%@",[tableView identifier]);
+    if([tableView.identifier isEqualToString:@"studentListTableView"])
+        [self.studentsList sortUsingDescriptors:newDescriptors];
+    if([tableView.identifier isEqualToString:@"rotationTableView"])
+        [self.currentDisplayedRotation.studentsInfo sortUsingDescriptors:newDescriptors];
     [tableView reloadData];
 }
 

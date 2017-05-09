@@ -9,22 +9,4 @@
 #import "StudentInfoUnit.h"
 
 @implementation StudentInfoUnit
--(NSString*)firstName{
-    return self.student.firstName;
-}
--(NSString*)lastName{
-    return self.student.lastName;
-}
--(NSString*)tableNum{
-    return [NSString stringWithFormat:@"%i",self.tableNumber];
-}
--(NSString*)waiterStr{
-    return self.waiter;
-}
--(NSString*)gender{
-    return self.student.gender;
-}
--(NSString*)grade{
-    return [NSString stringWithFormat:@"%i",self.student.grade];
-}
 @end

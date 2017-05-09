@@ -19,16 +19,18 @@
     self.studentsInfo = [[NSMutableArray alloc] init];
     for(Student *s in self.students){
         StudentInfoUnit *info = [[StudentInfoUnit alloc] init];
-        info.student = s;
-        info.fName = s.firstName;
-        info.lName = s.lastName;
+        //info.student = s;
+        info.firstName = s.firstName;
+        info.lastName = s.lastName;
         info.tableNumber = [self getTableNumberOfStudent:s];
-        info.waiter = [NSString stringWithFormat:@""];
+        info.waiter = [NSString stringWithFormat:@"-"];
         if([self isFirstWaiter:s])
             info.waiter = [NSString stringWithFormat:@"1"];
         else if([self isSecondWaiter:s])
             info.waiter = [NSString stringWithFormat:@"2"];
         info.studentsSittingTogether = [[NSMutableDictionary alloc] init];
+        info.gender = s.gender;
+        info.grade = s.grade;
         Table *studentTable = [self getTableWithNumber:info.tableNumber];
         for(Student *s in studentTable.students){
             info.studentsSittingTogether[[s.firstName lowercaseString]] = [s.lastName lowercaseString];
@@ -52,9 +54,9 @@
 -(void)restoreFromStudentsAndInfos{
     for(StudentInfoUnit *infoUnit in self.studentsInfo){
         //Find the actual student from students list
-        Student *stud = [self getStudentWithFirstName:infoUnit.fName andLastName:infoUnit.lName];
+        Student *stud = [self getStudentWithFirstName:infoUnit.firstName andLastName:infoUnit.lastName];
         if(!stud){
-            stud = [[Student alloc] initWithFirstName:infoUnit.fName andLastName:infoUnit.lName grade:-1 gender:@""];
+            stud = [[Student alloc] initWithFirstName:infoUnit.firstName andLastName:infoUnit.lastName grade:-1 gender:@""];
         }
         //Find the table if exists
         Table *table = [self getTableWithNumber:infoUnit.tableNumber];
@@ -152,7 +154,7 @@
 //check if at same table - assuming each student has already been assigned to a table. Will be true if bothunassigned to a table
 -(StudentInfoUnit *)getInfoUnitOfStudent:(Student *) s{
     for(StudentInfoUnit *info in self.studentsInfo){
-        if( [[info.fName lowercaseString] isEqualToString:[s.firstName lowercaseString]] && [[info.lName lowercaseString] isEqualToString:[s.lastName lowercaseString]])
+        if( [[info.firstName lowercaseString] isEqualToString:[s.firstName lowercaseString]] && [[info.lastName lowercaseString] isEqualToString:[s.lastName lowercaseString]])
             return info;
     }
     return nil;

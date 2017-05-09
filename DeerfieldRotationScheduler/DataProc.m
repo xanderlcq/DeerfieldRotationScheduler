@@ -11,11 +11,12 @@
 
 @implementation DataProc
 
+//Info unites - CVS
 -(NSString *)convertRotationToCVSString:(Rotation *)r{
     NSString *result = [NSString stringWithFormat:@"%@,,,\nTable Number,First Name,Last Name,Waiter\n",r.nameOfRotation];
     [r updateStudentInfo];
     for(StudentInfoUnit *i in r.studentsInfo){
-        result = [NSString stringWithFormat:@"%@%@,%@,%@,%@\n",result,[i tableNum],[i firstName],[i lastName],[i waiter]];
+        result = [NSString stringWithFormat:@"%@%d,%@,%@,%@\n",result,i.tableNumber,i.firstName,i.lastName,i.waiter];
     }
     
     return result;
@@ -29,8 +30,8 @@
         if([components count]!=4 )
             continue;
         StudentInfoUnit *u = [[StudentInfoUnit alloc] init];
-        u.fName = [components objectAtIndex:1];
-        u.lName = [components objectAtIndex:2];
+        u.firstName = [components objectAtIndex:1];
+        u.lastName = [components objectAtIndex:2];
         u.tableNumber = [[components objectAtIndex:0] intValue];
         u.waiter = [components objectAtIndex:3];
         [infoUnits addObject:u];
