@@ -120,7 +120,7 @@
     NSArray *newDescriptors = [tableView sortDescriptors];
     NSLog(@"%@",[tableView identifier]);
     if([tableView.identifier isEqualToString:@"studentListTableView"])
-        [self.studentList sortUsingDescriptors:newDescriptors];
+        [self.studentListWorkingCopy sortUsingDescriptors:newDescriptors];
     if([tableView.identifier isEqualToString:@"rotationTableView"])
         [self.rotation.studentsInfo sortUsingDescriptors:newDescriptors];
     if([tableView.identifier isEqualToString:@"rotationSelectionTableView"])

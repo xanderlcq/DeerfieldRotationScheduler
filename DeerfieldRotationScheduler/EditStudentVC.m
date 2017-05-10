@@ -23,26 +23,21 @@
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     return [self.studentList count];
 }
--(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    //NSLog(@"%@",[tableColumn identifier]);
-    Student *s = [self.studentList objectAtIndex:row];
-    if([[tableColumn identifier] isEqualToString:@"firstNameCol"]){
-        cellView.textField.stringValue = s.firstName;
+-(void)tableView:(NSTableView *)tableView sortDescriptorsDidChange: (NSArray *)oldDescriptors
+{
+    NSArray *newDescriptors = [tableView sortDescriptors];
+    NSLog(@"%@",[tableView identifier]);
+    if([tableView.identifier isEqualToString:@"studentListTableView"])
+        [self.studentList sortUsingDescriptors:newDescriptors];
+
+    [tableView reloadData];
+}
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    if([tableView.identifier isEqualToString:@"studentListTableView"]){
+        Student *s = [self.studentList objectAtIndex:row];
+        return [s valueForKey:[tableColumn identifier]];
     }
-    if([[tableColumn identifier] isEqualToString:@"lastNameCol"]){
-        cellView.textField.stringValue = s.lastName;
-    }
-    if([[tableColumn identifier] isEqualToString:@"genderCol"]){
-        cellView.textField.stringValue = s.gender;
-    }
-    if([[tableColumn identifier] isEqualToString:@"gradeCol"]){
-        cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.grade];
-    }
-    if([[tableColumn identifier] isEqualToString:@"rotationWaitedCol"]){
-        cellView.textField.stringValue = [NSString stringWithFormat:@"%i",s.rotationsWaited];
-    }
-    return cellView;
+    return nil;
 }
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     NSTableView *tableView = notification.object;
