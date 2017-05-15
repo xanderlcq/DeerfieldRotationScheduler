@@ -93,6 +93,8 @@
     
     //waiters array has an even length
     for(Table *t in self.currentRotation.tables){
+        if([t.students count] > t.numerOfStudents - 2)
+            continue;
         //Pop the first student
         Student *firstwaiter = [waiters objectAtIndex:0];
         [waiters removeObjectAtIndex:0];
@@ -151,12 +153,14 @@
     self.students = [sorter sortByRotationsWaited:self.students];
     int waitersNeeded = 0;
     for(Table *t in self.currentRotation.tables){
-        if([t.students count] >= t.numerOfStudents)
-            continue;
-        if([t.students count] == t.numerOfStudents - 1)
-            waitersNeeded ++;
+//        if([t.students count] >= t.numerOfStudents)
+//            continue;
+//        if([t.students count] == t.numerOfStudents - 1)
+//            waitersNeeded ++;
         if([t.students count] <= t.numerOfStudents - 2)
             waitersNeeded += 2;
+        else
+            continue;
     }
     NSMutableArray* waiters = [[NSMutableArray alloc] initWithArray:[self.students subarrayWithRange:(NSMakeRange(0, waitersNeeded))]];
     

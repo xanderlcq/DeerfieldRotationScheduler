@@ -100,9 +100,9 @@
 
 
 -(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
-    NSString* cvsString = @"First Name,Last Name,Gender,Grade,Locked Table,Rotations Waited #\n";
+    NSString* cvsString = @"First Name,Last Name,Gender,Grade,Locked Table #,Rotations Waited,New Student,Day Student\n";
     for(Student* stud in list){
-        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i,%i,%i\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade,stud.lockTableNum,stud.rotationsWaited];
+        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i,%i,%i,%hhd,%hhd\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade,stud.lockTableNum,stud.rotationsWaited,stud.newStudent,stud.dayStudent];
     }
     return cvsString;
 }
@@ -113,7 +113,7 @@
     for(int i = 1; i < allStudentStrings.count; i++){
         NSString* individualStudentString = [allStudentStrings objectAtIndex:i];
         NSArray* a = [individualStudentString componentsSeparatedByString:@","];
-        if([a count]!=5 && [a count]!=6)
+        if([a count]!=8)
             continue;
         NSString* firstName = [a objectAtIndex:0];
         NSString* lastName = [a objectAtIndex:1];
@@ -122,11 +122,11 @@
         int lockedTableNum = [[a objectAtIndex:4] intValue];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName grade:grade gender:gender];
         s.lockTableNum = lockedTableNum;
-        if([a count] == 6){
-            int rotationWaited = [[a objectAtIndex:5] intValue];
-            s.rotationsWaited = rotationWaited;
-        }
-        
+        int rotationWaited = [[a objectAtIndex:5] intValue];
+        s.rotationsWaited = rotationWaited;
+        s.newStudent = [@"1" isEqualToString:[a objectAtIndex:6]];
+        s.dayStudent = [((NSString *)[a objectAtIndex:7]) containsString:@"1"];
+
         [allStudents addObject: s];
     }
     return allStudents;
