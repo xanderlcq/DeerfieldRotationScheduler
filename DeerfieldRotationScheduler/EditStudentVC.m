@@ -89,7 +89,7 @@
             return;
         }
     }
-    if(![gender isEqualToString:@"M"] || ![gender isEqualToString:@"F"]){
+    if(![gender isEqualToString:@"M"] && ![gender isEqualToString:@"F"]){
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
         [alert setMessageText:@"Invalid format"];
@@ -100,6 +100,9 @@
         }
     }
     Student *s = [[Student alloc] initWithFirstName:first andLastName:last grade:self.gradeInput.intValue gender:gender];
+    NSLog(@"%ld",(long)[self.dayStudentCheckBox state]);
+    s.dayStudent = [self.dayStudentCheckBox state] == 1;
+    s.newStudent = [self.nStudentCheckbox state] == 1;
     [self.studentList addObject:s];
     [self.tableView reloadData];
 }

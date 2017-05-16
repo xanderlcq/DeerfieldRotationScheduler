@@ -18,6 +18,7 @@
 @end
 
 @interface EditStudentVC : NSViewController <NSTableViewDataSource,NSTableViewDelegate>
+
 @property (weak) IBOutlet NSButton *dayStudentCheckBox;
 @property (weak) IBOutlet NSButton *nStudentCheckbox;
 
