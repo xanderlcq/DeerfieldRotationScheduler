@@ -13,9 +13,8 @@
 @property Rotation *currentRotation;
 @property NSMutableArray *students;
 @property NSMutableArray *pastRotations;
-//Generate random
-//Record history
-//Read history
+
+
 
 -(id)initWithEmptyRotation:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
 -(NSMutableArray *) generateWaiters;

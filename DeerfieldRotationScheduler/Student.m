@@ -73,7 +73,7 @@
 
 -(NSString*)description{
     NSString* str = @"";
-    str = [NSString stringWithFormat:@"{%@,%@,%i,%@,%i}", self.firstName, self.lastName, self.rotationsWaited,self.gender,self.grade];
+    str = [NSString stringWithFormat:@"{%@,%@,%f,%@,%i}", self.firstName, self.lastName, self.rotationsWaited,self.gender,self.grade];
     
     
     return str;

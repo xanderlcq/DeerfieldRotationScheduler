@@ -12,7 +12,7 @@
 //{Xander,Li,1,Manager,12,{1,2,3},99,{Name1,Name2}}
 @property NSString *firstName;
 @property NSString *lastName;
-@property int rotationsWaited;
+@property float rotationsWaited;
 @property NSString *gender;
 @property int grade;
 @property BOOL dayStudent;

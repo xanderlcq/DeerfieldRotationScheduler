@@ -102,7 +102,7 @@
 -(NSString *) convertStudentListToCSVString:(NSMutableArray *) list{
     NSString* cvsString = @"First Name,Last Name,Gender,Grade,Locked Table #,Rotations Waited,New Student,Day Student\n";
     for(Student* stud in list){
-        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i,%i,%i,%hhd,%hhd\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade,stud.lockTableNum,stud.rotationsWaited,stud.newStudent,stud.dayStudent];
+        cvsString = [NSString stringWithFormat:@"%@%@,%@,%@,%i,%i,%f,%hhd,%hhd\n", cvsString, stud.firstName, stud.lastName, stud.gender, stud.grade,stud.lockTableNum,stud.rotationsWaited,stud.newStudent,stud.dayStudent];
     }
     return cvsString;
 }
@@ -122,7 +122,7 @@
         int lockedTableNum = [[a objectAtIndex:4] intValue];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName grade:grade gender:gender];
         s.lockTableNum = lockedTableNum;
-        int rotationWaited = [[a objectAtIndex:5] intValue];
+        float rotationWaited = [[a objectAtIndex:5] floatValue];
         s.rotationsWaited = rotationWaited;
         s.newStudent = [@"1" isEqualToString:[a objectAtIndex:6]];
         s.dayStudent = [((NSString *)[a objectAtIndex:7]) containsString:@"1"];
