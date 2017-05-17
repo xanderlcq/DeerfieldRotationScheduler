@@ -115,6 +115,13 @@
     }
     return NO;
 }
+-(BOOL)isSundayWaiter:(Student *) student{
+    for(Table *t in self.tables){
+        if([t.sundayWaiter1 isEqualTo:student]||[t.sundayWaiter2 isEqualTo:student])
+            return YES;
+    }
+    return NO;
+}
 
 -(id) initEmptyRotation{
     

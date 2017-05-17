@@ -87,10 +87,13 @@
     }
     return YES;
 }
+
+#warning add sunday waiter feature
 -(void) assignRandomWaiters:(NSMutableArray *) waiters{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
-    
+    NSMutableArray *sundayWaiters = [self getSundayWaiters:waiters];
+    sundayWaiters = [sorter sortByGrades:sundayWaiters];
     //waiters array has an even length
     for(Table *t in self.currentRotation.tables){
         if([t.students count] > t.numerOfStudents - 2)
@@ -127,6 +130,19 @@
         t.secondWaiter = secondWaiter;
         [t.students addObject:firstwaiter];
         [t.students addObject:secondWaiter];
+        
+#warning avoid two day students waiter?
+        if(firstwaiter.dayStudent && secondWaiter.dayStudent){
+            //Need two sunday waiters
+            t.sundayWaiter1 = [sundayWaiters objectAtIndex:0];
+            [sundayWaiters removeObjectAtIndex:0];
+            t.sundayWaiter2 = [sundayWaiters objectAtIndex:0];
+            [sundayWaiters removeObjectAtIndex:0];
+        }else if(firstwaiter.dayStudent || secondWaiter.dayStudent){
+            //Need one sunday waiter
+            t.sundayWaiter1 = [sundayWaiters objectAtIndex:0];
+            [sundayWaiters removeObjectAtIndex:0];
+        }
     }
     
 }
@@ -149,8 +165,7 @@
 
 //Generate waiters from least waited
 -(NSMutableArray *) generateWaiters{
-    StudentsSorter *sorter = [[StudentsSorter alloc] init];
-    self.students = [sorter sortByRotationsWaited:self.students];
+
     int waitersNeeded = 0;
     for(Table *t in self.currentRotation.tables){
 //        if([t.students count] >= t.numerOfStudents)
@@ -162,9 +177,81 @@
         else
             continue;
     }
-    NSMutableArray* waiters = [[NSMutableArray alloc] initWithArray:[self.students subarrayWithRange:(NSMakeRange(0, waitersNeeded))]];
-    
+
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"rotationsWaited" ascending:YES];
+    [self.students sortUsingDescriptors:@[sortDescriptor]];
+    //NSMutableArray* waiters = [[NSMutableArray alloc] initWithArray:[self.students subarrayWithRange:(NSMakeRange(0, waitersNeeded))]];
+    NSMutableArray *selectingPool = [[NSMutableArray alloc] init];
+    NSMutableArray *notSelectingPool = [[NSMutableArray alloc] init];
+    for(Student *s in self.students){
+        
+        //Avoid day and new student from waiting
+        if(!self.newStudentWaiting && !self.dayStudentWaiting){
+            if(!s.newStudent && !s.dayStudent){
+                [selectingPool addObject:s];
+            }else{
+                [notSelectingPool addObject:s];
+            }
+        }
+        
+        //Normal
+        if(self.newStudentWaiting && !self.dayStudentWaiting){
+            if(!s.dayStudent){
+                [selectingPool addObject:s];
+            }else{
+                [notSelectingPool addObject:s];
+            }
+        }
+        
+        //No new student, but yes day student
+        if(!self.newStudentWaiting && self.dayStudentWaiting){
+            if(s.dayStudent && !s.newStudent){
+                [selectingPool addObject:s];
+            }else{
+                [notSelectingPool addObject:s];
+            }
+        }
+        
+        //Allow anyone
+        if(self.newStudentWaiting && self.dayStudentWaiting){
+
+        }
+    }
+    [selectingPool sortUsingDescriptors:@[sortDescriptor]];
+    [notSelectingPool sortUsingDescriptors:@[sortDescriptor]];
+    NSMutableArray* waiters = [[NSMutableArray alloc] init];
+    for(int i = 0; i < waitersNeeded;i++){
+        Student* s;
+        if(i < [selectingPool count]){
+            s = [selectingPool objectAtIndex:i];
+        }else{
+            if(i - [selectingPool count] < [notSelectingPool count]){
+                s = [notSelectingPool objectAtIndex:i - [selectingPool count]];
+            }else{
+                continue;
+            }
+        }
+        [waiters addObject:s];
+    }
+    if([waiters count] != waitersNeeded){
+        NSLog(@"something's wrong");
+    }
     return waiters;
+}
+
+
+-(NSMutableArray *) getSundayWaiters:(NSMutableArray *) waitersWithDayStudents{
+    NSMutableArray *sundayWaiters = [[NSMutableArray alloc] init];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"rotationsWaited" ascending:YES];
+    [self.students sortUsingDescriptors:@[sortDescriptor]];
+    int index = 0;
+    for(Student *s in waitersWithDayStudents){
+        if(s.dayStudent){
+            [sundayWaiters addObject:[self.students objectAtIndex:index]];
+            index++;
+        }
+    }
+    return sundayWaiters;
 }
 
 -(NSMutableArray *) shallowCopy:(NSMutableArray *) original{

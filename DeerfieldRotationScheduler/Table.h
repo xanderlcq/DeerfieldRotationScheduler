@@ -15,6 +15,8 @@
 @property int tableNumber;
 @property Student* firstWaiter;
 @property Student* secondWaiter;
+@property Student* sundayWaiter1;
+@property Student* sundayWaiter2;
 @property int numerOfStudents;
 
 -(NSString*) description;

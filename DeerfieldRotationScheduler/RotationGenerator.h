@@ -14,6 +14,8 @@
 @property NSMutableArray *students;
 @property NSMutableArray *pastRotations;
 
+@property BOOL dayStudentWaiting;
+@property BOOL newStudentWaiting;
 
 
 -(id)initWithEmptyRotation:(Rotation *) emptyRotation studentList:(NSMutableArray *) students andPastHistory:(NSMutableArray*) past;
