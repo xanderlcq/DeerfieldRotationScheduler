@@ -120,7 +120,7 @@
 }
 
 
-
+#warning update template
 - (IBAction)exportTemplateButton:(id)sender {
     NSString *templateContent = @"First Name,Last Name,Gender,Grade\nXander,Li,M,12\nSarah,Du,F,12\nGideo,Yektai,M,11";
     DataProc *proc = [[DataProc alloc] init];

@@ -88,7 +88,6 @@
     return YES;
 }
 
-#warning add sunday waiter feature
 -(void) assignRandomWaiters:(NSMutableArray *) waiters{
     StudentsSorter *sorter = [[StudentsSorter alloc] init];
     waiters = [sorter sortByGrades:waiters];
@@ -130,18 +129,18 @@
         t.secondWaiter = secondWaiter;
         [t.students addObject:firstwaiter];
         [t.students addObject:secondWaiter];
-        
-#warning avoid two day students waiter?
         if(firstwaiter.dayStudent && secondWaiter.dayStudent){
             //Need two sunday waiters
             t.sundayWaiter1 = [sundayWaiters objectAtIndex:0];
             [sundayWaiters removeObjectAtIndex:0];
             t.sundayWaiter2 = [sundayWaiters objectAtIndex:0];
             [sundayWaiters removeObjectAtIndex:0];
+            [t.students addObject:t.sundayWaiter1];
+            [t.students addObject:t.sundayWaiter2];
         }else if(firstwaiter.dayStudent || secondWaiter.dayStudent){
             //Need one sunday waiter
             t.sundayWaiter1 = [sundayWaiters objectAtIndex:0];
-            [sundayWaiters removeObjectAtIndex:0];
+            [t.students addObject:t.sundayWaiter1];
         }
     }
     
@@ -211,10 +210,9 @@
                 [notSelectingPool addObject:s];
             }
         }
-        
         //Allow anyone
         if(self.newStudentWaiting && self.dayStudentWaiting){
-
+            [selectingPool addObject:s];
         }
     }
     [selectingPool sortUsingDescriptors:@[sortDescriptor]];

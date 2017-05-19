@@ -28,6 +28,8 @@
             info.waiter = [NSString stringWithFormat:@"1"];
         else if([self isSecondWaiter:s])
             info.waiter = [NSString stringWithFormat:@"2"];
+        else if([self isSundayWaiter:s])
+            info.waiter = [NSString stringWithFormat:@"Sunday"];
         info.studentsSittingTogether = [[NSMutableDictionary alloc] init];
         info.gender = s.gender;
         info.grade = s.grade;
@@ -71,6 +73,14 @@
             table.firstWaiter = stud;
         if([infoUnit.waiter isEqualToString:@"2"])
             table.secondWaiter = stud;
+        if([infoUnit.waiter containsString:@"Sunday"]){
+            if(!table.sundayWaiter1)
+                table.sundayWaiter1 = stud;
+            else if(!table.sundayWaiter2)
+                table.sundayWaiter2 = stud;
+            else
+                NSLog(@"...");
+        }
         
             
     }

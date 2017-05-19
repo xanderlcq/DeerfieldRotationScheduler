@@ -21,7 +21,7 @@
     
     return result;
 }
-#warning deal with sunday waiters
+
 -(NSMutableArray*)convertCVSStringToRotationInfoUnits:(NSString*)str{
     NSArray *lines = [str componentsSeparatedByString:@"\n"];
     NSMutableArray *infoUnits = [[NSMutableArray alloc] init];

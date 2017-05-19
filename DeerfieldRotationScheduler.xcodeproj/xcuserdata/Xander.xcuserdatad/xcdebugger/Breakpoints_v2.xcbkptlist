@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/Rotation.m"
-            timestampString = "516026958.917068"
+            timestampString = "516891049.007681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "@implementation Rotation"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/Rotation.m"
-            timestampString = "516026958.917068"
+            timestampString = "516891049.007681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-student:isSittingWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/Rotation.m"
-            timestampString = "516026958.917068"
+            timestampString = "516891049.007681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-getInfoUnitOfStudent:"
             landmarkType = "7">
             <Locations>
@@ -58,11 +58,11 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
-                  timestampString = "516717088.537737"
+                  timestampString = "516891809.445402"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
                   offsetFromSymbolStart = "86">
                </Location>
                <Location
@@ -73,11 +73,11 @@
                   moduleName = "DeerfieldRotationScheduler"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xander/Desktop/DeerfieldRotationScheduler/DeerfieldRotationScheduler/Rotation.m"
-                  timestampString = "516717088.538826"
+                  timestampString = "516891809.446451"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
                   offsetFromSymbolStart = "94">
                </Location>
             </Locations>
@@ -116,12 +116,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeerfieldRotationScheduler/RotationGenerator.m"
-            timestampString = "516719123.465588"
+            timestampString = "516891049.007681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "-generateWaiters"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeerfieldRotationScheduler/Rotation.m"
+            timestampString = "516890545.193921"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-restoreFromStudentsAndInfos"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
