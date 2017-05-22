@@ -53,8 +53,9 @@
         while([t.students count] < t.numerOfStudents){
             //While this table needs more students
             NSString *neededGender = [t mostNeededGender];
-            //NSLog(@"%@",neededGender);
+            
             int neededGrade = [t mostNeededGrade];
+            NSLog(@"%@",t);
             for(int i = 0; i < 4;i++){
                 if([self.students count] == 0){
                     NSLog(@"No more students. At table #%i",t.tableNumber);
@@ -62,12 +63,19 @@
                 }
                 for(Student * s in self.students){
                     BOOL isNeededGrade = neededGrade == s.grade || i>=1;
-                    BOOL isNeededGender = [neededGender isEqualToString:s.gender] || i>=2;
+                    BOOL isNeededGender = [neededGender caseInsensitiveCompare:s.gender] == NSOrderedSame || [s.gender containsString:neededGender] || i>=2;
+                    if(s.grade == isNeededGrade && [neededGender isEqualToString:s.gender]){
+   
+                        NSLog(@"123");
+                    }
                     BOOL isNeverSatTogether = [self neverSatBefore:s withStudents:t.students] || i>= 3;
-                    if(isNeededGrade && isNeededGender &&isNeverSatTogether){
+                    if(!isNeverSatTogether)
+                        NSLog(@"!@#");
+                    if(isNeededGrade && isNeededGender && isNeverSatTogether){
                         [self.students removeObject:s];
                         [t.students addObject:s];
-                        i = 4;
+                        //Add student to the table.
+                        i = 5;
                         break;
                         
                     }

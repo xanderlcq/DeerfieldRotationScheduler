@@ -172,6 +172,8 @@
     //[self.rotation clearStudentsOnTable];
     NSMutableArray *selectedPastHistory =[self selectedPastHistory];
     RotationGenerator *gen = [[RotationGenerator alloc] initWithEmptyRotation:self.rotation studentList:self.studentListWorkingCopy andPastHistory:selectedPastHistory];
+    gen.dayStudentWaiting = [self.aNewStudCheckBox state] == 1;
+    gen.newStudentWaiting = [self.dayStudCheckBox state] == 1;
     [gen generateRandomRotation];
     [self.rotation updateStudentInfo];
     self.rotation.nameOfRotation = self.nameOfRotationOutlet.stringValue;
@@ -197,6 +199,8 @@
         Student *n = [[Student alloc] initWithFirstName:t.firstName andLastName:t.lastName grade:t.grade gender:t.gender];
         n.rotationsWaited = t.rotationsWaited;
         n.lockTableNum = t.lockTableNum;
+        n.dayStudent = t.dayStudent;
+        n.newStudent = t.newStudent;
         [copy addObject:n];
     }
     return copy;

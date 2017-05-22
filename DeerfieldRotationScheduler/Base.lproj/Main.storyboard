@@ -607,6 +607,8 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="aNewStudCheckBox" destination="NlG-TY-w1N" id="6v2-eW-SIK"/>
+                        <outlet property="dayStudCheckBox" destination="EAh-3e-agy" id="zMD-Ak-lyu"/>
                         <outlet property="lockNumOutlet" destination="jb1-uE-eti" id="MNq-se-AfV"/>
                         <outlet property="nameOfRotationOutlet" destination="VY9-bL-fMI" id="Wlm-4l-Gca"/>
                         <outlet property="rotationSelectionTableView" destination="Ju3-fo-ntA" id="MNv-FL-NIf"/>

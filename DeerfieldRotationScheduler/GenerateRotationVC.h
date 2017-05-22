@@ -19,6 +19,8 @@
 @end
 
 @interface GenerateRotationVC : NSViewController <NSTableViewDataSource,NSTableViewDelegate>
+@property (weak) IBOutlet NSButton *aNewStudCheckBox;
+@property (weak) IBOutlet NSButton *dayStudCheckBox;
 
 @property (nonatomic,weak) id<GenerateRotationVCDelegate>delegate;
 @property (weak) IBOutlet NSTableView *studentsListTableView;
