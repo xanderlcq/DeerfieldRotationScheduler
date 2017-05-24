@@ -11,7 +11,7 @@
 
 @implementation DataProc
 
-//Info unites - CVS
+//Info unites - CSV
 -(NSString *)convertRotationToCVSString:(Rotation *)r{
     NSString *result = [NSString stringWithFormat:@"%@,,,\nTable Number,First Name,Last Name,Waiter\n",r.nameOfRotation];
     [r updateStudentInfo];
@@ -117,7 +117,7 @@
             continue;
         NSString* firstName = [a objectAtIndex:0];
         NSString* lastName = [a objectAtIndex:1];
-        NSString* gender = [a objectAtIndex:2];
+        NSString* gender = [[a objectAtIndex:2] stringByReplacingOccurrencesOfString:@" " withString:@""];
         int grade = [[a objectAtIndex:3] intValue];
         int lockedTableNum = [[a objectAtIndex:4] intValue];
         Student* s = [[Student alloc] initWithFirstName:firstName andLastName:lastName grade:grade gender:gender];

@@ -13,7 +13,9 @@
 @property NSString *waiter;
 @property NSString *firstName;
 @property NSString *lastName;
+
 @property NSMutableDictionary *studentsSittingTogether;
+
 @property NSString *gender;
 @property int grade;
 
